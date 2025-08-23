@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 
-from playwright.sync_api import sync_playwright
-from datetime import datetime
 import json
-from pathlib import Path
-from typing import List, Dict, Optional
 import time
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional
+
+from playwright.sync_api import sync_playwright
 
 
 class RoyalCaribbeanOptimizedScraper:
-
     def __init__(self, headless: bool = True):
         self.headless = headless
         self.base_url = "https://www.royalcaribbean.com/gbr/en"
@@ -22,7 +22,7 @@ class RoyalCaribbeanOptimizedScraper:
         self.processed_dir.mkdir(parents=True, exist_ok=True)
 
     def scrape(self, max_cruises: Optional[int] = None) -> List[Dict]:
-        print(f"🚢 Starting Royal Caribbean scraper...")
+        print("🚢 Starting Royal Caribbean scraper...")
         print(f"📍 URL: {self.cruises_url}")
         print(f"   Mode: {'Headless' if self.headless else 'Visible'}")
         if max_cruises:
@@ -30,14 +30,12 @@ class RoyalCaribbeanOptimizedScraper:
 
         with sync_playwright() as p:
             browser = p.webkit.launch(headless=self.headless)
-            context = browser.new_context(
-                viewport={'width': 1920, 'height': 1080}
-            )
+            context = browser.new_context(viewport={"width": 1920, "height": 1080})
             page = context.new_page()
 
             try:
                 print("📡 Loading page...")
-                page.goto(self.cruises_url, wait_until='domcontentloaded', timeout=30000)
+                page.goto(self.cruises_url, wait_until="domcontentloaded", timeout=30000)
 
                 print("⏳ Waiting for cruise cards...")
                 page.wait_for_selector('[data-testid*="cruise-card-container"]', timeout=15000)
@@ -51,20 +49,25 @@ class RoyalCaribbeanOptimizedScraper:
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 output_file = self.raw_dir / f"cruises_optimized_{timestamp}.json"
 
-                with open(output_file, 'w', encoding='utf-8') as f:
-                    json.dump({
-                        'timestamp': timestamp,
-                        'url': self.cruises_url,
-                        'count': len(all_cruises),
-                        'cruises': all_cruises
-                    }, f, indent=2, ensure_ascii=False)
+                with open(output_file, "w", encoding="utf-8") as f:
+                    json.dump(
+                        {
+                            "timestamp": timestamp,
+                            "url": self.cruises_url,
+                            "count": len(all_cruises),
+                            "cruises": all_cruises,
+                        },
+                        f,
+                        indent=2,
+                        ensure_ascii=False,
+                    )
 
                 print(f"💾 Saved to {output_file}")
 
                 cleaned_data = self._process_cruise_data(all_cruises)
                 if cleaned_data:
                     cleaned_file = self.processed_dir / f"cruises_cleaned_{timestamp}.json"
-                    with open(cleaned_file, 'w', encoding='utf-8') as f:
+                    with open(cleaned_file, "w", encoding="utf-8") as f:
                         json.dump(cleaned_data, f, indent=2, ensure_ascii=False)
                     print(f"💾 Saved cleaned data to {cleaned_file}")
 
@@ -73,6 +76,7 @@ class RoyalCaribbeanOptimizedScraper:
             except Exception as e:
                 print(f"❌ Error during scraping: {e}")
                 import traceback
+
                 traceback.print_exc()
                 return []
 
@@ -83,7 +87,7 @@ class RoyalCaribbeanOptimizedScraper:
         print("🍪 Checking for cookie consent...")
         try:
             page.wait_for_timeout(2000)
-            cookie_result = page.evaluate('''() => {
+            cookie_result = page.evaluate("""() => {
                 const buttons = document.querySelectorAll('button');
                 for (const btn of buttons) {
                     const buttonText = btn.innerText || btn.textContent || '';
@@ -105,9 +109,9 @@ class RoyalCaribbeanOptimizedScraper:
                     }
                 }
                 return { found: false };
-            }''')
+            }""")
 
-            if cookie_result['found']:
+            if cookie_result["found"]:
                 print(f"  ✓ {cookie_result['action'].title()} cookies: '{cookie_result['text']}'")
                 page.wait_for_timeout(1000)
             else:
@@ -121,12 +125,12 @@ class RoyalCaribbeanOptimizedScraper:
         load_more_count = 0
         while True:
             print(f"🔍 Extracting batch {load_more_count + 1}...")
-            #todo bug here , it keeps scraping all cruises from the start on each iteration
+            # todo bug here , it keeps scraping all cruises from the start on each iteration
             current_cruises = self._extract_cruises_from_page(page)
 
             for cruise in current_cruises:
-                cruise_id = cruise.get('id')
-                if cruise_id and not any(c.get('id') == cruise_id for c in all_cruises):
+                cruise_id = cruise.get("id")
+                if cruise_id and not any(c.get("id") == cruise_id for c in all_cruises):
                     all_cruises.append(cruise)
 
             print(f"  Found {len(current_cruises)} cruises (Total: {len(all_cruises)})")
@@ -155,7 +159,7 @@ class RoyalCaribbeanOptimizedScraper:
     def _click_load_more(self, page) -> bool:
         try:
             print("Trying to load more results")
-            result = page.evaluate('''() => {
+            result = page.evaluate("""() => {
                 const isVisible = (el) => {
                     const rect = el.getBoundingClientRect();
                     const style = window.getComputedStyle(el);
@@ -172,10 +176,10 @@ class RoyalCaribbeanOptimizedScraper:
                     return { found: true, text: btn.innerText || btn.textContent || '' , clicked: true };
                 }
                 return { found: false };
-            }''')
+            }""")
 
             print(f"JS result: {result}")
-            if result and result.get('found'):
+            if result and result.get("found"):
                 print("✓ Clicked button via JavaScript")
                 return True
             else:
@@ -186,22 +190,8 @@ class RoyalCaribbeanOptimizedScraper:
             print(f"ℹ️ Load More click failed: {e}")
             return False
 
-    def inspect_testids(self, page):
-        return page.evaluate('''() => {
-            const cards = document.querySelectorAll('[data-testid*="cruise-card-container"]');
-            return Array.from(cards, (card, idx) => {
-                const items = Array.from(card.querySelectorAll('[data-testid]')).map(el => ({
-                    testid: el.getAttribute('data-testid'),
-                    tag: el.tagName.toLowerCase(),
-                    text: (el.innerText || '').trim()
-                }));
-                return { card_index: idx, count: items.length, items };
-            });
-        }''')
-
     def _extract_cruises_from_page(self, page) -> List[Dict]:
-
-        basic_cruises = page.evaluate('''() => {
+        basic_cruises = page.evaluate("""() => {
             const cruises = [];
             const cards = document.querySelectorAll('[data-testid*="cruise-card-container"]');
 
@@ -232,47 +222,51 @@ class RoyalCaribbeanOptimizedScraper:
             });
 
             return cruises;
-        }''')
+        }""")
 
         cruises_with_pricing = []
 
         for i, cruise in enumerate(basic_cruises):
-            if not cruise.get('view_dates_button_id'):
+            if not cruise.get("view_dates_button_id"):
                 cruises_with_pricing.append(cruise)
                 continue
 
             try:
-                print(f"Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}")
+                print(
+                    f"Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}"
+                )
 
-                view_dates_button = page.locator(f'[data-testid="{cruise["view_dates_button_id"]}"]')
+                view_dates_button = page.locator(
+                    f'[data-testid="{cruise["view_dates_button_id"]}"]'
+                )
                 time.sleep(2)
                 view_dates_button.click()
 
                 page.wait_for_timeout(3000)
                 time.sleep(2)
 
-                cruise['sailings'] = self._extract_sailing_dates_and_prices(page)
-                print("Processed cruise sailings:", cruise['sailings'])
+                cruise["sailings"] = self._extract_sailing_dates_and_prices(page)
+                print("Processed cruise sailings:", cruise["sailings"])
 
                 try:
-                    close_button = page.locator('#cruise-detail-close-button')
+                    close_button = page.locator("#cruise-detail-close-button")
                     if close_button.is_visible(timeout=1000):
                         close_button.click()
                         print("  ✓ Closed modal")
                     else:
-                        page.keyboard.press('Escape')
+                        page.keyboard.press("Escape")
                         print("  ✓ Closed modal with Escape")
 
                     page.wait_for_timeout(1000)
 
                 except Exception as e:
                     print(f"  ⚠️ Failed to close modal: {e}")
-                    page.keyboard.press('Escape')
+                    page.keyboard.press("Escape")
                     page.wait_for_timeout(1000)
 
             except Exception as e:
                 print(f"  ⚠️ Failed to get pricing for cruise {cruise.get('id')}: {e}")
-                cruise['sailings'] = []
+                cruise["sailings"] = []
 
             cruises_with_pricing.append(cruise)
 
@@ -283,7 +277,7 @@ class RoyalCaribbeanOptimizedScraper:
 
         all_sailings = []
 
-        date_options = page.evaluate('''() => {
+        date_options = page.evaluate("""() => {
                 const dates = [];
                 let dateElements = document.querySelectorAll('[role="tab"]');
                 if (dateElements.length === 0) {
@@ -307,9 +301,9 @@ class RoyalCaribbeanOptimizedScraper:
                     }
                 });
                 return dates;
-            }''')
+            }""")
 
-        #todo
+        # todo
         # need to extract the year also, so should use this element
         # <div class="RefinedCruiseCarousel-styles__RefinedCruiseCarouselActiveMonthLabel-sc-cbb0e067-5 cFXhvS">Saturday 22 Aug  - Saturday 29 Aug 2026</div>
 
@@ -319,10 +313,10 @@ class RoyalCaribbeanOptimizedScraper:
                 if date_tabs.count() == 0:
                     date_tabs = page.locator(f'li:has-text("{date_info["date_range"]}")')
 
-                if date_info['element_index'] < date_tabs.count():
-                    date_tabs.nth(date_info['element_index']).click()
+                if date_info["element_index"] < date_tabs.count():
+                    date_tabs.nth(date_info["element_index"]).click()
                     page.wait_for_timeout(1000)
-                    room_prices = page.evaluate('''() => {
+                    room_prices = page.evaluate("""() => {
                             const prices = {}
                             const roomTypes = {
                                 'interior': 'INTERIOR',
@@ -358,87 +352,75 @@ class RoyalCaribbeanOptimizedScraper:
                                 }
                             }
                             return prices;
-                        }''')
+                        }""")
 
-                    all_sailings.append({
-                        'date_range': date_info['date_range'],
-                        'base_price': date_info['base_price'],
-                        'room_prices': room_prices
-                    })
+                    all_sailings.append(
+                        {
+                            "date_range": date_info["date_range"],
+                            "base_price": date_info["base_price"],
+                            "room_prices": room_prices,
+                        }
+                    )
 
             except Exception as e:
                 print(f"    ⚠️ Failed to get prices for date {date_info['date_range']}: {e}")
 
         return all_sailings
 
-    def _print_summary(self, cruise_data: List[Dict]):
-        if not cruise_data:
-            return
-
-        print(f"  Total cruises: {len(cruise_data)}")
-
-        fields = ['name', 'ship_name', 'price', 'nights', 'departure_port', 'sail_date']
-        for field in fields:
-            count = sum(1 for c in cruise_data if c.get(field))
-            percentage = (count / len(cruise_data)) * 100
-            print(f"  {field}: {count}/{len(cruise_data)} ({percentage:.1f}%)")
-
-        print("\n📝 Sample cruises:")
-        for cruise in cruise_data[:3]:
-            if cruise.get('name'):
-                print(f"\n  {cruise.get('name', 'Unknown')}")
-                print(f"    Ship: {cruise.get('ship_name', 'N/A')}")
-                print(f"    Price: {cruise.get('price', 'N/A')}")
-                print(f"    Nights: {cruise.get('nights', 'N/A')}")
-                print(f"    Departure: {cruise.get('departure_port', 'N/A')}")
-                print(f"    Date: {cruise.get('sail_date', 'N/A')}")
-
     def _process_cruise_data(self, raw_data: List[Dict]) -> Dict:
         cleaned_cruises = []
 
         for cruise in raw_data:
-            if cruise.get('error'):
+            if cruise.get("error"):
                 continue
 
             cleaned = {
-                'id': cruise.get('id', ''),
-                'name': cruise.get('name', ''),
-                'nights': cruise.get('nights', ''),
-                'ship': {
-                    'name': cruise.get('ship_name', ''),
-                    'code': cruise.get('ship_code', ''),
+                "id": cruise.get("id", ""),
+                "name": cruise.get("name", ""),
+                "nights": cruise.get("nights", ""),
+                "ship": {
+                    "name": cruise.get("ship_name", ""),
+                    "code": cruise.get("ship_code", ""),
                 },
-                'sailings': [{'date': sailing.get('date_range', ''),
-                              'interior': sailing.get('room_prices', {'interior': 0}).get('interior'),
-                              'ocean_view': sailing.get('room_prices', {'ocean_view': 0}).get('ocean_view'),
-                              'balcony': sailing.get('room_prices', {'balcony': 0}).get('balcony'),
-                              'suite': sailing.get('room_prices', {'suite': 0}).get('suite')} for sailing in cruise.get('sailings', [])],
-                'route': {
-                    'departure': cruise.get('departure_port', ''),
-                    'destination_code': cruise.get('destination_code', ''),
-                    'ports': cruise.get('visiting_ports', [])
+                "sailings": [
+                    {
+                        "date": sailing.get("date_range", ""),
+                        "interior": sailing.get("room_prices", {"interior": 0}).get("interior"),
+                        "ocean_view": sailing.get("room_prices", {"ocean_view": 0}).get(
+                            "ocean_view"
+                        ),
+                        "balcony": sailing.get("room_prices", {"balcony": 0}).get("balcony"),
+                        "suite": sailing.get("room_prices", {"suite": 0}).get("suite"),
+                    }
+                    for sailing in cruise.get("sailings", [])
+                ],
+                "route": {
+                    "departure": cruise.get("departure_port", ""),
+                    "destination_code": cruise.get("destination_code", ""),
+                    "ports": cruise.get("visiting_ports", []),
                 },
-                'metadata': {
-                    'package_code': cruise.get('package_code', ''),
-                    'link': cruise.get('product_link', ''),
-                    'scraped_at': cruise.get('scraped_at', '')
-                }
+                "metadata": {
+                    "package_code": cruise.get("package_code", ""),
+                    "link": cruise.get("product_link", ""),
+                    "scraped_at": cruise.get("scraped_at", ""),
+                },
             }
 
-            if cleaned['name'] or cleaned['ship']['name']:
+            if cleaned["name"] or cleaned["ship"]["name"]:
                 cleaned_cruises.append(cleaned)
 
         return {
-            'timestamp': datetime.now().isoformat(),
-            'source_url': self.cruises_url,
-            'total_found': len(raw_data),
-            'total_processed': len(cleaned_cruises),
-            'cruises': cleaned_cruises
+            "timestamp": datetime.now().isoformat(),
+            "source_url": self.cruises_url,
+            "total_found": len(raw_data),
+            "total_processed": len(cleaned_cruises),
+            "cruises": cleaned_cruises,
         }
 
 
 def main():
     import sys
+
     max_cruises = None
     if len(sys.argv) > 1:
         try:

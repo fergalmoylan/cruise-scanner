@@ -1,0 +1,31 @@
+[project]
+name = "cruise-scanner"   # change to your repo/project name
+version = "0.1.0"
+description = "A Python project"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[tool.uv]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"royal_caribbean.py" = ["E501"]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.1",
+    "ruff>=0.12.10",
+]
+
+[tool.uv.scripts]
+lint = "ruff check ."
+fmt = "ruff format ."
+test = "pytest -q"
