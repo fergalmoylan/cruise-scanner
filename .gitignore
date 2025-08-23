@@ -215,7 +215,7 @@ __marimo__/
 *.swo
 
 # Data files (we'll commit these selectively)
-
+data/
 # OS
 .DS_Store
 Thumbs.db
