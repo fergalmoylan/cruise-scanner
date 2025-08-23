@@ -1,7 +1,9 @@
 name: CI
+
 on:
-  pull_request:
   push:
+    branches: [ main ]
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -19,8 +21,10 @@ jobs:
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | sh
           echo "$HOME/.local/bin" >> $GITHUB_PATH
+          source "$HOME/.local/bin/env" || true
+          ~/.local/bin/uv --version
 
-      - name: Sync deps
+      - name: Sync dependencies (dev + extras)
         run: uv sync --all-extras --dev
 
       - name: Ruff format (check only)
@@ -30,4 +34,15 @@ jobs:
         run: uv run ruff check .
 
       - name: Tests
-        run: uv run pytest -q
+        run: |
+          bash -lc '
+          set -o pipefail
+          set -e
+          uv run pytest -q || code=$?
+          if [ "${code:-0}" -eq 5 ]; then
+            echo "No tests found; treating as success."
+            exit 0
+          else
+            exit ${code:-0}
+          fi
+          '

@@ -1,5 +1,5 @@
 [project]
-name = "cruise-scanner"   # change to your repo/project name
+name = "cruise-scanner"
 version = "0.1.0"
 description = "A Python project"
 readme = "README.md"
@@ -13,6 +13,7 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+# Globally ignore long lines if needed elsewhere; otherwise keep empty and rely on per-file ignore.
 ignore = []
 
 [tool.ruff.lint.per-file-ignores]
@@ -20,12 +21,7 @@ ignore = []
 
 [dependency-groups]
 dev = [
-    "pre-commit>=4.3.0",
-    "pytest>=8.4.1",
-    "ruff>=0.12.10",
+  "pre-commit>=4.3.0",
+  "pytest>=8.4.1",
+  "ruff>=0.12.10",
 ]
-
-[tool.uv.scripts]
-lint = "ruff check ."
-fmt = "ruff format ."
-test = "pytest -q"
