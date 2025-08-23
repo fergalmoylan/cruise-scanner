@@ -205,3 +205,23 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Environment variables
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data files (we'll commit these selectively)
+
+# OS
+.DS_Store
+Thumbs.db
+
+*.py[cod]
+
+# Playwright
+playwright-report/
+test-results/
