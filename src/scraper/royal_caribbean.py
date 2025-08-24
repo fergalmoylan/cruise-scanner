@@ -11,6 +11,7 @@ from playwright.sync_api import sync_playwright
 
 class RoyalCaribbeanOptimizedScraper:
     def __init__(self, headless: bool = True):
+        self.context = None
         self.headless = headless
         self.base_url = "https://www.royalcaribbean.com/gbr/en"
         self.cruises_url = f"{self.base_url}/cruises?search=nights:6~8,9~11,gte12|ship:LE,OA,ST,SY,UT,WN|&country=IRL&market=gbr&language=en"
@@ -30,8 +31,8 @@ class RoyalCaribbeanOptimizedScraper:
 
         with sync_playwright() as p:
             browser = p.webkit.launch(headless=self.headless)
-            context = browser.new_context(viewport={"width": 1920, "height": 1080})
-            page = context.new_page()
+            self.context = browser.new_context(viewport={"width": 1920, "height": 1080})
+            page = self.context.new_page()
 
             try:
                 print("📡 Loading page...")
@@ -120,6 +121,47 @@ class RoyalCaribbeanOptimizedScraper:
         except Exception as e:
             print(f"  ⚠️ Error handling cookies: {e}")
 
+    def _format_to_snake_case(self, text: str) -> str:
+        # todo format gaurantee room type also
+        import re
+
+        text = re.sub(r"[^\w\s]", "", text)
+        text = re.sub(r"\s+", "_", text.strip())
+        return text.lower()
+
+    def _extract_suite_details(self, page) -> Dict[str, str]:
+        try:
+            page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=10000)
+
+            suite_details = page.evaluate("""() => {
+                const suites = {};
+                const suiteCards = document.querySelectorAll('[class*="RoomSubtypePanel_subtypesList"] > li');
+
+                suiteCards.forEach(card => {
+                    const nameEl = card.querySelector('[data-stateroom-subtype-name="true"], [data-testid="card-title"]');
+                    const priceEl = card.querySelector('[data-testid="main-price-amount"]');
+
+                    if (nameEl && priceEl) {
+                        const name = nameEl.innerText.trim();
+                        const price = priceEl.innerText.trim();
+                        suites[name] = price;
+                    }
+                });
+
+                return suites;
+            }""")
+
+            formatted_suites = {}
+            for suite_name, price in suite_details.items():
+                key = self._format_to_snake_case(suite_name)
+                formatted_suites[key] = price
+
+            return formatted_suites
+
+        except Exception as e:
+            print(f"    ⚠️ Failed to extract suite details: {e}")
+            return {}
+
     def _parse_sailing_date(self, date_text: str) -> Union[tuple[str, str], tuple[None, str]]:
         import re
 
@@ -184,7 +226,6 @@ class RoyalCaribbeanOptimizedScraper:
 
     def _click_load_more(self, page) -> bool:
         try:
-            print("Trying to load more results")
             result = page.evaluate("""() => {
                 const isVisible = (el) => {
                     const rect = el.getBoundingClientRect();
@@ -206,7 +247,6 @@ class RoyalCaribbeanOptimizedScraper:
 
             print(f"JS result: {result}")
             if result and result.get("found"):
-                print("✓ Clicked button via JavaScript")
                 return True
             else:
                 print("ℹ️ Load more button not found/visible.")
@@ -269,13 +309,15 @@ class RoyalCaribbeanOptimizedScraper:
                 view_dates_button = page.locator(
                     f'[data-testid="{cruise["view_dates_button_id"]}"]'
                 )
-                time.sleep(2)
+
+                time.sleep(5)
                 view_dates_button.click()
 
                 page.wait_for_timeout(3000)
 
-                cruise["sailings"] = self._extract_sailing_dates_and_prices(page)
-                print("Processed cruise sailings:", cruise["sailings"])
+                cruise["sailings"] = self._extract_sailing_dates_and_prices(
+                    page, self.context, cruise["id"]
+                )
 
                 try:
                     close_button = page.locator("#cruise-detail-close-button")
@@ -284,7 +326,6 @@ class RoyalCaribbeanOptimizedScraper:
                         print("  ✓ Closed modal")
                     else:
                         page.keyboard.press("Escape")
-                        print("  ✓ Closed modal with Escape")
 
                     page.wait_for_timeout(1000)
 
@@ -301,9 +342,7 @@ class RoyalCaribbeanOptimizedScraper:
 
         return cruises_with_pricing
 
-    def _extract_sailing_dates_and_prices(self, page) -> List[Dict]:
-        print("Extracting sailing dates and prices")
-
+    def _extract_sailing_dates_and_prices(self, page, context, id) -> List[Dict]:
         all_sailings = []
 
         date_options = page.evaluate("""() => {
@@ -383,25 +422,106 @@ class RoyalCaribbeanOptimizedScraper:
                             return prices;
                         }""")
 
+                    room_prices = {k: int(v.replace("€", "")) for k, v in room_prices.items()}
                     start_date, date_range = (
                         self._parse_sailing_date(full_date)
                         if full_date
                         else (None, date_info["date_range"])
                     )
 
-                    all_sailings.append(
-                        {
-                            "timestamp": start_date,
-                            "date_range": date_range,
-                            "base_price": date_info["base_price"],
-                            "room_prices": room_prices,
-                        }
-                    )
+                    suite_details = {}
+                    if room_prices.get("suite"):
+                        suite_details = self._extract_suite_details_in_new_tab(page, context)
+
+                    sailing_data = {
+                        "sailing_id": "{}-{}".format(id, start_date),
+                        "timestamp": start_date,
+                        "date_range": date_range,
+                        "base_price": date_info["base_price"].replace("€", ""),
+                        **room_prices,
+                    }
+
+                    if suite_details:
+                        if "suite" in sailing_data:
+                            sailing_data["suite_guarantee"] = sailing_data.pop("suite")
+                        sailing_data.update(suite_details)
+
+                    all_sailings.append(sailing_data)
 
             except Exception as e:
                 print(f"    ⚠️ Failed to get prices for date {date_info['date_range']}: {e}")
 
         return all_sailings
+
+    def _extract_suite_details_in_new_tab(self, page, context) -> Dict[str, str]:
+        suite_details = {}
+        new_page = None
+
+        try:
+            suite_button = page.locator('[data-testid="book-now-button-DELUXE"]')
+            if suite_button.count() == 0:
+                print("    ℹ️ 'Book Suite' button disabled.")
+                return {}
+            with context.expect_page(timeout=5000) as new_page_info:
+                page.evaluate("window.open(window.location.href, '_blank')")
+
+            new_page = new_page_info.value
+            time.sleep(2)
+            print("Trying to click book-now button")
+            new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
+            if new_page_suite_button.count() == 0:
+                print("    ℹ️ 'Book Suite' button disabled.")
+                return {}
+            is_disabled = new_page_suite_button.evaluate("el => el.disabled")
+            if is_disabled:
+                print("    ℹ️ Suite unavailable (button disabled)")
+                return {}
+            new_page.locator('[data-testid="book-now-button-DELUXE"]').click(modifiers=["Meta"])
+            new_page.wait_for_timeout(500)
+            new_page.wait_for_load_state("networkidle")
+            print("    📦 Fetching suite details in new tab...")
+
+            room_selection_btn = new_page.locator('[data-testid="funnel-footer-cta-btn"]')
+            room_selection_btn.wait_for(timeout=10000)
+            room_selection_btn.click()
+
+            new_page.wait_for_load_state("networkidle", timeout=15000)
+
+            new_page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=10000)
+
+            suite_data = new_page.evaluate("""() => {
+                const suites = {};
+                const suiteCards = document.querySelectorAll('[class*="RoomSubtypePanel_subtypesList"] > li');
+
+                suiteCards.forEach(card => {
+                    const nameEl = card.querySelector('[data-stateroom-subtype-name="true"], [data-testid="card-title"]');
+                    const priceEl = card.querySelector('[data-testid="main-price-amount"]');
+
+                    if (nameEl && priceEl) {
+                        const name = nameEl.innerText.trim();
+                        const price = priceEl.innerText.trim();
+                        suites[name] = price;
+                    }
+                });
+                return suites;
+            }""")
+
+            for suite_name, price in suite_data.items():
+                key = self._format_to_snake_case(suite_name)
+                suite_details[key] = int(price.replace("€", "").replace(".", "").strip())
+
+        except Exception as e:
+            print(f"    ⚠️ Failed to get suite details: {e}")
+
+        finally:
+            if new_page:
+                try:
+                    new_page.close()
+                except Exception as e:
+                    print(f"    ⚠️ Failed to close page: {e}")
+                    pass
+
+        return suite_details
 
     def _process_cruise_data(self, raw_data: List[Dict]) -> Dict:
         cleaned_cruises = []
@@ -418,19 +538,7 @@ class RoyalCaribbeanOptimizedScraper:
                     "name": cruise.get("ship_name", ""),
                     "code": cruise.get("ship_code", ""),
                 },
-                "sailings": [
-                    {
-                        "date": sailing.get("timestamp", ""),
-                        "date_range": sailing.get("date_range", ""),
-                        "interior": sailing.get("room_prices", {"interior": 0}).get("interior"),
-                        "ocean_view": sailing.get("room_prices", {"ocean_view": 0}).get(
-                            "ocean_view"
-                        ),
-                        "balcony": sailing.get("room_prices", {"balcony": 0}).get("balcony"),
-                        "suite": sailing.get("room_prices", {"suite": 0}).get("suite"),
-                    }
-                    for sailing in cruise.get("sailings", [])
-                ],
+                "sailings": cruise.get("sailings", []),
                 "route": {
                     "departure": cruise.get("departure_port", ""),
                     "destination_code": cruise.get("destination_code", ""),
