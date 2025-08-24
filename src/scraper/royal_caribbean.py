@@ -4,7 +4,7 @@ import json
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 
 from playwright.sync_api import sync_playwright
 
@@ -13,7 +13,7 @@ class RoyalCaribbeanOptimizedScraper:
     def __init__(self, headless: bool = True):
         self.headless = headless
         self.base_url = "https://www.royalcaribbean.com/gbr/en"
-        self.cruises_url = f"{self.base_url}/cruises?search=nights:6~8,9~11,gte12|ship:IC,LE,OA,ST,SY,UT,WN|startDate:2026-01-01~2026-01-31,2026-02-01~2026-02-28,2026-03-01~2026-03-31,2026-04-01~2026-04-30,2027-01-01~2027-01-31,2027-02-01~2027-02-28,2027-03-01~2027-03-31,2027-04-01~2027-04-30&country=IRL&market=gbr&language=en"
+        self.cruises_url = f"{self.base_url}/cruises?search=nights:6~8,9~11,gte12|ship:LE,OA,ST,SY,UT,WN|&country=IRL&market=gbr&language=en"
         self.data_dir = Path("data")
         self.raw_dir = self.data_dir / "raw"
         self.processed_dir = self.data_dir / "processed"
@@ -120,40 +120,66 @@ class RoyalCaribbeanOptimizedScraper:
         except Exception as e:
             print(f"  ⚠️ Error handling cookies: {e}")
 
+    def _parse_sailing_date(self, date_text: str) -> Union[tuple[str, str], tuple[None, str]]:
+        import re
+
+        pattern = r"(?:\w+day)\s+(\d+)\s+(\w+)\s*-\s*(?:\w+day)\s+(\d+)\s+(\w+)\s+(\d{4})"
+        match = re.match(pattern, date_text)
+
+        if match:
+            start_day, start_month, end_day, end_month, year = match.groups()
+            months = {
+                "Jan": 1,
+                "Feb": 2,
+                "Mar": 3,
+                "Apr": 4,
+                "May": 5,
+                "Jun": 6,
+                "Jul": 7,
+                "Aug": 8,
+                "Sep": 9,
+                "Oct": 10,
+                "Nov": 11,
+                "Dec": 12,
+            }
+            start_month_num = months.get(start_month[:3], 1)
+            start_date = f"{year}-{start_month_num:02d}-{int(start_day):02d}"
+            date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
+            return start_date, date_range
+
+        return None, date_text
+
     def _load_all_cruises(self, page, max_cruises: Optional[int]) -> List[Dict]:
-        all_cruises = []
         load_more_count = 0
+        print("📥 Loading all cruises...")
+
         while True:
-            print(f"🔍 Extracting batch {load_more_count + 1}...")
-            # todo bug here , it keeps scraping all cruises from the start on each iteration
-            current_cruises = self._extract_cruises_from_page(page)
-
-            for cruise in current_cruises:
-                cruise_id = cruise.get("id")
-                if cruise_id and not any(c.get("id") == cruise_id for c in all_cruises):
-                    all_cruises.append(cruise)
-
-            print(f"  Found {len(current_cruises)} cruises (Total: {len(all_cruises)})")
-
-            if max_cruises and len(all_cruises) >= max_cruises:
-                print(f"  ✓ Reached max cruises limit ({max_cruises})")
-                return all_cruises[:max_cruises]
+            if max_cruises:
+                current_count = page.evaluate("""() => {
+                    return document.querySelectorAll('[data-testid*="cruise-card"]').length;
+                }""")
+                if current_count >= max_cruises:
+                    print(f"✅ Reached max cruise limit: {max_cruises}")
+                    break
 
             load_more_clicked = self._click_load_more(page)
 
             if not load_more_clicked:
-                print("  ✓ No more cruises to load")
+                print(f"✅ All cruises loaded (clicked 'Load More' {load_more_count} times)")
                 break
 
             load_more_count += 1
+            print(f"  ⏳ Clicked 'Load More' #{load_more_count}, waiting for new cruises...")
 
-            print("  ⏳ Waiting for new cruises to load...")
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(2000)
 
-            if load_more_count > 100:
-                print("  ⚠️ Reached maximum load iterations")
-                break
+        print("🔍 Extracting all cruises from page...")
+        all_cruises = self._extract_cruises_from_page(page)
 
+        if max_cruises and len(all_cruises) > max_cruises:
+            all_cruises = all_cruises[:max_cruises]
+
+        print(f"✅ Successfully extracted {len(all_cruises)} cruises")
         return all_cruises
 
     def _click_load_more(self, page) -> bool:
@@ -235,6 +261,10 @@ class RoyalCaribbeanOptimizedScraper:
                 print(
                     f"Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}"
                 )
+                try:
+                    self._click_load_more(page)
+                except Exception:
+                    continue
 
                 view_dates_button = page.locator(
                     f'[data-testid="{cruise["view_dates_button_id"]}"]'
@@ -243,7 +273,6 @@ class RoyalCaribbeanOptimizedScraper:
                 view_dates_button.click()
 
                 page.wait_for_timeout(3000)
-                time.sleep(2)
 
                 cruise["sailings"] = self._extract_sailing_dates_and_prices(page)
                 print("Processed cruise sailings:", cruise["sailings"])
@@ -303,10 +332,6 @@ class RoyalCaribbeanOptimizedScraper:
                 return dates;
             }""")
 
-        # todo
-        # need to extract the year also, so should use this element
-        # <div class="RefinedCruiseCarousel-styles__RefinedCruiseCarouselActiveMonthLabel-sc-cbb0e067-5 cFXhvS">Saturday 22 Aug  - Saturday 29 Aug 2026</div>
-
         for date_info in date_options:
             try:
                 date_tabs = page.locator('[role="tab"]')
@@ -316,6 +341,10 @@ class RoyalCaribbeanOptimizedScraper:
                 if date_info["element_index"] < date_tabs.count():
                     date_tabs.nth(date_info["element_index"]).click()
                     page.wait_for_timeout(1000)
+                    full_date = page.evaluate("""() => {
+                        const activeLabel = document.querySelector('[class*="RefinedCruiseCarouselActiveMonthLabel"]');
+                        return activeLabel ? activeLabel.innerText : null;
+                    }""")
                     room_prices = page.evaluate("""() => {
                             const prices = {}
                             const roomTypes = {
@@ -354,9 +383,16 @@ class RoyalCaribbeanOptimizedScraper:
                             return prices;
                         }""")
 
+                    start_date, date_range = (
+                        self._parse_sailing_date(full_date)
+                        if full_date
+                        else (None, date_info["date_range"])
+                    )
+
                     all_sailings.append(
                         {
-                            "date_range": date_info["date_range"],
+                            "timestamp": start_date,
+                            "date_range": date_range,
                             "base_price": date_info["base_price"],
                             "room_prices": room_prices,
                         }
@@ -384,7 +420,8 @@ class RoyalCaribbeanOptimizedScraper:
                 },
                 "sailings": [
                     {
-                        "date": sailing.get("date_range", ""),
+                        "date": sailing.get("timestamp", ""),
+                        "date_range": sailing.get("date_range", ""),
                         "interior": sailing.get("room_prices", {"interior": 0}).get("interior"),
                         "ocean_view": sailing.get("room_prices", {"ocean_view": 0}).get(
                             "ocean_view"
