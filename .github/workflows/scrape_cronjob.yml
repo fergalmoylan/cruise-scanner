@@ -31,10 +31,41 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install Python dependencies
+    - name: Install system dependencies
+      run: |
+          # Update and install essential packages that exist in Ubuntu 24.04
+          sudo apt-get update
+          sudo apt-get install -y \
+          wget \
+          xvfb \
+          fonts-liberation \
+          libgbm-dev \
+          libxkbcommon-x11-0 \
+          libgtk-3-0 \
+          libxss1 \
+          libgconf-2-4 \
+          libatk1.0-0 \
+          libatk-bridge2.0-0 \
+          libcups2 \
+          libdrm2 \
+          libdbus-1-3 \
+          libatspi2.0-0 \
+          libx11-6 \
+          libxcomposite1 \
+          libxdamage1 \
+          libxext6 \
+          libxfixes3 \
+          libxrandr2 \
+          libgbm1 \
+          libxcb1 \
+          libxkbcommon0 \
+          libpango-1.0-0 \
+          libcairo2
+
+    - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        npx playwright install webkit
+        playwright install webkit
 
     - name: Run scraper with configuration
       run: |
