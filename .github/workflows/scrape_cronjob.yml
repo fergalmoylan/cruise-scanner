@@ -1,42 +1,69 @@
+# .github/workflows/scrape-simple.yml
 name: Scrape Cruise Prices
 
 on:
-  schedule:
-    - cron: '0 3 * * 1,4'
   workflow_dispatch:
+    inputs:
+      max_cruises:
+        description: 'Maximum cruises (default: 10)'
+        required: false
+        default: '1000'
+      max_sailings:
+        description: 'Maximum sailings per cruise (default: 5)'
+        required: false
+        default: '5'
+      run_analysis:
+        description: 'Run analysis after scraping'
+        type: boolean
+        default: false
+
+  schedule:
+    - cron: '0 3 * * 1,3,6'
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install playwright pandas
-          playwright install webkit
-          playwright install-deps webkit
+    - name: Install dependencies
+      run: |
+        pip install playwright pandas
+        playwright install webkit
+        playwright install-deps webkit
+        pip install -r requirements.txt
 
-      - name: Run scraper
-        run: |
-          python src/main.py --scrape
-        env:
-          PYTHONPATH: ${{ github.workspace }}
+    - name: Run scraper with configuration
+      run: |
+        # For manual runs, use inputs; for scheduled runs, use defaults
+        if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+          MAX_CRUISES="${{ github.event.inputs.max_cruises }}"
+          MAX_SAILINGS="${{ github.event.inputs.max_sailings }}"
+          ANALYZE="${{ github.event.inputs.run_analysis }}"
+        else
+          MAX_CRUISES="10"
+          MAX_SAILINGS="5"
+          ANALYZE="false"
+        fi
 
-      - name: Commit scraped data
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add data/
-          git diff --staged --quiet || git commit -m "Add cruise data from $(date +'%Y-%m-%d %H:%M')"
-          git push
+        # Build command
+        CMD="python main.py --scrape"
+        [ -n "$MAX_CRUISES" ] && CMD="$CMD --max-cruises $MAX_CRUISES"
+        [ -n "$MAX_SAILINGS" ] && CMD="$CMD --max-sailings $MAX_SAILINGS"
+        [ "$ANALYZE" == "true" ] && CMD="$CMD --analyze"
+
+        echo "Running: $CMD"
+        $CMD
+
+    - name: Commit changes
+      run: |
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
+        git add data/
+        git diff --staged --quiet || git commit -m "Update cruise data - $(date +'%Y-%m-%d')"
+        git push

@@ -18,7 +18,9 @@ def main():
     parser.add_argument("--scrape", action="store_true", help="Run the scraper")
     parser.add_argument("--analyze", action="store_true", help="Run price analysis")
     parser.add_argument("--max-cruises", type=int, help="Maximum cruises to scrape")
-    parser.add_argument("--max-sailings", type=int, help="Maximum sailings per cruise to scrape")
+    parser.add_argument(
+        "--max-sailings", type=int, help="Maximum sailings per cruise to scrape", default=5
+    )
     parser.add_argument(
         "--convert", type=str, help="Convert JSON file(s) to CSV (path to file or directory)"
     )
