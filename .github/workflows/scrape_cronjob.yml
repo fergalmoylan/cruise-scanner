@@ -7,7 +7,7 @@ on:
       max_cruises:
         description: 'Maximum cruises (default: 10)'
         required: false
-        default: '1000'
+        default: '10'
       max_sailings:
         description: 'Maximum sailings per cruise (default: 5)'
         required: false
@@ -33,10 +33,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install playwright pandas
-        playwright install webkit
-        playwright install-deps webkit
         pip install -r requirements.txt
+        playwright install --with-deps chromium
         playwright install
 
     - name: Run scraper with configuration
