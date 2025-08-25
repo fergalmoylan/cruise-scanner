@@ -24,7 +24,7 @@ class RoyalCaribbeanOptimizedScraper:
     def scrape(
         self, max_cruises: Optional[int] = None, max_sailings: Optional[int] = None
     ) -> tuple[List[Dict], str]:
-        print("🚢 Starting Royal Caribbean scraper...")
+        print("🚢 Starting Royal Caribbean scraper...", flush=True)
         print(f"📍 URL: {self.cruises_url}")
         print(f"   Mode: {'Headless' if self.headless else 'Visible'}")
         if max_cruises:
@@ -463,18 +463,23 @@ class RoyalCaribbeanOptimizedScraper:
         new_page = None
 
         try:
+            time.sleep(5)
+            page.wait_for_timeout(5000)
             suite_button = page.locator('[data-testid="book-now-button-DELUXE"]')
             if suite_button.count() == 0:
-                print("    ℹ️ 'Book Suite' button disabled.")
+                print("    ⛔️'Book Suite' button not found.")
                 return {}
+
+            print("    📂️'Opening new tab...")
             with context.expect_page(timeout=5000) as new_page_info:
                 page.evaluate("window.open(window.location.href, '_blank')")
 
             new_page = new_page_info.value
-            time.sleep(2)
+            time.sleep(5)
+            new_page.wait_for_timeout(5000)
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
-                print("    ℹ️ 'Book Suite' button disabled.")
+                print("    ⛔️'Book Suite' button not found in new page.")
                 return {}
             is_disabled = new_page_suite_button.evaluate("el => el.disabled")
             if is_disabled:
