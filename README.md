@@ -15,7 +15,7 @@ Automated Royal Caribbean cruise price tracker with analytics and deal notificat
 
 ### Prerequisites
 
-- Python 3.11+
+- Python 3.9+
 - Git
 - GitHub account
 
@@ -36,7 +36,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 3. Install dependencies:
 ```bash
 pip install -r requirements.txt
-playwright install chromium
+playwright install
 ```
 
 4. Copy environment variables:
@@ -47,22 +47,25 @@ cp .env.example .env
 
 5. Run the scraper manually:
 ```bash
-python src/main.py
+python src/main.py --scrape
 ```
 
 ## Project Structure
 
 ```
-├── src/
-│   ├── scraper/        # Web scraping logic
-│   ├── analytics/      # Price analysis and trends
-│   └── notifications/  # Email notifications
-├── data/
-│   ├── raw/           # Daily snapshots
-│   └── processed/     # Analyzed data
-├── web/               # Dashboard files
-├── config/            # Configuration files
-└── .github/workflows/ # GitHub Actions automation
+
+src
+├── __init__.py
+├── analytics             # Price analysis and trends
+├── main.py               # entrypoint script
+├── notifications         # notifications (alerts / emails)
+└── scraper               # Web scraping logic
+data
+├── cruise_prices.csv     # csv with all scraped data
+├── processed             # json formatted scraped data
+└── raw                   # raw json scraped data
+.github
+└── workflows             # GitHub Actions automation
 ```
 
 ## Configuration
@@ -88,7 +91,7 @@ python src/main.py
 
 ### Manual Scraping
 ```bash
-python src/main.py --cruises 100 --destination caribbean
+python src/main.py --scrape
 ```
 
 ### View Dashboard
