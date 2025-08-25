@@ -14,7 +14,7 @@ class RoyalCaribbeanOptimizedScraper:
         self.context = None
         self.headless = headless
         self.base_url = "https://www.royalcaribbean.com/gbr/en"
-        self.cruises_url = f"{self.base_url}/cruises?search=nights:6~8,9~11,gte12|ship:LE,OA,ST,SY,UT,WN|&country=IRL&market=gbr&language=en"
+        self.cruises_url = f"{self.base_url}/cruises?search=departurePort:BCN,BYE,FLL,LAX,MIA,ROM,SIN,YOK|nights:6~8,9~11,gte12|ship:AL,AN,HM,IC,LE,OA,OV,OY,QN,ST,SY,UT,WN&country=IRL&market=gbr&language=en"
         self.data_dir = Path("data")
         self.raw_dir = self.data_dir / "raw"
         self.processed_dir = self.data_dir / "processed"
@@ -467,7 +467,6 @@ class RoyalCaribbeanOptimizedScraper:
 
             new_page = new_page_info.value
             time.sleep(2)
-            print("Trying to click book-now button")
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
                 print("    ℹ️ 'Book Suite' button disabled.")
@@ -573,7 +572,7 @@ def main():
         except ValueError:
             print(f"Invalid max_cruises value: {sys.argv[1]}")
 
-    scraper = RoyalCaribbeanOptimizedScraper(headless=False)
+    scraper = RoyalCaribbeanOptimizedScraper(headless=True)
     cruises = scraper.scrape(max_cruises=max_cruises)
 
     if cruises:
