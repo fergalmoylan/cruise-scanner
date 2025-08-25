@@ -52,7 +52,7 @@ jobs:
         fi
 
         # Build command
-        CMD="python main.py --scrape"
+        CMD="python src/main.py --scrape"
         [ -n "$MAX_CRUISES" ] && CMD="$CMD --max-cruises $MAX_CRUISES"
         [ -n "$MAX_SAILINGS" ] && CMD="$CMD --max-sailings $MAX_SAILINGS"
         [ "$ANALYZE" == "true" ] && CMD="$CMD --analyze"
