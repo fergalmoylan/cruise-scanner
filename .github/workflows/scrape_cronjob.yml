@@ -35,7 +35,6 @@ jobs:
       run: |
         pip install -r requirements.txt
         playwright install --with-deps chromium
-        playwright install
 
     - name: Run scraper with configuration
       run: |
