@@ -1,0 +1,42 @@
+name: Scrape Cruise Prices
+
+on:
+  schedule:
+    - cron: '0 3 * * 1,4'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright pandas
+          playwright install webkit
+          playwright install-deps webkit
+
+      - name: Run scraper
+        run: |
+          python src/main.py --scrape
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+
+      - name: Commit scraped data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/
+          git diff --staged --quiet || git commit -m "Add cruise data from $(date +'%Y-%m-%d %H:%M')"
+          git push

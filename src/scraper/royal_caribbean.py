@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import json
 import time
 from datetime import datetime
@@ -14,7 +13,7 @@ class RoyalCaribbeanOptimizedScraper:
         self.context = None
         self.headless = headless
         self.base_url = "https://www.royalcaribbean.com/gbr/en"
-        self.cruises_url = f"{self.base_url}/cruises?search=nights:6~8,9~11,gte12|ship:LE,OA,ST,SY,UT,WN|&country=IRL&market=gbr&language=en"
+        self.cruises_url = f"{self.base_url}/cruises?search=departurePort:BCN,BYE,FLL,LAX,MIA,ROM,SIN,YOK|nights:6~8,9~11,gte12|ship:AL,AN,HM,IC,LE,OA,OV,OY,QN,ST,SY,UT,WN&country=IRL&market=gbr&language=en"
         self.data_dir = Path("data")
         self.raw_dir = self.data_dir / "raw"
         self.processed_dir = self.data_dir / "processed"
@@ -22,12 +21,16 @@ class RoyalCaribbeanOptimizedScraper:
         self.raw_dir.mkdir(parents=True, exist_ok=True)
         self.processed_dir.mkdir(parents=True, exist_ok=True)
 
-    def scrape(self, max_cruises: Optional[int] = None) -> List[Dict]:
+    def scrape(
+        self, max_cruises: Optional[int] = None, max_sailings: Optional[int] = None
+    ) -> tuple[List[Dict], str]:
         print("🚢 Starting Royal Caribbean scraper...")
         print(f"📍 URL: {self.cruises_url}")
         print(f"   Mode: {'Headless' if self.headless else 'Visible'}")
         if max_cruises:
             print(f"   Max cruises: {max_cruises}")
+        if max_cruises:
+            print(f"   Max sailings per cruise: {max_sailings}")
 
         with sync_playwright() as p:
             browser = p.webkit.launch(headless=self.headless)
@@ -43,7 +46,7 @@ class RoyalCaribbeanOptimizedScraper:
                 page.wait_for_timeout(2000)
                 self._handle_cookie_consent(page)
 
-                all_cruises = self._load_all_cruises(page, max_cruises)
+                all_cruises = self._load_all_cruises(page, max_cruises, max_sailings)
 
                 print(f"✅ Extracted {len(all_cruises)} cruises")
 
@@ -63,7 +66,7 @@ class RoyalCaribbeanOptimizedScraper:
                         ensure_ascii=False,
                     )
 
-                print(f"💾 Saved to {output_file}")
+                print(f"💾 Saved Raw JSON to {output_file}")
 
                 cleaned_data = self._process_cruise_data(all_cruises)
                 if cleaned_data:
@@ -72,14 +75,14 @@ class RoyalCaribbeanOptimizedScraper:
                         json.dump(cleaned_data, f, indent=2, ensure_ascii=False)
                     print(f"💾 Saved cleaned data to {cleaned_file}")
 
-                return all_cruises
+                return all_cruises, str(cleaned_file)
 
             except Exception as e:
                 print(f"❌ Error during scraping: {e}")
                 import traceback
 
                 traceback.print_exc()
-                return []
+                return [], ""
 
             finally:
                 browser.close()
@@ -122,7 +125,6 @@ class RoyalCaribbeanOptimizedScraper:
             print(f"  ⚠️ Error handling cookies: {e}")
 
     def _format_to_snake_case(self, text: str) -> str:
-        # todo format gaurantee room type also
         import re
 
         text = re.sub(r"[^\w\s]", "", text)
@@ -191,7 +193,9 @@ class RoyalCaribbeanOptimizedScraper:
 
         return None, date_text
 
-    def _load_all_cruises(self, page, max_cruises: Optional[int]) -> List[Dict]:
+    def _load_all_cruises(
+        self, page, max_cruises: Optional[int], max_sailings: Optional[int]
+    ) -> List[Dict]:
         load_more_count = 0
         print("📥 Loading all cruises...")
 
@@ -216,7 +220,7 @@ class RoyalCaribbeanOptimizedScraper:
             page.wait_for_timeout(2000)
 
         print("🔍 Extracting all cruises from page...")
-        all_cruises = self._extract_cruises_from_page(page)
+        all_cruises = self._extract_cruises_from_page(page, max_sailings)
 
         if max_cruises and len(all_cruises) > max_cruises:
             all_cruises = all_cruises[:max_cruises]
@@ -245,18 +249,15 @@ class RoyalCaribbeanOptimizedScraper:
                 return { found: false };
             }""")
 
-            print(f"JS result: {result}")
             if result and result.get("found"):
                 return True
             else:
-                print("ℹ️ Load more button not found/visible.")
                 return False
 
-        except Exception as e:
-            print(f"ℹ️ Load More click failed: {e}")
+        except Exception:
             return False
 
-    def _extract_cruises_from_page(self, page) -> List[Dict]:
+    def _extract_cruises_from_page(self, page, max_sailings: Optional[int]) -> List[Dict]:
         basic_cruises = page.evaluate("""() => {
             const cruises = [];
             const cards = document.querySelectorAll('[data-testid*="cruise-card-container"]');
@@ -308,7 +309,7 @@ class RoyalCaribbeanOptimizedScraper:
 
                 view_dates_button = page.locator(
                     f'[data-testid="{cruise["view_dates_button_id"]}"]'
-                )
+                ).first
 
                 time.sleep(5)
                 view_dates_button.click()
@@ -316,14 +317,13 @@ class RoyalCaribbeanOptimizedScraper:
                 page.wait_for_timeout(3000)
 
                 cruise["sailings"] = self._extract_sailing_dates_and_prices(
-                    page, self.context, cruise["id"]
+                    page, self.context, cruise["id"], max_sailings
                 )
 
                 try:
                     close_button = page.locator("#cruise-detail-close-button")
                     if close_button.is_visible(timeout=1000):
                         close_button.click()
-                        print("  ✓ Closed modal")
                     else:
                         page.keyboard.press("Escape")
 
@@ -342,7 +342,10 @@ class RoyalCaribbeanOptimizedScraper:
 
         return cruises_with_pricing
 
-    def _extract_sailing_dates_and_prices(self, page, context, id) -> List[Dict]:
+    def _extract_sailing_dates_and_prices(
+        self, page, context, id, max_sailings: Optional[int]
+    ) -> List[Dict]:
+        print("    📊 Extracting sailing dates and prices...")
         all_sailings = []
 
         date_options = page.evaluate("""() => {
@@ -370,7 +373,8 @@ class RoyalCaribbeanOptimizedScraper:
                 });
                 return dates;
             }""")
-
+        if max_sailings:
+            date_options = date_options[:max_sailings]
         for date_info in date_options:
             try:
                 date_tabs = page.locator('[role="tab"]')
@@ -454,6 +458,7 @@ class RoyalCaribbeanOptimizedScraper:
         return all_sailings
 
     def _extract_suite_details_in_new_tab(self, page, context) -> Dict[str, str]:
+        print("    📦 Fetching suite details in new tab...")
         suite_details = {}
         new_page = None
 
@@ -467,7 +472,6 @@ class RoyalCaribbeanOptimizedScraper:
 
             new_page = new_page_info.value
             time.sleep(2)
-            print("Trying to click book-now button")
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
                 print("    ℹ️ 'Book Suite' button disabled.")
@@ -479,8 +483,6 @@ class RoyalCaribbeanOptimizedScraper:
             new_page.locator('[data-testid="book-now-button-DELUXE"]').click(modifiers=["Meta"])
             new_page.wait_for_timeout(500)
             new_page.wait_for_load_state("networkidle")
-            print("    📦 Fetching suite details in new tab...")
-
             room_selection_btn = new_page.locator('[data-testid="funnel-footer-cta-btn"]')
             room_selection_btn.wait_for(timeout=10000)
             room_selection_btn.click()
@@ -573,8 +575,8 @@ def main():
         except ValueError:
             print(f"Invalid max_cruises value: {sys.argv[1]}")
 
-    scraper = RoyalCaribbeanOptimizedScraper(headless=False)
-    cruises = scraper.scrape(max_cruises=max_cruises)
+    scraper = RoyalCaribbeanOptimizedScraper(headless=True)
+    cruises, _ = scraper.scrape(max_cruises=max_cruises)
 
     if cruises:
         print(f"\n✅ Successfully scraped {len(cruises)} cruises")
