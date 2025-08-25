@@ -34,8 +34,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install -r requirements.txt
-        playwright install webkit
-        # npx playwright install webkit
+        npx playwright install webkit
 
     - name: Run scraper with configuration
       run: |
