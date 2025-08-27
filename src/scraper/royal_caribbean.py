@@ -167,6 +167,8 @@ class RoyalCaribbeanOptimizedScraper:
     def _parse_sailing_date(self, date_text: str) -> Union[tuple[str, str], tuple[None, str]]:
         import re
 
+        print("    📆 Parsing sailing date...", date_text)
+
         pattern = r"(?:\w+day)\s+(\d+)\s+(\w+)\s*-\s*(?:\w+day)\s+(\d+)\s+(\w+)\s+(\d{4})"
         match = re.match(pattern, date_text)
 
@@ -189,6 +191,7 @@ class RoyalCaribbeanOptimizedScraper:
             start_month_num = months.get(start_month[:3], 1)
             start_date = f"{year}-{start_month_num:02d}-{int(start_day):02d}"
             date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
+            print("    ❗️Got sailing date:", start_date, date_range)
             return start_date, date_range
 
         return None, date_text
@@ -383,7 +386,8 @@ class RoyalCaribbeanOptimizedScraper:
 
                 if date_info["element_index"] < date_tabs.count():
                     date_tabs.nth(date_info["element_index"]).click()
-                    page.wait_for_timeout(1000)
+                    page.wait_for_timeout(5000)
+                    time.sleep(2)
                     full_date = page.evaluate("""() => {
                         const activeLabel = document.querySelector('[class*="RefinedCruiseCarouselActiveMonthLabel"]');
                         return activeLabel ? activeLabel.innerText : null;
