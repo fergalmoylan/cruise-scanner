@@ -1,0 +1,908 @@
+{
+  "timestamp": "2025-08-27T03:25:21.015837",
+  "source_url": "https://www.royalcaribbean.com/gbr/en/cruises?search=departurePort:BCN,BYE,FLL,LAX,MIA,ROM,SIN,YOK|nights:6~8,9~11,gte12|ship:AL,AN,HM,IC,LE,OA,OV,OY,QN,ST,SY,UT,WN&country=IRL&market=gbr&language=en",
+  "total_found": 10,
+  "total_processed": 10,
+  "cruises": [
+    {
+      "id": "HM07BCN-1495935620",
+      "name": "Western Mediterranean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Harmony of the Seas",
+        "code": "HM"
+      },
+      "sailings": [
+        {
+          "sailing_id": "HM07BCN-1495935620-None",
+          "timestamp": null,
+          "date_range": "Sunday, 31 May - Sunday, 7 Jun 2026",
+          "base_price": "1193",
+          "interior": 1193,
+          "ocean_view": 1409,
+          "balcony": 1499,
+          "suite_guarantee": 3019,
+          "we_choose_your_suite": 3019,
+          "sky_junior_suite": 3244,
+          "junior_suite": 3327,
+          "grand_suite_1_bedroom": 4150,
+          "crown_loft_suite": 4819,
+          "owners_suite_1_bedroom": 5238,
+          "spacious_aquatheater_suite_1_bedroom": 5761
+        },
+        {
+          "sailing_id": "HM07BCN-1495935620-None",
+          "timestamp": null,
+          "date_range": "Sunday, 24 May - Sunday, 31 May 2026",
+          "base_price": "1279",
+          "interior": 1279,
+          "ocean_view": 1543,
+          "balcony": 1589,
+          "suite_guarantee": 3212,
+          "we_choose_your_suite": 3019,
+          "sky_junior_suite": 3244,
+          "junior_suite": 3327,
+          "grand_suite_1_bedroom": 4150,
+          "crown_loft_suite": 4819,
+          "owners_suite_1_bedroom": 5238,
+          "spacious_aquatheater_suite_1_bedroom": 5761
+        },
+        {
+          "sailing_id": "HM07BCN-1495935620-None",
+          "timestamp": null,
+          "date_range": "Sunday, 7 Jun - Sunday, 14 Jun 2026",
+          "base_price": "1367",
+          "interior": 1367,
+          "ocean_view": 1455,
+          "balcony": 1543,
+          "suite_guarantee": 2919,
+          "we_choose_your_suite": 3019,
+          "sky_junior_suite": 3244,
+          "junior_suite": 3327,
+          "grand_suite_1_bedroom": 4150,
+          "crown_loft_suite": 4819,
+          "owners_suite_1_bedroom": 5238,
+          "spacious_aquatheater_suite_1_bedroom": 5761
+        }
+      ],
+      "route": {
+        "departure": "Barcelona, Spain",
+        "destination_code": "BCN",
+        "ports": [
+          "Barcelona, Spain",
+          "Palma de Mallorca, Spain",
+          "Provence (Marseille), France",
+          "Florence/Pisa (La Spezia), Italy",
+          "Rome (Civitavecchia), Italy",
+          "Naples/Capri, Italy",
+          "Barcelona, Spain"
+        ]
+      },
+      "metadata": {
+        "package_code": "HM07M797",
+        "link": "cruises/itinerary/7-night-western-mediterranean-from-barcelona-on-harmony/HM07BCN-1495935620?sail-date=2026-05-31&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "OY07ROM-3274971603",
+      "name": "Greek Isles Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Odyssey of the Seas",
+        "code": "OY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OY07ROM-3274971603-None",
+          "timestamp": null,
+          "date_range": "Sunday, 20 Sept - Sunday, 27 Sept 2026",
+          "base_price": "926",
+          "interior": 926,
+          "ocean_view": 1046,
+          "balcony": 1159,
+          "suite_guarantee": 1907,
+          "we_choose_your_suite": 1907,
+          "junior_suite": 2436,
+          "junior_suite_with_large_balcony": 3163,
+          "sky_junior_suite": 3274,
+          "grand_suite_1_bedroom": 4683,
+          "grand_suite_2_bedroom": 6451,
+          "owners_suite_1_bedroom": 6985,
+          "grand_loft_suite": 9442,
+          "royal_loft_suite": 16391
+        },
+        {
+          "sailing_id": "OY07ROM-3274971603-None",
+          "timestamp": null,
+          "date_range": "Sunday, 21 Sept - Sunday, 28 Sept 2025",
+          "base_price": "7703",
+          "suite_guarantee": 7703,
+          "we_choose_your_suite": 1907,
+          "junior_suite": 2436,
+          "junior_suite_with_large_balcony": 3163,
+          "sky_junior_suite": 3274,
+          "grand_suite_1_bedroom": 4683,
+          "grand_suite_2_bedroom": 6451,
+          "owners_suite_1_bedroom": 6985,
+          "grand_loft_suite": 9442,
+          "royal_loft_suite": 16391
+        },
+        {
+          "sailing_id": "OY07ROM-3274971603-None",
+          "timestamp": null,
+          "date_range": "Sunday, 28 Sept - Sunday, 5 Oct 2025",
+          "base_price": "1720",
+          "interior": 1720,
+          "balcony": 3009,
+          "suite_guarantee": 2603,
+          "we_choose_your_suite": 1907,
+          "junior_suite": 2436,
+          "junior_suite_with_large_balcony": 3163,
+          "sky_junior_suite": 3274,
+          "grand_suite_1_bedroom": 4683,
+          "grand_suite_2_bedroom": 6451,
+          "owners_suite_1_bedroom": 6985,
+          "grand_loft_suite": 9442,
+          "royal_loft_suite": 16391
+        },
+        {
+          "sailing_id": "OY07ROM-3274971603-None",
+          "timestamp": null,
+          "date_range": "Sunday, 3 May - Sunday, 10 May 2026",
+          "base_price": "1058",
+          "interior": 1058,
+          "ocean_view": 1176,
+          "balcony": 1375,
+          "suite_guarantee": 1892,
+          "we_choose_your_suite": 1907,
+          "junior_suite": 2436,
+          "junior_suite_with_large_balcony": 3163,
+          "sky_junior_suite": 3274,
+          "grand_suite_1_bedroom": 4683,
+          "grand_suite_2_bedroom": 6451,
+          "owners_suite_1_bedroom": 6985,
+          "grand_loft_suite": 9442,
+          "royal_loft_suite": 16391
+        },
+        {
+          "sailing_id": "OY07ROM-3274971603-None",
+          "timestamp": null,
+          "date_range": "Sunday, 10 May - Sunday, 17 May 2026",
+          "base_price": "1093",
+          "interior": 1093,
+          "ocean_view": 1174,
+          "balcony": 1315,
+          "suite_guarantee": 1972,
+          "we_choose_your_suite": 1907,
+          "junior_suite": 2436,
+          "junior_suite_with_large_balcony": 3163,
+          "sky_junior_suite": 3274,
+          "grand_suite_1_bedroom": 4683,
+          "grand_suite_2_bedroom": 6451,
+          "owners_suite_1_bedroom": 6985,
+          "grand_loft_suite": 9442,
+          "royal_loft_suite": 16391
+        }
+      ],
+      "route": {
+        "departure": "Rome (Civitavecchia), Italy",
+        "destination_code": "ROM",
+        "ports": [
+          "Rome (Civitavecchia), Italy",
+          "Santorini, Greece",
+          "Ephesus (Kusadasi), Turkey",
+          "Mykonos, Greece",
+          "Naples/Capri, Italy",
+          "Rome (Civitavecchia), Italy"
+        ]
+      },
+      "metadata": {
+        "package_code": "OY07M830",
+        "link": "cruises/itinerary/7-night-greek-isles-from-rome-on-odyssey/OY07ROM-3274971603?sail-date=2026-09-20&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "IC07MIA-1694717396",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Icon of the Seas",
+        "code": "IC"
+      },
+      "sailings": [
+        {
+          "sailing_id": "IC07MIA-1694717396-None",
+          "timestamp": null,
+          "date_range": "Saturday, 6 Sept - Saturday, 13 Sept 2025",
+          "base_price": "983",
+          "interior": 983,
+          "ocean_view": 2319,
+          "balcony": 1305,
+          "suite_guarantee": 3382,
+          "we_choose_your_suite": 3382,
+          "we_choose_your_junior_suite": 4216,
+          "surfside_family_suite": 3738,
+          "ultimate_family_townhouse": 14314
+        },
+        {
+          "sailing_id": "IC07MIA-1694717396-None",
+          "timestamp": null,
+          "date_range": "Saturday, 6 Sept - Saturday, 13 Sept 2025",
+          "base_price": "983",
+          "interior": 983,
+          "ocean_view": 2319,
+          "balcony": 1305,
+          "suite_guarantee": 3382,
+          "we_choose_your_suite": 3382,
+          "we_choose_your_junior_suite": 4216,
+          "surfside_family_suite": 3738,
+          "ultimate_family_townhouse": 14314
+        },
+        {
+          "sailing_id": "IC07MIA-1694717396-None",
+          "timestamp": null,
+          "date_range": "Saturday, 27 Sept - Saturday, 4 Oct 2025",
+          "base_price": "1198",
+          "interior": 1198,
+          "ocean_view": 1262,
+          "balcony": 1371,
+          "suite_guarantee": 3259,
+          "we_choose_your_suite": 3382,
+          "we_choose_your_junior_suite": 4216,
+          "surfside_family_suite": 3738,
+          "ultimate_family_townhouse": 14314
+        },
+        {
+          "sailing_id": "IC07MIA-1694717396-None",
+          "timestamp": null,
+          "date_range": "Saturday, 18 Oct - Saturday, 25 Oct 2025",
+          "base_price": "1114",
+          "interior": 1114,
+          "ocean_view": 1154,
+          "balcony": 1253,
+          "suite_guarantee": 3042,
+          "we_choose_your_suite": 3382,
+          "we_choose_your_junior_suite": 4216,
+          "surfside_family_suite": 3738,
+          "ultimate_family_townhouse": 14314
+        },
+        {
+          "sailing_id": "IC07MIA-1694717396-None",
+          "timestamp": null,
+          "date_range": "Saturday, 1 Nov - Saturday, 8 Nov 2025",
+          "base_price": "1391",
+          "interior": 1391,
+          "ocean_view": 1398,
+          "balcony": 1536,
+          "suite_guarantee": 2989,
+          "we_choose_your_suite": 3382,
+          "we_choose_your_junior_suite": 4216,
+          "surfside_family_suite": 3738,
+          "ultimate_family_townhouse": 14314
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Puerto Costa Maya, Mexico",
+          "Roatan, Honduras",
+          "Cozumel, Mexico",
+          "Perfect Day at CocoCay, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "IC07W698",
+        "link": "cruises/itinerary/7-night-western-caribbean-perfect-day-from-miami-on-icon/IC07MIA-1694717396?sail-date=2025-09-06&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "SY07BYE-3974839330",
+      "name": "Bahamas & Perfect Day Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY07BYE-3974839330-None",
+          "timestamp": null,
+          "date_range": "Sunday, 14 Sept - Sunday, 21 Sept 2025",
+          "base_price": "811",
+          "interior": 811,
+          "balcony": 1292
+        },
+        {
+          "sailing_id": "SY07BYE-3974839330-None",
+          "timestamp": null,
+          "date_range": "Sunday, 31 Aug - Sunday, 7 Sept 2025",
+          "base_price": "834",
+          "interior": 834,
+          "balcony": 1184
+        },
+        {
+          "sailing_id": "SY07BYE-3974839330-None",
+          "timestamp": null,
+          "date_range": "Sunday, 7 Sept - Sunday, 14 Sept 2025",
+          "base_price": "1243",
+          "balcony": 1243,
+          "suite": 1854
+        },
+        {
+          "sailing_id": "SY07BYE-3974839330-None",
+          "timestamp": null,
+          "date_range": "Sunday, 21 Sept - Sunday, 28 Sept 2025",
+          "base_price": "858",
+          "interior": 858,
+          "suite": 3415
+        },
+        {
+          "sailing_id": "SY07BYE-3974839330-None",
+          "timestamp": null,
+          "date_range": "Sunday, 28 Sept - Sunday, 5 Oct 2025",
+          "base_price": "812",
+          "interior": 812,
+          "ocean_view": 978,
+          "balcony": 1165,
+          "suite": 4012
+        }
+      ],
+      "route": {
+        "departure": "Cape Liberty (New York), New Jersey",
+        "destination_code": "BYE",
+        "ports": [
+          "Cape Liberty (New York), New Jersey",
+          "Orlando (Port Canaveral), Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Cape Liberty (New York), New Jersey"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY7BH134",
+        "link": "cruises/itinerary/7-night-bahamas-perfect-day-from-cape-on-symphony/SY07BYE-3974839330?sail-date=2025-09-14&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "SY07MIA-2746579659",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY07MIA-2746579659-None",
+          "timestamp": null,
+          "date_range": "Sunday, 11 Jan - Sunday, 18 Jan 2026",
+          "base_price": "744",
+          "interior": 744,
+          "ocean_view": 862,
+          "balcony": 828,
+          "suite_guarantee": 2460,
+          "junior_suite": 2460,
+          "grand_suite_1_bedroom": 2918,
+          "crown_loft_suite": 3368,
+          "owners_suite_1_bedroom": 4308,
+          "spacious_aquatheater_suite_1_bedroom": 5686,
+          "star_loft_suite": 9303
+        },
+        {
+          "sailing_id": "SY07MIA-2746579659-None",
+          "timestamp": null,
+          "date_range": "Sunday, 16 Nov - Sunday, 23 Nov 2025",
+          "base_price": "766",
+          "interior": 766,
+          "ocean_view": 954,
+          "balcony": 967,
+          "suite_guarantee": 2930,
+          "junior_suite": 2460,
+          "grand_suite_1_bedroom": 2918,
+          "crown_loft_suite": 3368,
+          "owners_suite_1_bedroom": 4308,
+          "spacious_aquatheater_suite_1_bedroom": 5686,
+          "star_loft_suite": 9303
+        },
+        {
+          "sailing_id": "SY07MIA-2746579659-None",
+          "timestamp": null,
+          "date_range": "Sunday, 30 Nov - Sunday, 7 Dec 2025",
+          "base_price": "762",
+          "interior": 762,
+          "ocean_view": 912,
+          "balcony": 935,
+          "suite_guarantee": 2613,
+          "junior_suite": 2460,
+          "grand_suite_1_bedroom": 2918,
+          "crown_loft_suite": 3368,
+          "owners_suite_1_bedroom": 4308,
+          "spacious_aquatheater_suite_1_bedroom": 5686,
+          "star_loft_suite": 9303
+        },
+        {
+          "sailing_id": "SY07MIA-2746579659-None",
+          "timestamp": null,
+          "date_range": "Sunday, 14 Dec - Sunday, 21 Dec 2025",
+          "base_price": "846",
+          "interior": 846,
+          "ocean_view": 973,
+          "balcony": 898,
+          "suite_guarantee": 2226,
+          "junior_suite": 2460,
+          "grand_suite_1_bedroom": 2918,
+          "crown_loft_suite": 3368,
+          "owners_suite_1_bedroom": 4308,
+          "spacious_aquatheater_suite_1_bedroom": 5686,
+          "star_loft_suite": 9303
+        },
+        {
+          "sailing_id": "SY07MIA-2746579659-None",
+          "timestamp": null,
+          "date_range": "Sunday, 28 Dec 2025 - Sunday, 4 Jan 2026",
+          "base_price": "1490",
+          "interior": 1490,
+          "ocean_view": 1664,
+          "balcony": 1713,
+          "suite_guarantee": 5466,
+          "junior_suite": 2460,
+          "grand_suite_1_bedroom": 2918,
+          "crown_loft_suite": 3368,
+          "owners_suite_1_bedroom": 4308,
+          "spacious_aquatheater_suite_1_bedroom": 5686,
+          "star_loft_suite": 9303
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Labadee, Haiti",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY07W668",
+        "link": "cruises/itinerary/7-nt-western-caribbean-perfect-day-from-miami-on-symphony/SY07MIA-2746579659?sail-date=2026-01-11&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "OA08FLL-1526020877",
+      "name": "Southern Caribbean & Perfect Day",
+      "nights": 8,
+      "ship": {
+        "name": "Oasis of the Seas",
+        "code": "OA"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OA08FLL-1526020877-None",
+          "timestamp": null,
+          "date_range": "Saturday, 20 Sept - Sunday, 28 Sept 2025",
+          "base_price": "968",
+          "interior": 968,
+          "ocean_view": 1013,
+          "balcony": 988
+        },
+        {
+          "sailing_id": "OA08FLL-1526020877-None",
+          "timestamp": null,
+          "date_range": "Saturday, 18 Oct - Sunday, 26 Oct 2025",
+          "base_price": "1143",
+          "interior": 1143,
+          "ocean_view": 1728,
+          "balcony": 1596,
+          "suite": 3380
+        },
+        {
+          "sailing_id": "OA08FLL-1526020877-None",
+          "timestamp": null,
+          "date_range": "Saturday, 1 Nov - Sunday, 9 Nov 2025",
+          "base_price": "1179",
+          "interior": 1179,
+          "ocean_view": 1265,
+          "balcony": 1272,
+          "suite": 3146
+        },
+        {
+          "sailing_id": "OA08FLL-1526020877-None",
+          "timestamp": null,
+          "date_range": "Saturday, 15 Nov - Sunday, 23 Nov 2025",
+          "base_price": "1103",
+          "interior": 1103,
+          "ocean_view": 1411,
+          "balcony": 1326,
+          "suite": 2859
+        },
+        {
+          "sailing_id": "OA08FLL-1526020877-None",
+          "timestamp": null,
+          "date_range": "Saturday, 29 Nov - Sunday, 7 Dec 2025",
+          "base_price": "999",
+          "interior": 999,
+          "ocean_view": 1215,
+          "balcony": 1241,
+          "suite": 2302
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Willemstad, Curacao",
+          "Oranjestad, Aruba",
+          "Cabo Rojo, Dominican Republic",
+          "Perfect Day at CocoCay, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "OA08D112",
+        "link": "cruises/itinerary/8-nt-southern-caribbean-perfect-day-from-fort-on-oasis/OA08FLL-1526020877?sail-date=2025-09-20&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "AL06FLL-3043633477",
+      "name": "Western Caribbean Cruise",
+      "nights": 6,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL06FLL-3043633477-None",
+          "timestamp": null,
+          "date_range": "Sunday, 25 Jan - Saturday, 31 Jan 2026",
+          "base_price": "568",
+          "interior": 568,
+          "ocean_view": 683,
+          "balcony": 904,
+          "suite_guarantee": 3090,
+          "grand_suite_1_bedroom": 3090,
+          "crown_loft_suite": 3101,
+          "owners_suite_1_bedroom": 3141,
+          "aquatheater_suite_1_bedroom": 3212,
+          "spacious_aquatheater_suite_1_bedroom": 3670,
+          "star_loft_suite": 5644,
+          "grand_panoramic_suite_1_bedroom": 5797,
+          "we_choose_your_sky_junior_suite": 3546
+        },
+        {
+          "sailing_id": "AL06FLL-3043633477-None",
+          "timestamp": null,
+          "date_range": "Sunday, 16 Nov - Saturday, 22 Nov 2025",
+          "base_price": "723",
+          "interior": 723,
+          "ocean_view": 736,
+          "balcony": 763,
+          "suite_guarantee": 3649,
+          "grand_suite_1_bedroom": 3090,
+          "crown_loft_suite": 3101,
+          "owners_suite_1_bedroom": 3141,
+          "aquatheater_suite_1_bedroom": 3212,
+          "spacious_aquatheater_suite_1_bedroom": 3670,
+          "star_loft_suite": 5644,
+          "grand_panoramic_suite_1_bedroom": 5797,
+          "we_choose_your_sky_junior_suite": 3546
+        },
+        {
+          "sailing_id": "AL06FLL-3043633477-None",
+          "timestamp": null,
+          "date_range": "Sunday, 30 Nov - Saturday, 6 Dec 2025",
+          "base_price": "652",
+          "interior": 652,
+          "ocean_view": 721,
+          "balcony": 714,
+          "suite_guarantee": 3184,
+          "grand_suite_1_bedroom": 3090,
+          "crown_loft_suite": 3101,
+          "owners_suite_1_bedroom": 3141,
+          "aquatheater_suite_1_bedroom": 3212,
+          "spacious_aquatheater_suite_1_bedroom": 3670,
+          "star_loft_suite": 5644,
+          "grand_panoramic_suite_1_bedroom": 5797,
+          "we_choose_your_sky_junior_suite": 3546
+        },
+        {
+          "sailing_id": "AL06FLL-3043633477-None",
+          "timestamp": null,
+          "date_range": "Sunday, 14 Dec - Saturday, 20 Dec 2025",
+          "base_price": "693",
+          "interior": 693,
+          "ocean_view": 699,
+          "balcony": 711,
+          "suite_guarantee": 2711,
+          "grand_suite_1_bedroom": 3090,
+          "crown_loft_suite": 3101,
+          "owners_suite_1_bedroom": 3141,
+          "aquatheater_suite_1_bedroom": 3212,
+          "spacious_aquatheater_suite_1_bedroom": 3670,
+          "star_loft_suite": 5644,
+          "grand_panoramic_suite_1_bedroom": 5797,
+          "we_choose_your_sky_junior_suite": 3546
+        },
+        {
+          "sailing_id": "AL06FLL-3043633477-None",
+          "timestamp": null,
+          "date_range": "Sunday, 28 Dec 2025 - Saturday, 3 Jan 2026",
+          "base_price": "1358",
+          "interior": 1358,
+          "ocean_view": 1402,
+          "balcony": 1399,
+          "suite_guarantee": 3487,
+          "grand_suite_1_bedroom": 3090,
+          "crown_loft_suite": 3101,
+          "owners_suite_1_bedroom": 3141,
+          "aquatheater_suite_1_bedroom": 3212,
+          "spacious_aquatheater_suite_1_bedroom": 3670,
+          "star_loft_suite": 5644,
+          "grand_panoramic_suite_1_bedroom": 5797,
+          "we_choose_your_sky_junior_suite": 3546
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Nassau, Bahamas",
+          "Puerto Costa Maya, Mexico",
+          "Cozumel, Mexico",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL06W259",
+        "link": "cruises/itinerary/6-night-western-caribbean-from-fort-on-allure/AL06FLL-3043633477?sail-date=2026-01-25&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "OY07BYE-3974839358",
+      "name": "Perfect Day Bahamas Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Odyssey of the Seas",
+        "code": "OY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OY07BYE-3974839358-None",
+          "timestamp": null,
+          "date_range": "Sunday, 16 Nov - Sunday, 23 Nov 2025",
+          "base_price": "749",
+          "interior": 749,
+          "ocean_view": 910,
+          "balcony": 885
+        },
+        {
+          "sailing_id": "OY07BYE-3974839358-None",
+          "timestamp": null,
+          "date_range": "Sunday, 16 Nov - Sunday, 23 Nov 2025",
+          "base_price": "749",
+          "interior": 749,
+          "ocean_view": 910,
+          "balcony": 885
+        },
+        {
+          "sailing_id": "OY07BYE-3974839358-None",
+          "timestamp": null,
+          "date_range": "Sunday, 23 Nov - Sunday, 30 Nov 2025",
+          "base_price": "1026",
+          "interior": 1026,
+          "ocean_view": 1147,
+          "balcony": 1288,
+          "suite": 10693
+        },
+        {
+          "sailing_id": "OY07BYE-3974839358-None",
+          "timestamp": null,
+          "date_range": "Sunday, 30 Nov - Sunday, 7 Dec 2025",
+          "base_price": "757",
+          "interior": 757,
+          "ocean_view": 882,
+          "balcony": 940,
+          "suite": 2651
+        },
+        {
+          "sailing_id": "OY07BYE-3974839358-None",
+          "timestamp": null,
+          "date_range": "Sunday, 7 Dec - Sunday, 14 Dec 2025",
+          "base_price": "771",
+          "interior": 771,
+          "ocean_view": 844,
+          "balcony": 837,
+          "suite": 4156
+        }
+      ],
+      "route": {
+        "departure": "Cape Liberty (New York), New Jersey",
+        "destination_code": "BYE",
+        "ports": [
+          "Cape Liberty (New York), New Jersey",
+          "Orlando (Port Canaveral), Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "Nassau, Bahamas",
+          "Cape Liberty (New York), New Jersey"
+        ]
+      },
+      "metadata": {
+        "package_code": "OY7BH144",
+        "link": "cruises/itinerary/7-night-perfect-day-bahamas-from-cape-on-odyssey/OY07BYE-3974839358?sail-date=2025-11-16&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "IC07MIA-2623281014",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Icon of the Seas",
+        "code": "IC"
+      },
+      "sailings": [
+        {
+          "sailing_id": "IC07MIA-2623281014-None",
+          "timestamp": null,
+          "date_range": "Saturday, 13 Sept - Saturday, 20 Sept 2025",
+          "base_price": "1128",
+          "interior": 1128,
+          "ocean_view": 1196,
+          "suite_guarantee": 4838,
+          "we_choose_your_surfside_family_suite": 4550,
+          "we_choose_your_junior_suite": 4838,
+          "we_choose_your_infinite_grand_suite": 6025,
+          "icon_loft_suite": 7395
+        },
+        {
+          "sailing_id": "IC07MIA-2623281014-None",
+          "timestamp": null,
+          "date_range": "Saturday, 13 Sept - Saturday, 20 Sept 2025",
+          "base_price": "1128",
+          "interior": 1128,
+          "ocean_view": 1196,
+          "suite_guarantee": 4838,
+          "we_choose_your_surfside_family_suite": 4550,
+          "we_choose_your_junior_suite": 4838,
+          "we_choose_your_infinite_grand_suite": 6025,
+          "icon_loft_suite": 7395
+        },
+        {
+          "sailing_id": "IC07MIA-2623281014-None",
+          "timestamp": null,
+          "date_range": "Saturday, 4 Oct - Saturday, 11 Oct 2025",
+          "base_price": "1184",
+          "interior": 1184,
+          "ocean_view": 1318,
+          "balcony": 1414,
+          "suite_guarantee": 3534,
+          "we_choose_your_surfside_family_suite": 4550,
+          "we_choose_your_junior_suite": 4838,
+          "we_choose_your_infinite_grand_suite": 6025,
+          "icon_loft_suite": 7395
+        },
+        {
+          "sailing_id": "IC07MIA-2623281014-None",
+          "timestamp": null,
+          "date_range": "Saturday, 25 Oct - Saturday, 1 Nov 2025",
+          "base_price": "1163",
+          "interior": 1163,
+          "ocean_view": 1188,
+          "balcony": 1238,
+          "suite_guarantee": 3459,
+          "we_choose_your_surfside_family_suite": 4550,
+          "we_choose_your_junior_suite": 4838,
+          "we_choose_your_infinite_grand_suite": 6025,
+          "icon_loft_suite": 7395
+        },
+        {
+          "sailing_id": "IC07MIA-2623281014-None",
+          "timestamp": null,
+          "date_range": "Saturday, 8 Nov - Saturday, 15 Nov 2025",
+          "base_price": "1602",
+          "interior": 1602,
+          "ocean_view": 1620,
+          "balcony": 1739,
+          "suite_guarantee": 3488,
+          "we_choose_your_surfside_family_suite": 4550,
+          "we_choose_your_junior_suite": 4838,
+          "we_choose_your_infinite_grand_suite": 6025,
+          "icon_loft_suite": 7395
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Philipsburg, St Maarten",
+          "Charlotte Amalie, St Thomas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "IC07E484",
+        "link": "cruises/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-icon/IC07MIA-2623281014?sail-date=2025-09-13&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    },
+    {
+      "id": "AL07BCN-1230259748",
+      "name": "Western Mediterranean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07BCN-1230259748-None",
+          "timestamp": null,
+          "date_range": "Sunday, 19 Oct - Sunday, 26 Oct 2025",
+          "base_price": "1347",
+          "interior": 1347,
+          "ocean_view": 1452,
+          "balcony": 1450,
+          "suite_guarantee": 4067,
+          "crown_loft_suite": 4067,
+          "star_loft_suite": 9093,
+          "grand_panoramic_suite_1_bedroom": 9669
+        },
+        {
+          "sailing_id": "AL07BCN-1230259748-None",
+          "timestamp": null,
+          "date_range": "Sunday, 21 Sept - Sunday, 28 Sept 2025",
+          "base_price": "3559",
+          "suite_guarantee": 3559,
+          "crown_loft_suite": 4067,
+          "star_loft_suite": 9093,
+          "grand_panoramic_suite_1_bedroom": 9669
+        },
+        {
+          "sailing_id": "AL07BCN-1230259748-None",
+          "timestamp": null,
+          "date_range": "Sunday, 5 Oct - Sunday, 12 Oct 2025",
+          "base_price": "1738",
+          "balcony": 1738,
+          "suite_guarantee": 7807,
+          "crown_loft_suite": 4067,
+          "star_loft_suite": 9093,
+          "grand_panoramic_suite_1_bedroom": 9669
+        }
+      ],
+      "route": {
+        "departure": "Barcelona, Spain",
+        "destination_code": "BCN",
+        "ports": [
+          "Barcelona, Spain",
+          "Palma de Mallorca, Spain",
+          "Florence/Pisa (La Spezia), Italy",
+          "Rome (Civitavecchia), Italy",
+          "Naples/Capri, Italy",
+          "Barcelona, Spain"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07M753",
+        "link": "cruises/itinerary/7-night-western-mediterranean-from-barcelona-on-allure/AL07BCN-1230259748?sail-date=2025-10-19&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-27T03:02:08.823Z"
+      }
+    }
+  ]
+}

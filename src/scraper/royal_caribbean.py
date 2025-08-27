@@ -24,7 +24,7 @@ class RoyalCaribbeanOptimizedScraper:
     def scrape(
         self, max_cruises: Optional[int] = None, max_sailings: Optional[int] = None
     ) -> tuple[List[Dict], str]:
-        print("🚢 Starting Royal Caribbean scraper...")
+        print("🚢 Starting Royal Caribbean scraper...", flush=True)
         print(f"📍 URL: {self.cruises_url}")
         print(f"   Mode: {'Headless' if self.headless else 'Visible'}")
         if max_cruises:
@@ -167,6 +167,8 @@ class RoyalCaribbeanOptimizedScraper:
     def _parse_sailing_date(self, date_text: str) -> Union[tuple[str, str], tuple[None, str]]:
         import re
 
+        print("    📆 Parsing sailing date...", date_text)
+
         pattern = r"(?:\w+day)\s+(\d+)\s+(\w+)\s*-\s*(?:\w+day)\s+(\d+)\s+(\w+)\s+(\d{4})"
         match = re.match(pattern, date_text)
 
@@ -189,6 +191,7 @@ class RoyalCaribbeanOptimizedScraper:
             start_month_num = months.get(start_month[:3], 1)
             start_date = f"{year}-{start_month_num:02d}-{int(start_day):02d}"
             date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
+            print("    ❗️Got sailing date:", start_date, date_range)
             return start_date, date_range
 
         return None, date_text
@@ -383,7 +386,8 @@ class RoyalCaribbeanOptimizedScraper:
 
                 if date_info["element_index"] < date_tabs.count():
                     date_tabs.nth(date_info["element_index"]).click()
-                    page.wait_for_timeout(1000)
+                    page.wait_for_timeout(5000)
+                    time.sleep(2)
                     full_date = page.evaluate("""() => {
                         const activeLabel = document.querySelector('[class*="RefinedCruiseCarouselActiveMonthLabel"]');
                         return activeLabel ? activeLabel.innerText : null;
@@ -463,18 +467,23 @@ class RoyalCaribbeanOptimizedScraper:
         new_page = None
 
         try:
+            time.sleep(5)
+            page.wait_for_timeout(5000)
             suite_button = page.locator('[data-testid="book-now-button-DELUXE"]')
             if suite_button.count() == 0:
-                print("    ℹ️ 'Book Suite' button disabled.")
+                print("    ⛔️'Book Suite' button not found.")
                 return {}
+
+            print("    📂️'Opening new tab...")
             with context.expect_page(timeout=5000) as new_page_info:
                 page.evaluate("window.open(window.location.href, '_blank')")
 
             new_page = new_page_info.value
-            time.sleep(2)
+            time.sleep(5)
+            new_page.wait_for_timeout(5000)
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
-                print("    ℹ️ 'Book Suite' button disabled.")
+                print("    ⛔️'Book Suite' button not found in new page.")
                 return {}
             is_disabled = new_page_suite_button.evaluate("el => el.disabled")
             if is_disabled:
