@@ -43,7 +43,7 @@ def main():
 
         if processed_file:
             print(f"\n   🔁Converting {processed_file} to CSV...")
-            rows_added = json_parser.convert_json_to_csv(processed_file, args.csv_output)
+            rows_added = json_parser.convert_json_to_csv(processed_file)
             print(f"   ➕Added {rows_added} rows to {args.csv_output}")
         else:
             print("No processed file returned from scraper")
@@ -51,7 +51,7 @@ def main():
     if args.convert:
         print("Converting JSON files to CSV...")
         try:
-            rows_added = json_parser.convert_json_to_csv(args.convert, args.csv_output)
+            rows_added = json_parser.convert_json_to_csv(args.convert)
             print(f"Successfully converted {rows_added} rows")
         except Exception as e:
             print(f"Error during conversion: {e}")

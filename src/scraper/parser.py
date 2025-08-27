@@ -142,9 +142,7 @@ class CruiseDataParser:
         else:
             raise ValueError(f"Path does not exist: {path}")
 
-    def convert_json_to_csv(
-        self, json_path: Union[str, Path], output_csv: str = "data/cruise_prices.csv"
-    ) -> int:
+    def convert_json_to_csv(self, json_path: Union[str, Path]) -> int:
         return self.process(json_path)
 
 
@@ -161,7 +159,7 @@ if __name__ == "__main__":
     json_parser = CruiseDataParser(output_csv)
 
     try:
-        rows_added = json_parser.convert_json_to_csv(json_path, output_csv)
+        rows_added = json_parser.convert_json_to_csv(json_path)
         print(f"Successfully processed {rows_added} rows")
     except Exception as e:
         print(f"Error: {e}")

@@ -6,7 +6,7 @@ on:
       max_cruises:
         description: 'Maximum cruises (default: 10)'
         required: false
-        default: '10'
+        default: '100'
       max_sailings:
         description: 'Maximum sailings per cruise (default: 5)'
         required: false
@@ -21,7 +21,6 @@ on:
 
 jobs:
   scrape:
-    # Use Ubuntu 22.04 instead of latest (24.04) for better compatibility
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -50,7 +49,7 @@ jobs:
           MAX_SAILINGS="${{ github.event.inputs.max_sailings }}"
           ANALYZE="${{ github.event.inputs.run_analysis }}"
         else
-          MAX_CRUISES="10"
+          MAX_CRUISES="100"
           MAX_SAILINGS="5"
           ANALYZE="false"
         fi
