@@ -303,7 +303,7 @@ class RoyalCaribbeanOptimizedScraper:
                 continue
 
             if max_cruises and i >= max_cruises:
-                print("   ☑️Processed all cruises")
+                print("    ☑️ Processed all cruises")
                 break
 
             try:
@@ -328,7 +328,7 @@ class RoyalCaribbeanOptimizedScraper:
                 time.sleep(5)
                 view_dates_button.click()
 
-                page.wait_for_timeout(3000)
+                page.wait_for_timeout(5000)
 
                 cruise["sailings"] = self._extract_sailing_dates_and_prices(
                     page, self.context, cruise["id"], max_sailings
@@ -488,13 +488,13 @@ class RoyalCaribbeanOptimizedScraper:
                 print("    ⛔️'Book Suite' button not found.")
                 return {}
 
-            print("    📂️Opening new tab...")
+            print("    📂️ Opening new tab...")
             with context.expect_page(timeout=5000) as new_page_info:
                 page.evaluate("window.open(window.location.href, '_blank')")
 
             new_page = new_page_info.value
             time.sleep(5)
-            new_page.wait_for_timeout(3000)
+            new_page.wait_for_timeout(5000)
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
                 print("    ⛔️'Book Suite' button not found in new page.")
@@ -504,7 +504,7 @@ class RoyalCaribbeanOptimizedScraper:
                 print("    ℹ️ Suite unavailable (button disabled)")
                 return {}
             new_page.locator('[data-testid="book-now-button-DELUXE"]').click(modifiers=["Meta"])
-            new_page.wait_for_timeout(500)
+            new_page.wait_for_timeout(5000)
             new_page.wait_for_load_state("networkidle")
             room_selection_btn = new_page.locator('[data-testid="funnel-footer-cta-btn"]')
             room_selection_btn.wait_for(timeout=10000)
