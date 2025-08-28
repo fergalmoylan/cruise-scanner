@@ -458,8 +458,6 @@ class RoyalCaribbeanOptimizedScraper:
                         **room_prices,
                     }
 
-                    print(sailing_data)
-
                     if suite_details:
                         if "suite" in sailing_data:
                             sailing_data["suite_guarantee"] = sailing_data.pop("suite")
