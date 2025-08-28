@@ -88,7 +88,7 @@ class RoyalCaribbeanOptimizedScraper:
                 browser.close()
 
     def _handle_cookie_consent(self, page):
-        print("🍪 Checking for cookie consent...")
+        print("🍪Checking for cookie consent...")
         try:
             page.wait_for_timeout(2000)
             cookie_result = page.evaluate("""() => {
@@ -116,7 +116,7 @@ class RoyalCaribbeanOptimizedScraper:
             }""")
 
             if cookie_result["found"]:
-                print(f"  ✓ {cookie_result['action'].title()} cookies: '{cookie_result['text']}'")
+                print(f"🚫 {cookie_result['action'].title()} cookies: '{cookie_result['text']}'")
                 page.wait_for_timeout(1000)
             else:
                 print("  ℹ️ No cookie banner found")
@@ -191,7 +191,6 @@ class RoyalCaribbeanOptimizedScraper:
             start_month_num = months.get(start_month[:3], 1)
             start_date = f"{year}-{start_month_num:02d}-{int(start_day):02d}"
             date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
-            print("    ❗️Got sailing date:", start_date, date_range)
             return start_date, date_range
 
         return None, date_text
@@ -223,7 +222,7 @@ class RoyalCaribbeanOptimizedScraper:
             page.wait_for_timeout(2000)
 
         print("🔍 Extracting all cruises from page...")
-        all_cruises = self._extract_cruises_from_page(page, max_sailings)
+        all_cruises = self._extract_cruises_from_page(page, max_cruises, max_sailings)
 
         if max_cruises and len(all_cruises) > max_cruises:
             all_cruises = all_cruises[:max_cruises]
@@ -260,7 +259,9 @@ class RoyalCaribbeanOptimizedScraper:
         except Exception:
             return False
 
-    def _extract_cruises_from_page(self, page, max_sailings: Optional[int]) -> List[Dict]:
+    def _extract_cruises_from_page(
+        self, page, max_cruises: Optional[int], max_sailings: Optional[int]
+    ) -> List[Dict]:
         basic_cruises = page.evaluate("""() => {
             const cruises = [];
             const cards = document.querySelectorAll('[data-testid*="cruise-card-container"]');
@@ -299,6 +300,9 @@ class RoyalCaribbeanOptimizedScraper:
         for i, cruise in enumerate(basic_cruises):
             if not cruise.get("view_dates_button_id"):
                 cruises_with_pricing.append(cruise)
+
+                if max_cruises and i >= max_cruises:
+                    break
                 continue
 
             try:
@@ -437,6 +441,8 @@ class RoyalCaribbeanOptimizedScraper:
                         else (None, date_info["date_range"])
                     )
 
+                    print("    ❗️Got sailing date:", start_date, date_range)
+
                     suite_details = {}
                     if room_prices.get("suite"):
                         suite_details = self._extract_suite_details_in_new_tab(page, context)
@@ -448,6 +454,8 @@ class RoyalCaribbeanOptimizedScraper:
                         "base_price": date_info["base_price"].replace("€", ""),
                         **room_prices,
                     }
+
+                    print(sailing_data)
 
                     if suite_details:
                         if "suite" in sailing_data:
@@ -474,7 +482,7 @@ class RoyalCaribbeanOptimizedScraper:
                 print("    ⛔️'Book Suite' button not found.")
                 return {}
 
-            print("    📂️'Opening new tab...")
+            print("   📂️Opening new tab...")
             with context.expect_page(timeout=5000) as new_page_info:
                 page.evaluate("window.open(window.location.href, '_blank')")
 

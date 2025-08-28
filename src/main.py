@@ -42,9 +42,8 @@ def main():
         )
 
         if processed_file:
-            print(f"\n   🔁Converting {processed_file} to CSV...")
+            print(f"\n🔁Converting {processed_file} to CSV...")
             rows_added = json_parser.convert_json_to_csv(processed_file)
-            print(f"   ➕Added {rows_added} rows to {args.csv_output}")
         else:
             print("No processed file returned from scraper")
 
@@ -70,7 +69,7 @@ def main():
 
     end_time = time.time()
     elapsed_time = (end_time - start_time) / 60
-    print(f"   ⏱️Elapsed Time: {elapsed_time} minutes")
+    print("⏱️Elapsed Time: {.2f} minutes".format(elapsed_time))
 
 
 if __name__ == "__main__":
