@@ -1,0 +1,231 @@
+{
+  "timestamp": "2025-08-28T23:21:27.442723",
+  "source_url": "https://www.royalcaribbean.com/gbr/en/cruises?search=departurePort:BCN,BYE,FLL,LAX,MIA,ROM,SIN,YOK|nights:6~8,9~11,gte12|ship:AL,AN,HM,IC,LE,OA,OV,OY,QN,ST,SY,UT,WN&country=IRL&market=gbr&language=en",
+  "total_found": 5,
+  "total_processed": 5,
+  "cruises": [
+    {
+      "id": "HM07BCN-1495935620",
+      "name": "Western Mediterranean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Harmony of the Seas",
+        "code": "HM"
+      },
+      "sailings": [
+        {
+          "sailing_id": "HM07BCN-1495935620-None",
+          "timestamp": null,
+          "date_range": "Sunday, 31 May - Sunday, 7 Jun 2026",
+          "base_price": "1161",
+          "interior": 1161,
+          "ocean_view": 1409,
+          "balcony": 1436,
+          "suite_guarantee": 2994,
+          "we_choose_your_suite": 2994,
+          "sky_junior_suite": 3219,
+          "junior_suite": 3302,
+          "grand_suite_1_bedroom": 4125,
+          "crown_loft_suite": 4794,
+          "owners_suite_1_bedroom": 5213,
+          "spacious_aquatheater_suite_1_bedroom": 5736
+        }
+      ],
+      "route": {
+        "departure": "Barcelona, Spain",
+        "destination_code": "BCN",
+        "ports": [
+          "Barcelona, Spain",
+          "Palma de Mallorca, Spain",
+          "Provence (Marseille), France",
+          "Florence/Pisa (La Spezia), Italy",
+          "Rome (Civitavecchia), Italy",
+          "Naples/Capri, Italy",
+          "Barcelona, Spain"
+        ]
+      },
+      "metadata": {
+        "package_code": "HM07M797",
+        "link": "cruises/itinerary/7-night-western-mediterranean-from-barcelona-on-harmony/HM07BCN-1495935620?sail-date=2026-05-31&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-28T23:17:03.216Z"
+      }
+    },
+    {
+      "id": "OY07ROM-3274971603",
+      "name": "Greek Isles Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Odyssey of the Seas",
+        "code": "OY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OY07ROM-3274971603-None",
+          "timestamp": null,
+          "date_range": "Sunday, 30 Aug - Sunday, 6 Sept 2026",
+          "base_price": "919",
+          "interior": 919,
+          "ocean_view": 1088,
+          "balcony": 1112,
+          "suite_guarantee": 1970,
+          "we_choose_your_suite": 1970,
+          "junior_suite": 2451,
+          "junior_suite_with_large_balcony": 3187,
+          "sky_junior_suite": 3579,
+          "grand_suite_1_bedroom": 5281,
+          "grand_suite_2_bedroom": 6863,
+          "owners_suite_1_bedroom": 7721,
+          "grand_loft_suite": 10222,
+          "owners_loft_suite": 12548,
+          "royal_loft_suite": 17611
+        }
+      ],
+      "route": {
+        "departure": "Rome (Civitavecchia), Italy",
+        "destination_code": "ROM",
+        "ports": [
+          "Rome (Civitavecchia), Italy",
+          "Santorini, Greece",
+          "Ephesus (Kusadasi), Turkey",
+          "Mykonos, Greece",
+          "Naples/Capri, Italy",
+          "Rome (Civitavecchia), Italy"
+        ]
+      },
+      "metadata": {
+        "package_code": "OY07M830",
+        "link": "cruises/itinerary/7-night-greek-isles-from-rome-on-odyssey/OY07ROM-3274971603?sail-date=2026-08-30&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-28T23:17:03.216Z"
+      }
+    },
+    {
+      "id": "IC07MIA-1694717396",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Icon of the Seas",
+        "code": "IC"
+      },
+      "sailings": [
+        {
+          "sailing_id": "IC07MIA-1694717396-None",
+          "timestamp": null,
+          "date_range": "Saturday, 18 Oct - Saturday, 25 Oct 2025",
+          "base_price": "1044",
+          "interior": 1044,
+          "ocean_view": 1084,
+          "balcony": 1182,
+          "suite_guarantee": 3038,
+          "surfside_family_suite": 3038,
+          "sunset_corner_suite": 4721,
+          "we_choose_your_junior_suite": 3497,
+          "we_choose_your_grand_suite": 5319
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Puerto Costa Maya, Mexico",
+          "Roatan, Honduras",
+          "Cozumel, Mexico",
+          "Perfect Day at CocoCay, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "IC07W698",
+        "link": "cruises/itinerary/7-night-western-caribbean-perfect-day-from-miami-on-icon/IC07MIA-1694717396?sail-date=2025-10-18&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-28T23:17:03.216Z"
+      }
+    },
+    {
+      "id": "SY07BYE-3974839330",
+      "name": "Bahamas & Perfect Day Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY07BYE-3974839330-None",
+          "timestamp": null,
+          "date_range": "Sunday, 21 Sept - Sunday, 28 Sept 2025",
+          "base_price": "783",
+          "interior": 783,
+          "suite_guarantee": 1847,
+          "we_choose_your_suite": 1847,
+          "junior_suite": 2333,
+          "spacious_aquatheater_suite_1_bedroom": 3390,
+          "crown_loft_suite": 3430
+        }
+      ],
+      "route": {
+        "departure": "Cape Liberty (New York), New Jersey",
+        "destination_code": "BYE",
+        "ports": [
+          "Cape Liberty (New York), New Jersey",
+          "Orlando (Port Canaveral), Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Cape Liberty (New York), New Jersey"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY7BH134",
+        "link": "cruises/itinerary/7-night-bahamas-perfect-day-from-cape-on-symphony/SY07BYE-3974839330?sail-date=2025-09-21&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-28T23:17:03.217Z"
+      }
+    },
+    {
+      "id": "SY07MIA-2746579659",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY07MIA-2746579659-None",
+          "timestamp": null,
+          "date_range": "Sunday, 30 Nov - Sunday, 7 Dec 2025",
+          "base_price": "741",
+          "interior": 741,
+          "ocean_view": 885,
+          "balcony": 892,
+          "suite_guarantee": 2564,
+          "we_choose_your_junior_suite": 2564,
+          "sky_junior_suite": 2704,
+          "grand_suite_1_bedroom": 2887,
+          "crown_loft_suite": 3617,
+          "owners_suite_1_bedroom": 3705,
+          "spacious_aquatheater_suite_1_bedroom": 4817,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7361,
+          "star_loft_suite": 7613,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 7855,
+          "ultimate_family_suite": 12153
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Labadee, Haiti",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY07W668",
+        "link": "cruises/itinerary/7-nt-western-caribbean-perfect-day-from-miami-on-symphony/SY07MIA-2746579659?sail-date=2025-11-30&currency=EUR&country=IRL",
+        "scraped_at": "2025-08-28T23:17:03.217Z"
+      }
+    }
+  ]
+}
