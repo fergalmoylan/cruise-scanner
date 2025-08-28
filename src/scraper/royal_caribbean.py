@@ -167,7 +167,7 @@ class RoyalCaribbeanOptimizedScraper:
     def _parse_sailing_date(self, date_text: str) -> Union[tuple[str, str], tuple[None, str]]:
         import re
 
-        print("    📆 Parsing sailing date...", date_text)
+        print("    📆 Parsing sailing date:", date_text)
 
         pattern = r"(?:\w+day)\s+(\d+)\s+(\w+)\s*-\s*(?:\w+day)\s+(\d+)\s+(\w+)\s+(\d{4})"
         match = re.match(pattern, date_text)
@@ -192,6 +192,8 @@ class RoyalCaribbeanOptimizedScraper:
             start_date = f"{year}-{start_month_num:02d}-{int(start_day):02d}"
             date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
             return start_date, date_range
+
+        print("   ⚠️No match found for date pattern:", date_text)
 
         return None, date_text
 
@@ -300,10 +302,11 @@ class RoyalCaribbeanOptimizedScraper:
         for i, cruise in enumerate(basic_cruises):
             if not cruise.get("view_dates_button_id"):
                 cruises_with_pricing.append(cruise)
-
-                if max_cruises and i >= max_cruises:
-                    break
                 continue
+
+            if max_cruises and i >= max_cruises:
+                print("   ☑️Processed all cruises")
+                break
 
             try:
                 print(
@@ -433,6 +436,8 @@ class RoyalCaribbeanOptimizedScraper:
                             }
                             return prices;
                         }""")
+
+                    print("   ⬇️Extracted full date:", full_date)
 
                     room_prices = {k: int(v.replace("€", "")) for k, v in room_prices.items()}
                     start_date, date_range = (

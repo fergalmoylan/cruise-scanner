@@ -69,7 +69,7 @@ def main():
 
     end_time = time.time()
     elapsed_time = (end_time - start_time) / 60
-    print("⏱️Elapsed Time: {.2f} minutes".format(elapsed_time))
+    print("⏱️Elapsed Time: {:.2f} minutes".format(elapsed_time))
 
 
 if __name__ == "__main__":
