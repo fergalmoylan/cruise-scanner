@@ -307,9 +307,15 @@ class RoyalCaribbeanOptimizedScraper:
                 break
 
             try:
-                print(
-                    f"Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}"
-                )
+                if max_cruises:
+                    print(
+                        f"Processing cruise {i + 1}/{max_cruises}: {cruise.get('name', 'Unknown')}"
+                    )
+
+                else:
+                    print(
+                        f"Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}"
+                    )
                 try:
                     self._click_load_more(page)
                 except Exception:
@@ -319,7 +325,7 @@ class RoyalCaribbeanOptimizedScraper:
                     f'[data-testid="{cruise["view_dates_button_id"]}"]'
                 ).first
 
-                time.sleep(2)
+                time.sleep(5)
                 view_dates_button.click()
 
                 page.wait_for_timeout(3000)
@@ -487,7 +493,7 @@ class RoyalCaribbeanOptimizedScraper:
                 page.evaluate("window.open(window.location.href, '_blank')")
 
             new_page = new_page_info.value
-            time.sleep(3)
+            time.sleep(5)
             new_page.wait_for_timeout(3000)
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
