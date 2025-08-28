@@ -68,8 +68,10 @@ def main():
         parser.print_help()
 
     end_time = time.time()
-    elapsed_time = (end_time - start_time) / 60
-    print("⏱️Elapsed Time: {:.2f} minutes".format(elapsed_time))
+    elapsed_time = end_time - start_time
+    minutes = int(elapsed_time // 60)
+    seconds = int(elapsed_time % 60)
+    print(f"⏱️Elapsed Time: {minutes}m {seconds}s")
 
 
 if __name__ == "__main__":
