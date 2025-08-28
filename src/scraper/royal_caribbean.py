@@ -168,9 +168,8 @@ class RoyalCaribbeanOptimizedScraper:
         import re
 
         print("    📆 Parsing sailing date:", date_text)
-
-        pattern = r"(?:\w+day)\s+(\d+)\s+(\w+)\s*-\s*(?:\w+day)\s+(\d+)\s+(\w+)\s+(\d{4})"
-        match = re.match(pattern, date_text)
+        pattern = r"(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)\s*-\s*(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})"
+        match = re.search(pattern, date_text)
 
         if match:
             start_day, start_month, end_day, end_month, year = match.groups()
@@ -194,7 +193,6 @@ class RoyalCaribbeanOptimizedScraper:
             return start_date, date_range
 
         print("   ⚠️No match found for date pattern:", date_text)
-
         return None, date_text
 
     def _load_all_cruises(
