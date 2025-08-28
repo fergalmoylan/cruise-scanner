@@ -319,7 +319,7 @@ class RoyalCaribbeanOptimizedScraper:
                     f'[data-testid="{cruise["view_dates_button_id"]}"]'
                 ).first
 
-                time.sleep(5)
+                time.sleep(2)
                 view_dates_button.click()
 
                 page.wait_for_timeout(3000)
@@ -392,7 +392,6 @@ class RoyalCaribbeanOptimizedScraper:
                 if date_info["element_index"] < date_tabs.count():
                     date_tabs.nth(date_info["element_index"]).click()
                     page.wait_for_timeout(5000)
-                    time.sleep(2)
                     full_date = page.evaluate("""() => {
                         const activeLabel = document.querySelector('[class*="RefinedCruiseCarouselActiveMonthLabel"]');
                         return activeLabel ? activeLabel.innerText : null;
@@ -435,7 +434,7 @@ class RoyalCaribbeanOptimizedScraper:
                             return prices;
                         }""")
 
-                    print("   ⬇️Extracted full date:", full_date)
+                    print("    ⬇️ Extracted full date:", full_date)
 
                     room_prices = {k: int(v.replace("€", "")) for k, v in room_prices.items()}
                     start_date, date_range = (
@@ -444,7 +443,7 @@ class RoyalCaribbeanOptimizedScraper:
                         else (None, date_info["date_range"])
                     )
 
-                    print("    ❗️Got sailing date:", start_date, date_range)
+                    print("    ❗️ Got sailing date:", start_date, date_range)
 
                     suite_details = {}
                     if room_prices.get("suite"):
@@ -483,13 +482,13 @@ class RoyalCaribbeanOptimizedScraper:
                 print("    ⛔️'Book Suite' button not found.")
                 return {}
 
-            print("   📂️Opening new tab...")
+            print("    📂️Opening new tab...")
             with context.expect_page(timeout=5000) as new_page_info:
                 page.evaluate("window.open(window.location.href, '_blank')")
 
             new_page = new_page_info.value
-            time.sleep(5)
-            new_page.wait_for_timeout(5000)
+            time.sleep(3)
+            new_page.wait_for_timeout(3000)
             new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
             if new_page_suite_button.count() == 0:
                 print("    ⛔️'Book Suite' button not found in new page.")
