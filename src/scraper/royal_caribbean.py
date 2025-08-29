@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import json
 import time
 from datetime import datetime
@@ -6,6 +8,8 @@ from pathlib import Path
 from typing import Dict, List, Optional, Union
 
 from playwright.sync_api import sync_playwright
+
+LAST_SAILING_YEAR: int | None = None
 
 
 class RoyalCaribbeanOptimizedScraper:
@@ -166,34 +170,63 @@ class RoyalCaribbeanOptimizedScraper:
 
     def _parse_sailing_date(self, date_text: str) -> Union[tuple[str, str], tuple[None, str]]:
         import re
+        from datetime import datetime
 
+        global LAST_SAILING_YEAR
+
+        date_text = date_text.replace("\u00a0", " ").strip()
         print("    📆 Parsing sailing date:", date_text)
-        pattern = r"(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)\s*-\s*(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})"
+
+        pattern = (
+            r"(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?"  # start: day, month, optional year
+            r"\s*-\s*"
+            r"(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?"  # end: day, month, optional year
+            r"$"
+        )
         match = re.search(pattern, date_text)
+        if not match:
+            print("   ⚠️No match found for date pattern:", date_text)
+            return None, date_text
 
-        if match:
-            start_day, start_month, end_day, end_month, year = match.groups()
-            months = {
-                "Jan": 1,
-                "Feb": 2,
-                "Mar": 3,
-                "Apr": 4,
-                "May": 5,
-                "Jun": 6,
-                "Jul": 7,
-                "Aug": 8,
-                "Sep": 9,
-                "Oct": 10,
-                "Nov": 11,
-                "Dec": 12,
-            }
-            start_month_num = months.get(start_month[:3], 1)
-            start_date = f"{year}-{start_month_num:02d}-{int(start_day):02d}"
-            date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
-            return start_date, date_range
+        start_day, start_month, start_year_str, end_day, end_month, end_year_str = match.groups()
 
-        print("   ⚠️No match found for date pattern:", date_text)
-        return None, date_text
+        months = {
+            "Jan": 1,
+            "Feb": 2,
+            "Mar": 3,
+            "Apr": 4,
+            "May": 5,
+            "Jun": 6,
+            "Jul": 7,
+            "Aug": 8,
+            "Sep": 9,
+            "Oct": 10,
+            "Nov": 11,
+            "Dec": 12,
+        }
+        sm = months.get(start_month[:3], 1)
+        em = months.get(end_month[:3], 1)
+        sd = int(start_day)
+        ed = int(end_day)
+
+        start_year = int(start_year_str) if start_year_str else None
+        end_year = int(end_year_str) if end_year_str else None
+
+        if start_year is not None:
+            year = start_year
+        elif end_year is not None:
+            crosses_year = (em < sm) or (em == sm and ed < sd)
+            year = end_year - 1 if crosses_year else end_year
+        elif LAST_SAILING_YEAR is not None:
+            year = LAST_SAILING_YEAR
+        else:
+            year = datetime.now().year
+
+        LAST_SAILING_YEAR = year
+
+        start_date = f"{year:04d}-{sm:02d}-{sd:02d}"
+        date_range = f"{start_month} {start_day} - {end_month} {end_day}, {year}"
+        return start_date, date_range
 
     def _load_all_cruises(
         self, page, max_cruises: Optional[int], max_sailings: Optional[int]
