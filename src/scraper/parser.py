@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 import csv
 import json
+import logging
 from pathlib import Path
 from typing import Any, Dict, List, Union
+
+logger = logging.getLogger(__name__)
 
 
 class CruiseDataParser:
@@ -87,7 +90,7 @@ class CruiseDataParser:
 
     def append_to_csv(self, rows: List[Dict[str, Any]]):
         if not rows:
-            print("No rows to append")
+            logger.info("No rows to append")
             return
 
         file_exists = self.output_csv.exists() and self.output_csv.stat().st_size > 0
@@ -97,21 +100,21 @@ class CruiseDataParser:
 
             if not file_exists:
                 writer.writeheader()
-                print(f"Created new CSV file: {self.output_csv}")
+                logger.info(f"Created new CSV file: {self.output_csv}")
 
             writer.writerows(rows)
-            print(f"Appended {len(rows)} rows to {self.output_csv}")
+            logger.info(f"Appended {len(rows)} rows to {self.output_csv}")
 
     def process_file(self, json_path: Union[str, Path]) -> int:
         json_path = Path(json_path)
-        print(f"Processing: {json_path}")
+        logger.info(f"Processing: {json_path}")
 
         try:
             rows = self.parse_json_to_rows(json_path)
             self.append_to_csv(rows)
             return len(rows)
         except Exception as e:
-            print(f"Error processing {json_path}: {e}")
+            logger.info(f"Error processing {json_path}: {e}")
             return 0
 
     def process_directory(self, directory: Union[str, Path]) -> int:
@@ -119,17 +122,17 @@ class CruiseDataParser:
         json_files = sorted(directory.glob("*.json"))
 
         if not json_files:
-            print(f"No JSON files found in {directory}")
+            logger.info(f"No JSON files found in {directory}")
             return 0
 
-        print(f"Found {len(json_files)} JSON files to process")
+        logger.info(f"Found {len(json_files)} JSON files to process")
         total_rows = 0
 
         for json_file in json_files:
             rows_added = self.process_file(json_file)
             total_rows += rows_added
 
-        print(f"\nTotal: {total_rows} rows added from {len(json_files)} files")
+        logger.info(f"\nTotal: {total_rows} rows added from {len(json_files)} files")
         return total_rows
 
     def process(self, path: Union[str, Path]) -> int:
@@ -150,7 +153,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python parser.py <json_file_or_directory> [output_csv]")
+        logger.info("Usage: python parser.py <json_file_or_directory> [output_csv]")
         sys.exit(1)
 
     json_path = sys.argv[1]
@@ -160,7 +163,7 @@ if __name__ == "__main__":
 
     try:
         rows_added = json_parser.convert_json_to_csv(json_path)
-        print(f"Successfully processed {rows_added} rows")
+        logger.info(f"Successfully processed {rows_added} rows")
     except Exception as e:
-        print(f"Error: {e}")
+        logger.info(f"Error: {e}")
         sys.exit(1)
