@@ -14,6 +14,9 @@ LAST_SAILING_YEAR: int | None = None
 
 logger = logging.getLogger(__name__)
 
+START_TIME = time.time()
+MAX_RUNTIME = 4 * 60 * 60  # 4 hours in seconds
+
 
 class RoyalCaribbeanOptimizedScraper:
     def __init__(self, headless: bool = True):
@@ -342,6 +345,13 @@ class RoyalCaribbeanOptimizedScraper:
 
             if max_cruises and i >= max_cruises:
                 logger.info("    ☑️ Processed all cruises")
+                break
+
+            elapsed = time.time() - START_TIME
+            if elapsed > MAX_RUNTIME:
+                logger.warning(
+                    "⏰ Max runtime of 4 hours exceeded. Saving progress and exiting loop early."
+                )
                 break
 
             try:
