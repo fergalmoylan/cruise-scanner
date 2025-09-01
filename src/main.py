@@ -11,7 +11,7 @@ from src.scraper.royal_caribbean import RoyalCaribbeanOptimizedScraper
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    format="%(asctime)s [%(levelname)s]: %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
@@ -44,7 +44,7 @@ def main():
     json_parser = CruiseDataParser(args.csv_output)
 
     if args.scrape:
-        logger.info("   ▶️Starting cruise scraper...")
+        logger.info("▶️Starting cruise scraper...")
         scraper = RoyalCaribbeanOptimizedScraper(headless=True)
         cruises, processed_file = scraper.scrape(
             max_cruises=args.max_cruises, max_sailings=args.max_sailings
@@ -66,7 +66,7 @@ def main():
             sys.exit(1)
 
     if args.analyze:
-        logger.info("   📈Starting price analysis...")
+        logger.info("📈Starting price analysis...")
         # TODO: Create class to analyze CSV and create visualizations for GitHub Pages
         # This will read from args.csv_output and generate charts/reports
         logger.info(f"Analysis will use data from: {args.csv_output}")

@@ -34,9 +34,9 @@ class RoyalCaribbeanOptimizedScraper:
     def scrape(
         self, max_cruises: Optional[int] = None, max_sailings: Optional[int] = None
     ) -> tuple[List[Dict], str]:
-        logger.info("🚢 Starting Royal Caribbean scraper...")
-        logger.info(f"📍 URL: {self.cruises_url}")
-        logger.info(f"   Mode: {'Headless' if self.headless else 'Visible'}")
+        logger.info("🚢Starting Royal Caribbean scraper...")
+        logger.info(f"📍URL: {self.cruises_url}")
+        logger.info(f"🖥️Mode: {'Headless' if self.headless else 'Visible'}")
         if max_cruises:
             logger.info(f"   Max cruises: {max_cruises}")
         if max_cruises:
@@ -48,7 +48,7 @@ class RoyalCaribbeanOptimizedScraper:
             page = self.context.new_page()
 
             try:
-                logger.info("📡 Loading page...")
+                logger.info("📡Loading page...")
                 page.goto(self.cruises_url, wait_until="domcontentloaded", timeout=30000)
 
                 logger.info("⏳ Waiting for cruise cards...")
@@ -58,7 +58,7 @@ class RoyalCaribbeanOptimizedScraper:
 
                 all_cruises = self._load_all_cruises(page, max_cruises, max_sailings)
 
-                logger.info(f"✅ Extracted {len(all_cruises)} cruises")
+                logger.info(f"✔️Extracted {len(all_cruises)} cruises")
 
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 output_file = self.raw_dir / f"cruises_optimized_{timestamp}.json"
@@ -127,14 +127,14 @@ class RoyalCaribbeanOptimizedScraper:
 
             if cookie_result["found"]:
                 logger.info(
-                    f"🚫 {cookie_result['action'].title()} cookies: '{cookie_result['text']}'"
+                    f"🚫{cookie_result['action'].title()} cookies: '{cookie_result['text']}'"
                 )
                 page.wait_for_timeout(1000)
             else:
-                logger.info("  ℹ️ No cookie banner found")
+                logger.info("  ℹ️No cookie banner found")
 
         except Exception as e:
-            logger.info(f"  ⚠️ Error handling cookies: {e}")
+            logger.info(f"  ⚠️Error handling cookies: {e}")
 
     def _format_to_snake_case(self, text: str) -> str:
         import re
@@ -183,7 +183,7 @@ class RoyalCaribbeanOptimizedScraper:
         global LAST_SAILING_YEAR
 
         date_text = date_text.replace("\u00a0", " ").strip()
-        logger.info("    📆 Parsing sailing date:", date_text)
+        logger.info(f"    📆Parsing sailing date: {date_text}")
 
         pattern = (
             r"(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?"  # start: day, month, optional year
@@ -240,7 +240,7 @@ class RoyalCaribbeanOptimizedScraper:
         self, page, max_cruises: Optional[int], max_sailings: Optional[int]
     ) -> List[Dict]:
         load_more_count = 0
-        logger.info("📥 Loading all cruises...")
+        logger.info("📥Loading all cruises...")
 
         while True:
             if max_cruises:
@@ -248,27 +248,25 @@ class RoyalCaribbeanOptimizedScraper:
                     return document.querySelectorAll('[data-testid*="cruise-card"]').length;
                 }""")
                 if current_count >= max_cruises:
-                    logger.info(f"✅ Reached max cruise limit: {max_cruises}")
+                    logger.info(f"✔️Reached max cruise limit: {max_cruises}")
                     break
 
             load_more_clicked = self._click_load_more(page)
 
             if not load_more_clicked:
-                logger.info(f"✅ All cruises loaded (clicked 'Load More' {load_more_count} times)")
+                logger.info(f"✔️All cruises loaded (clicked 'Load More' {load_more_count} times)")
                 break
 
             load_more_count += 1
-            logger.info(f"  ⏳ Clicked 'Load More' #{load_more_count}, waiting for new cruises...")
-
             page.wait_for_timeout(2000)
 
-        logger.info("🔍 Extracting all cruises from page...")
+        logger.info("🔍Extracting all cruises from page...")
         all_cruises = self._extract_cruises_from_page(page, max_cruises, max_sailings)
 
         if max_cruises and len(all_cruises) > max_cruises:
             all_cruises = all_cruises[:max_cruises]
 
-        logger.info(f"✅ Successfully extracted {len(all_cruises)} cruises")
+        logger.info(f"✔️Successfully extracted {len(all_cruises)} cruises")
         return all_cruises
 
     def _click_load_more(self, page) -> bool:
@@ -350,19 +348,19 @@ class RoyalCaribbeanOptimizedScraper:
             elapsed = time.time() - START_TIME
             if elapsed > MAX_RUNTIME:
                 logger.warning(
-                    "⏰ Max runtime of 4 hours exceeded. Saving progress and exiting loop early."
+                    "⏰Max runtime of 4 hours exceeded. Saving progress and exiting loop early."
                 )
                 break
 
             try:
                 if max_cruises:
                     logger.info(
-                        f"Processing cruise {i + 1}/{max_cruises}: {cruise.get('name', 'Unknown')}"
+                        f"⚙️Processing cruise {i + 1}/{max_cruises}: {cruise.get('name', 'Unknown')}"
                     )
 
                 else:
                     logger.info(
-                        f"Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}"
+                        f"⚙️Processing cruise {i + 1}/{len(basic_cruises)}: {cruise.get('name', 'Unknown')}"
                     )
                 try:
                     self._click_load_more(page)
@@ -392,12 +390,12 @@ class RoyalCaribbeanOptimizedScraper:
                     page.wait_for_timeout(1000)
 
                 except Exception as e:
-                    logger.info(f"  ⚠️ Failed to close modal: {e}")
+                    logger.info(f"  ⚠️Failed to close modal: {e}")
                     page.keyboard.press("Escape")
                     page.wait_for_timeout(1000)
 
             except Exception as e:
-                logger.info(f"  ⚠️ Failed to get pricing for cruise {cruise.get('id')}: {e}")
+                logger.info(f"  ⚠️Failed to get pricing for cruise {cruise.get('id')}: {e}")
                 cruise["sailings"] = []
 
             cruises_with_pricing.append(cruise)
@@ -407,7 +405,7 @@ class RoyalCaribbeanOptimizedScraper:
     def _extract_sailing_dates_and_prices(
         self, page, context, id, max_sailings: Optional[int]
     ) -> List[Dict]:
-        logger.info("    📊 Extracting sailing dates and prices...")
+        logger.info("    📊Extracting sailing dates and prices...")
         all_sailings = []
 
         date_options = page.evaluate("""() => {
@@ -488,7 +486,7 @@ class RoyalCaribbeanOptimizedScraper:
                             return prices;
                         }""")
 
-                    logger.info("    ⬇️ Extracted full date:", full_date)
+                    logger.info(f"    ⬇️Extracted full date: {full_date}")
 
                     room_prices = {k: int(v.replace("€", "")) for k, v in room_prices.items()}
                     start_date, date_range = (
@@ -497,7 +495,7 @@ class RoyalCaribbeanOptimizedScraper:
                         else (None, date_info["date_range"])
                     )
 
-                    logger.info("    ❗️ Got sailing date:", start_date, date_range)
+                    logger.info(f"    ❗️Got sailing date: {start_date}, {date_range}")
 
                     suite_details = {}
                     if room_prices.get("suite"):
@@ -519,12 +517,12 @@ class RoyalCaribbeanOptimizedScraper:
                     all_sailings.append(sailing_data)
 
             except Exception as e:
-                logger.info(f"    ⚠️ Failed to get prices for date {date_info['date_range']}: {e}")
+                logger.info(f"    ⚠️Failed to get prices for date {date_info['date_range']}: {e}")
 
         return all_sailings
 
     def _extract_suite_details_in_new_tab(self, page, context) -> Dict[str, str]:
-        logger.info("    📦 Fetching suite details in new tab...")
+        logger.info("    📦Fetching suite details in new tab...")
         suite_details = {}
         new_page = None
 
@@ -536,7 +534,7 @@ class RoyalCaribbeanOptimizedScraper:
                 logger.info("    ⛔️'Book Suite' button not found.")
                 return {}
 
-            logger.info("    📂️ Opening new tab...")
+            logger.info("    📖Opening new tab...")
             with context.expect_page(timeout=5000) as new_page_info:
                 page.evaluate("window.open(window.location.href, '_blank')")
 
@@ -549,7 +547,7 @@ class RoyalCaribbeanOptimizedScraper:
                 return {}
             is_disabled = new_page_suite_button.evaluate("el => el.disabled")
             if is_disabled:
-                logger.info("    ℹ️ Suite unavailable (button disabled)")
+                logger.info("    ℹ️Suite unavailable (button disabled)")
                 return {}
             new_page.locator('[data-testid="book-now-button-DELUXE"]').click(modifiers=["Meta"])
             new_page.wait_for_timeout(5000)
@@ -584,14 +582,14 @@ class RoyalCaribbeanOptimizedScraper:
                 suite_details[key] = int(price.replace("€", "").replace(".", "").strip())
 
         except Exception as e:
-            logger.info(f"    ⚠️ Failed to get suite details: {e}")
+            logger.info(f"    ⚠️Failed to get suite details: {e}")
 
         finally:
             if new_page:
                 try:
                     new_page.close()
                 except Exception as e:
-                    logger.info(f"    ⚠️ Failed to close page: {e}")
+                    logger.info(f"    ⚠️Failed to close page: {e}")
                     pass
 
         return suite_details
@@ -644,16 +642,16 @@ def main():
         try:
             max_cruises = int(sys.argv[1])
         except ValueError:
-            logger.info(f"Invalid max_cruises value: {sys.argv[1]}")
+            logger.info(f"⛔️Invalid max_cruises value: {sys.argv[1]}")
 
     scraper = RoyalCaribbeanOptimizedScraper(headless=True)
     cruises, _ = scraper.scrape(max_cruises=max_cruises)
 
     if cruises:
-        logger.info(f"\n✅ Successfully scraped {len(cruises)} cruises")
-        logger.info("Check data/raw/ and data/processed/ for results")
+        logger.info(f"\n✔️Successfully scraped {len(cruises)} cruises")
+        logger.info("🗳️Check data/raw/ and data/processed/ for results")
     else:
-        logger.info("\n❌ No cruises found")
+        logger.info("\n❌No cruises found")
 
 
 if __name__ == "__main__":
