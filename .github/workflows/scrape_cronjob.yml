@@ -22,6 +22,7 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-22.04
+    timeout-minutes: 240
     steps:
     - uses: actions/checkout@v3
 

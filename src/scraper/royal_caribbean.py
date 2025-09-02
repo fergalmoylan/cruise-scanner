@@ -8,6 +8,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Union
 
+from playwright.sync_api import TimeoutError as PWTimeoutError
 from playwright.sync_api import sync_playwright
 
 LAST_SAILING_YEAR: int | None = None
@@ -183,8 +184,6 @@ class RoyalCaribbeanOptimizedScraper:
         global LAST_SAILING_YEAR
 
         date_text = date_text.replace("\u00a0", " ").strip()
-        logger.info(f"    📆Parsing sailing date: {date_text}")
-
         pattern = (
             r"(?:\w+day),?\s+(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?"  # start: day, month, optional year
             r"\s*-\s*"
@@ -486,8 +485,6 @@ class RoyalCaribbeanOptimizedScraper:
                             return prices;
                         }""")
 
-                    logger.info(f"    ⬇️Extracted full date: {full_date}")
-
                     room_prices = {k: int(v.replace("€", "")) for k, v in room_prices.items()}
                     start_date, date_range = (
                         self._parse_sailing_date(full_date)
@@ -521,44 +518,36 @@ class RoyalCaribbeanOptimizedScraper:
 
         return all_sailings
 
-    def _extract_suite_details_in_new_tab(self, page, context) -> Dict[str, str]:
+    def _extract_suite_details_in_new_tab(self, page, context) -> Dict[str, int]:
         logger.info("    📦Fetching suite details in new tab...")
-        suite_details = {}
+        suite_details: Dict[str, int] = {}
         new_page = None
 
         try:
-            time.sleep(5)
-            page.wait_for_timeout(5000)
-            suite_button = page.locator('[data-testid="book-now-button-DELUXE"]')
-            if suite_button.count() == 0:
-                logger.info("    ⛔️'Book Suite' button not found.")
-                return {}
+            logger.debug("    🐞Trying to open new page...")
+            suite_button = page.locator('[data-testid="book-now-button-DELUXE"]').first
+            suite_button.wait_for(state="visible", timeout=2500)
+            new_page = context.new_page()
+            new_page.set_default_timeout(6000)
+            new_page.set_default_navigation_timeout(8000)
+            new_page.goto(page.url, wait_until="domcontentloaded", timeout=8000)
 
-            logger.info("    📖Opening new tab...")
-            with context.expect_page(timeout=5000) as new_page_info:
-                page.evaluate("window.open(window.location.href, '_blank')")
+            btn = new_page.locator('[data-testid="book-now-button-DELUXE"]').first
+            btn.wait_for(state="visible", timeout=3000)
 
-            new_page = new_page_info.value
-            time.sleep(5)
-            new_page.wait_for_timeout(5000)
-            new_page_suite_button = new_page.locator('[data-testid="book-now-button-DELUXE"]')
-            if new_page_suite_button.count() == 0:
-                logger.info("    ⛔️'Book Suite' button not found in new page.")
-                return {}
-            is_disabled = new_page_suite_button.evaluate("el => el.disabled")
-            if is_disabled:
+            if btn.evaluate("el => el?.disabled ?? false"):
                 logger.info("    ℹ️Suite unavailable (button disabled)")
                 return {}
-            new_page.locator('[data-testid="book-now-button-DELUXE"]').click(modifiers=["Meta"])
-            new_page.wait_for_timeout(5000)
-            new_page.wait_for_load_state("networkidle")
-            room_selection_btn = new_page.locator('[data-testid="funnel-footer-cta-btn"]')
-            room_selection_btn.wait_for(timeout=10000)
-            room_selection_btn.click()
 
-            new_page.wait_for_load_state("networkidle", timeout=15000)
+            btn.click(timeout=3000)
+            new_page.wait_for_load_state("networkidle", timeout=6000)
 
-            new_page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=10000)
+            room_cta = new_page.locator('[data-testid="funnel-footer-cta-btn"]').first
+            room_cta.wait_for(state="attached", timeout=3000)
+            room_cta.click(timeout=3000)
+
+            new_page.wait_for_load_state("networkidle", timeout=8000)
+            new_page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=5000)
 
             suite_data = new_page.evaluate("""() => {
                 const suites = {};
@@ -580,19 +569,30 @@ class RoyalCaribbeanOptimizedScraper:
             for suite_name, price in suite_data.items():
                 key = self._format_to_snake_case(suite_name)
                 suite_details[key] = int(price.replace("€", "").replace(".", "").strip())
+            logger.info(f"    🛌Got suite details for {len(suite_details)} suites")
+            return suite_details
 
+        except PWTimeoutError as e:
+            logger.info("    ⚠️Timeout while getting suite details: %s", e)
+            return {}
         except Exception as e:
-            logger.info(f"    ⚠️Failed to get suite details: {e}")
-
+            logger.info("    ⚠️Failed to get suite details: %s", e)
+            return {}
         finally:
-            if new_page:
-                try:
+            try:
+                if new_page and not new_page.is_closed():
                     new_page.close()
-                except Exception as e:
-                    logger.info(f"    ⚠️Failed to close page: {e}")
-                    pass
-
-        return suite_details
+            except Exception as e:
+                logger.info("    ⚠️Failed to close suite tab: %s", e)
+            try:
+                for p in context.pages:
+                    if p is not page and not p.is_closed():
+                        try:
+                            p.close()
+                        except Exception:
+                            pass
+            except Exception:
+                pass
 
     def _process_cruise_data(self, raw_data: List[Dict]) -> Dict:
         cleaned_cruises = []
