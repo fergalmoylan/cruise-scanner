@@ -352,7 +352,7 @@ class RoyalCaribbeanOptimizedScraper:
                 break
 
             try:
-                if max_cruises:
+                if max_cruises and max_cruises < len(basic_cruises):
                     logger.info(
                         f"⚙️Processing cruise {i + 1}/{max_cruises}: {cruise.get('name', 'Unknown')}"
                     )
@@ -526,28 +526,28 @@ class RoyalCaribbeanOptimizedScraper:
         try:
             logger.debug("    🐞Trying to open new page...")
             suite_button = page.locator('[data-testid="book-now-button-DELUXE"]').first
-            suite_button.wait_for(state="visible", timeout=2500)
+            suite_button.wait_for(state="visible", timeout=8000)
             new_page = context.new_page()
-            new_page.set_default_timeout(6000)
-            new_page.set_default_navigation_timeout(8000)
-            new_page.goto(page.url, wait_until="domcontentloaded", timeout=8000)
+            new_page.set_default_timeout(12000)
+            new_page.set_default_navigation_timeout(18000)
+            new_page.goto(page.url, wait_until="domcontentloaded", timeout=15000)
 
             btn = new_page.locator('[data-testid="book-now-button-DELUXE"]').first
-            btn.wait_for(state="visible", timeout=3000)
+            btn.wait_for(state="visible", timeout=12000)
 
             if btn.evaluate("el => el?.disabled ?? false"):
                 logger.info("    ℹ️Suite unavailable (button disabled)")
                 return {}
 
-            btn.click(timeout=3000)
-            new_page.wait_for_load_state("networkidle", timeout=6000)
+            btn.click(timeout=6000)
+            new_page.wait_for_load_state("networkidle", timeout=12000)
 
             room_cta = new_page.locator('[data-testid="funnel-footer-cta-btn"]').first
-            room_cta.wait_for(state="attached", timeout=3000)
-            room_cta.click(timeout=3000)
+            room_cta.wait_for(state="attached", timeout=8000)
+            room_cta.click(timeout=6000)
 
-            new_page.wait_for_load_state("networkidle", timeout=8000)
-            new_page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=5000)
+            new_page.wait_for_load_state("networkidle", timeout=15000)
+            new_page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=12000)
 
             suite_data = new_page.evaluate("""() => {
                 const suites = {};
