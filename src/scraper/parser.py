@@ -27,7 +27,7 @@ class CruiseDataParser:
 
     NOT_ROOM_TYPE = {"sailing_id", "timestamp", "date_range", "base_price"}
 
-    def __init__(self, output_csv: str = "data/cruise_prices.csv"):
+    def __init__(self, output_csv: str = "docs/cruise_prices.csv"):
         self.output_csv = Path(output_csv)
         self.output_csv.parent.mkdir(parents=True, exist_ok=True)
 
@@ -157,7 +157,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     json_path = sys.argv[1]
-    output_csv = sys.argv[2] if len(sys.argv) > 2 else "data/cruise_prices.csv"
+    output_csv = sys.argv[2] if len(sys.argv) > 2 else "docs/cruise_prices.csv"
 
     json_parser = CruiseDataParser(output_csv)
 
