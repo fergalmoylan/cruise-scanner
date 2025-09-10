@@ -25,6 +25,9 @@ jobs:
     timeout-minutes: 240
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT_PUSH }}
+        persist-credentials: true
 
     - uses: actions/setup-python@v4
       with:
@@ -69,11 +72,9 @@ jobs:
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
 
-        # Force add data files (override .gitignore)
         git add -f data/processed/*.json
         git add -f data/cruise_prices.csv
 
-        # Commit if there are changes
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
