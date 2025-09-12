@@ -36,8 +36,8 @@ def main():
     parser.add_argument(
         "--csv-output",
         type=str,
-        default="docs/cruise_prices.csv",
-        help="Output CSV file path (default: docs/cruise_prices.csv)",
+        default="data/cruise_prices_v2.csv",
+        help="Output CSV file path (default: data/cruise_prices_v2.csv)",
     )
 
     args = parser.parse_args()

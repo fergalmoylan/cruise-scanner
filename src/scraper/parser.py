@@ -12,6 +12,7 @@ class CruiseDataParser:
     CSV_HEADERS = [
         "scrape_timestamp",
         "source_url",
+        "cruise_url",
         "cruise_id",
         "cruise_name",
         "nights",
@@ -19,6 +20,7 @@ class CruiseDataParser:
         "ship_code",
         "departure",
         "destination_code",
+        "visiting_ports",
         "sailing_id",
         "sailing_date",
         "room_type",
@@ -27,7 +29,7 @@ class CruiseDataParser:
 
     NOT_ROOM_TYPE = {"sailing_id", "timestamp", "date_range", "base_price"}
 
-    def __init__(self, output_csv: str = "docs/cruise_prices.csv"):
+    def __init__(self, output_csv: str = "data/cruise_prices_v2.csv"):
         self.output_csv = Path(output_csv)
         self.output_csv.parent.mkdir(parents=True, exist_ok=True)
 
@@ -54,6 +56,10 @@ class CruiseDataParser:
             route_info = cruise.get("route", {})
             departure = route_info.get("departure", "")
             destination_code = route_info.get("destination_code", "")
+            visiting_ports = " - ".join(route_info.get("ports", ""))
+
+            metadata_info = cruise.get("metadata", {})
+            cruise_link = metadata_info.get("link", "")
 
             for sailing in cruise.get("sailings", []):
                 sailing_id = sailing.get("sailing_id", "")
@@ -72,6 +78,7 @@ class CruiseDataParser:
                         row = {
                             "scrape_timestamp": scrape_timestamp,
                             "source_url": source_url,
+                            "cruise_url": cruise_link,
                             "cruise_id": cruise_id,
                             "cruise_name": cruise_name,
                             "nights": nights,
@@ -79,6 +86,7 @@ class CruiseDataParser:
                             "ship_code": ship_code,
                             "departure": departure,
                             "destination_code": destination_code,
+                            "visiting_ports": visiting_ports,
                             "sailing_id": sailing_id,
                             "sailing_date": sailing_date,
                             "room_type": room_type,
@@ -157,7 +165,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     json_path = sys.argv[1]
-    output_csv = sys.argv[2] if len(sys.argv) > 2 else "docs/cruise_prices.csv"
+    output_csv = sys.argv[2] if len(sys.argv) > 2 else "data/cruise_prices_v2.csv"
 
     json_parser = CruiseDataParser(output_csv)
 

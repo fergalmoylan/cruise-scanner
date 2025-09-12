@@ -1,0 +1,41 @@
+name: Build UI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'web/**'
+      - '.github/workflows/build-ui.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_PUSH }}
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.7.0
+
+      - name: Install deps & build
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit build to docs/app
+        run: |
+          if [[ -n "$(git status --porcelain docs/app)" ]]; then
+            git config user.name "GitHub Action"
+            git config user.email "action@github.com"
+            git add docs/app
+            git commit -m "Build UI"
+            git push
+          else
+            echo "No UI changes to commit."
+          fi
