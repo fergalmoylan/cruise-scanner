@@ -227,3 +227,6 @@ playwright-report/
 test-results/
 
 .venv/
+
+
+web/node_modules/

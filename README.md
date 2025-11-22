@@ -61,7 +61,7 @@ src
 ├── notifications         # notifications (alerts / emails)
 └── scraper               # Web scraping logic
 data
-├── cruise_prices.csv     # csv with all scraped data
+├── cruise_prices_v2.csv  # csv with all scraped data
 ├── processed             # json formatted scraped data
 └── raw                   # raw json scraped data
 .github

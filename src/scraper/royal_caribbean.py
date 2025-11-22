@@ -617,7 +617,8 @@ class RoyalCaribbeanOptimizedScraper:
                 },
                 "metadata": {
                     "package_code": cruise.get("package_code", ""),
-                    "link": cruise.get("product_link", ""),
+                    "link": "https://www.royalcaribbean.com/gbr/en/"
+                    + cruise.get("product_link", ""),
                     "scraped_at": cruise.get("scraped_at", ""),
                 },
             }
