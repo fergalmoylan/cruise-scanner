@@ -462,7 +462,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         overflow: hidden;
         position: relative;
     }
-
+    
     .p-ink {
         display: block;
         position: absolute;
@@ -470,11 +470,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         border-radius: 100%;
         transform: scale(0);
     }
-
+    
     .p-ink-active {
         animation: ripple 0.4s linear;
     }
-
+    
     .p-ripple-disabled .p-ink {
         display: none;
     }
@@ -499,22 +499,22 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         top: -9999px;
         left: -9999px;
     }
-
+    
     .p-tooltip.p-tooltip-right,
     .p-tooltip.p-tooltip-left {
         padding: 0 .25rem;
     }
-
+    
     .p-tooltip.p-tooltip-top,
     .p-tooltip.p-tooltip-bottom {
         padding:.25em 0;
     }
-
+    
     .p-tooltip .p-tooltip-text {
        white-space: pre-line;
        word-break: break-word;
     }
-
+    
     .p-tooltip-arrow {
         position: absolute;
         width: 0;
@@ -522,32 +522,32 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         border-color: transparent;
         border-style: solid;
     }
-
+    
     .p-tooltip-right .p-tooltip-arrow {
         top: 50%;
         left: 0;
         margin-top: -.25rem;
         border-width: .25em .25em .25em 0;
     }
-
+    
     .p-tooltip-left .p-tooltip-arrow {
         top: 50%;
         right: 0;
         margin-top: -.25rem;
         border-width: .25em 0 .25em .25rem;
     }
-
+    
     .p-tooltip.p-tooltip-top {
         padding: .25em 0;
     }
-
+    
     .p-tooltip-top .p-tooltip-arrow {
         bottom: 0;
         left: 50%;
         margin-left: -.25rem;
         border-width: .25em .25em 0;
     }
-
+    
     .p-tooltip-bottom .p-tooltip-arrow {
         top: 0;
         left: 50%;
@@ -567,11 +567,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         text-align: center;
         padding: 0 .5rem;
     }
-
+    
     .p-overlay-badge {
         position: relative;
     }
-
+    
     .p-overlay-badge .p-badge {
         position: absolute;
         top: 0;
@@ -580,7 +580,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         transform-origin: 100% 0;
         margin: 0;
     }
-
+    
     .p-badge-dot {
         width: .5rem;
         min-width: .5rem;
@@ -588,7 +588,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         border-radius: 50%;
         padding: 0;
     }
-
+    
     .p-badge-no-gutter {
         padding: 0;
         border-radius: 50%;
@@ -602,100 +602,100 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     .p-inputnumber {
         display: inline-flex;
     }
-
+    
     .p-inputnumber-button {
         display: flex;
         align-items: center;
         justify-content: center;
         flex: 0 0 auto;
     }
-
+    
     .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button .p-button-label,
     .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button .p-button-label {
         display: none;
     }
-
+    
     .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-up {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         padding: 0;
     }
-
+    
     .p-inputnumber-buttons-stacked .p-inputnumber-input {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-
+    
     .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-down {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         border-bottom-left-radius: 0;
         padding: 0;
     }
-
+    
     .p-inputnumber-buttons-stacked .p-inputnumber-button-group {
         display: flex;
         flex-direction: column;
     }
-
+    
     .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {
         flex: 1 1 auto;
     }
-
+    
     .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-up {
         order: 3;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
-
+    
     .p-inputnumber-buttons-horizontal .p-inputnumber-input {
         order: 2;
         border-radius: 0;
     }
-
+    
     .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-down {
         order: 1;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-
+    
     .p-inputnumber-buttons-vertical {
         flex-direction: column;
     }
-
+    
     .p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-up {
         order: 1;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         width: 100%;
     }
-
+    
     .p-inputnumber-buttons-vertical .p-inputnumber-input {
         order: 2;
         border-radius: 0;
         text-align: center;
     }
-
+    
     .p-inputnumber-buttons-vertical .p-button.p-inputnumber-button-down {
         order: 3;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         width: 100%;
     }
-
+    
     .p-inputnumber-input {
         flex: 1 1 auto;
     }
-
+    
     .p-fluid .p-inputnumber {
         width: 100%;
     }
-
+    
     .p-fluid .p-inputnumber .p-inputnumber-input {
         width: 1%;
     }
-
+    
     .p-fluid .p-inputnumber-buttons-vertical .p-inputnumber-input {
         width: 100%;
     }
@@ -766,14 +766,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         position: relative;
         user-select: none;
     }
-
+    
     .p-dropdown-trigger {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
     }
-
+    
     .p-dropdown-label {
         display: block;
         white-space: nowrap;
@@ -783,30 +783,30 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         text-overflow: ellipsis;
         cursor: pointer;
     }
-
+    
     .p-dropdown-label-empty {
         overflow: hidden;
         visibility: hidden;
     }
-
+    
     input.p-dropdown-label  {
         cursor: default;
     }
-
+    
     .p-dropdown .p-dropdown-panel {
         min-width: 100%;
     }
-
+    
     .p-dropdown-panel {
         position: absolute;
         top: 0;
         left: 0;
     }
-
+    
     .p-dropdown-items-wrapper {
         overflow: auto;
     }
-
+    
     .p-dropdown-item {
         cursor: pointer;
         font-weight: normal;
@@ -814,21 +814,21 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         position: relative;
         overflow: hidden;
     }
-
+    
     .p-dropdown-items {
         margin: 0;
         padding: 0;
         list-style-type: none;
     }
-
+    
     .p-dropdown-filter {
         width: 100%;
     }
-
+    
     .p-dropdown-filter-container {
         position: relative;
     }
-
+    
     .p-dropdown-clear-icon,
     .p-dropdown-filter-icon,
     .p-dropdown-filter-clear-icon {
@@ -837,11 +837,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         margin-top: -.5rem;
         right: 2rem;
     }
-
+    
     .p-fluid .p-dropdown {
         display: flex;
     }
-
+    
     .p-fluid .p-dropdown .p-dropdown-label {
         width: 1%;
     }
@@ -856,15 +856,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         justify-content: center;
         flex-wrap: wrap;
     }
-
+    
     .p-paginator-left-content {
         margin-right: auto;
     }
-
+    
     .p-paginator-right-content {
         margin-left: auto;
     }
-
+    
     .p-paginator-page,
     .p-paginator-next,
     .p-paginator-last,
@@ -880,7 +880,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         overflow: hidden;
         position: relative;
     }
-
+    
     .p-paginator-element:focus {
         z-index: 1;
         position: relative;
@@ -1219,7 +1219,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
 }
 `);nn.current.innerHTML=we}},cl=function(){nn.current=$.removeInlineStyle(nn.current)},Ro=function(){qt.current=$.removeInlineStyle(qt.current)},ja=function(){un.current=$.removeInlineStyle(un.current)},$u=function(R){Rn(),ar(),o.onPage?o.onPage(Pr(R)):(m(R.first),D(R.rows)),o.onValueChange&&o.onValueChange(Ur())},ci=function(R){Rn(),ar();var J=R.originalEvent,fe=R.column,we=R.sortableDisabledFields,Oe=w(fe,"sortField")||w(fe,"field"),be=o.defaultSortOrder,Fe,rt;if(We.current=w(fe,"sortable"),Ye.current=w(fe,"sortFunction"),et.current=Oe,o.sortMode==="multiple"){var dt=J.metaKey||J.ctrlKey;Fe=Bn(_t());var St=Fe.find(function(Qt){return Qt.field===Oe});be=St?ro(St.order):be;var Kt={field:Oe,order:be};be?(Fe=dt?Fe:Fe.filter(function(Qt){return we.some(function(bn){return bn===Qt.field})}),Bu(Kt,Fe)):o.removableSort&&ao(Kt,Fe),rt={multiSortMeta:Fe}}else be=ct()===Oe?ro(Mt()):be,o.removableSort&&(Oe=be?Oe:null),rt={sortField:Oe,sortOrder:be};o.onSort?o.onSort(Pr(rt)):(m(0),K(rt.sortField),B(rt.sortOrder),C(rt.multiSortMeta)),o.onValueChange&&o.onValueChange(Ur({sortField:Oe,sortOrder:be,multiSortMeta:Fe}))},ro=function(R){return o.removableSort?o.defaultSortOrder===R?R*-1:0:R*-1},dl=function(R,J,fe,we){return F.sort(R,J,we,fe,n&&n.nullSortOrder||Jt.nullSortOrder)},Bu=function(R,J){var fe=J.findIndex(function(we){return we.field===R.field});fe>=0?J[fe]=R:J.push(R)},ao=function(R,J){var fe=J.findIndex(function(we){return we.field===R.field});fe>=0&&J.splice(fe,1),J=J.length>0?J:null},oo=function(R,J,fe){if(o.groupRowsBy&&o.groupRowsBy===o.sortField){var we=[{field:o.sortField,order:o.sortOrder||o.defaultSortOrder}];return o.sortField!==J&&we.push({field:J,order:fe}),Ca(R,we)}var Oe=Bn(R);if(We.current&&Ye.current)Oe=Ye.current({data:R,field:J,order:fe});else{var be=new Map,Fe=F.localeComparator(n&&n.locale||Jt.locale),rt=j0(R),dt;try{for(rt.s();!(dt=rt.n()).done;){var St=dt.value;be.set(St,F.resolveFieldData(St,J))}}catch(Kt){rt.e(Kt)}finally{rt.f()}Oe.sort(function(Kt,Qt){var bn=be.get(Kt),lr=be.get(Qt);return dl(bn,lr,Fe,fe)})}return Oe},Ca=function(R){var J=arguments.length>1&&arguments[1]!==void 0?arguments[1]:[];if(o.groupRowsBy&&(oe||J.length&&o.groupRowsBy===J[0].field)){var fe=oe,we=J[0];fe||(fe=we,q(fe)),we.field!==fe.field&&(J=[fe].concat(Bn(J)))}var Oe=Bn(R);if(We.current&&Ye.current){var be=J.find(function(St){return St.field===et.current}),Fe=et.current,rt=be?be.order:o.defaultSortOrder;Oe=Ye.current({data:R,field:Fe,order:rt,multiSortMeta:J})}else{var dt=F.localeComparator(n&&n.locale||Jt.locale);Oe.sort(function(St,Kt){return lo(St,Kt,J,0,dt)})}return Oe},lo=function(R,J,fe,we,Oe){if(!(!fe||!fe[we])){var be=F.resolveFieldData(R,fe[we].field),Fe=F.resolveFieldData(J,fe[we].field);return F.compare(be,Fe,Oe)===0?fe.length-1>we?lo(R,J,fe,we+1,Oe):0:dl(be,Fe,Oe,fe[we].order)}},Hu=function(R){Rn(),ar(),Xe(R)},fl=function(R){clearTimeout(Et.current),Et.current=setTimeout(function(){var J=da(R||Ze);o.onFilter?o.onFilter(Pr({filters:J})):(m(0),Z(J)),o.onValueChange&&o.onValueChange(Ur({filters:J}))},o.filterDelay)},pl=function(R){var J=function(be){var Fe=fn(be,2),rt=Fe[0],dt=Fe[1];if(dt.constraints){var St=dt.constraints.filter(function(Kt){return Kt.value!==null});if(St.length>0)return[rt,tr(tr({},dt),{},{constraints:St})]}else if(dt.value!==null)return[rt,dt]},fe=function(be){return be!==void 0},we=Object.entries(R).map(J).filter(fe);return Object.fromEntries(we)},ko=function(R,J){if(R){var fe=J?pl(J):{},we=h(),Oe=[],be=fe.global||o.globalFilter,Fe;be&&(Fe=o.globalFilterFields||we.filter(function(Ea){return!w(Ea,"excludeGlobalFilter")}).map(function(Ea){return w(Ea,"filterField")||w(Ea,"field")}));for(var rt=0;rt<R.length;rt++){var dt=!0,St=!1,Kt=!1;for(var Qt in fe)if(Qt!=="null"&&Object.prototype.hasOwnProperty.call(fe,Qt)&&Qt!=="global"){Kt=!0;var bn=Qt,lr=fe[bn];if(lr.operator)for(var Zr=0;Zr<lr.constraints.length;Zr++){var fa=lr.constraints[Zr];if(dt=Io(bn,R[rt],fa,Zr),lr.operator===Gl.OR&&dt||lr.operator===Gl.AND&&!dt)break}else dt=Io(bn,R[rt],lr,0);if(!dt)break}if(dt&&be&&!St&&Fe)for(var qn=0;qn<Fe.length;qn++){var wr=Fe[qn],ea=fe.global?fe.global.matchMode:o.globalFilterMatchMode,so=fe.global?fe.global.value:o.globalFilter;if(St=Xl.filters[ea](F.resolveFieldData(R[rt],wr),so,o.filterLocale),St)break}var bl=void 0;be?bl=Kt?Kt&&dt&&St:St:bl=Kt&&dt,bl&&Oe.push(R[rt])}return(Oe.length===o.value.length||Object.keys(fe).length===0)&&(Oe=R),Oe}},Io=function(R,J,fe,we){var Oe=fe.value,be=fe.matchMode==="custom"?"custom_".concat(R):fe.matchMode||Kn.STARTS_WITH,Fe=F.resolveFieldData(J,R),rt=Xl.filters[be];return F.isFunction(rt)&&rt(Fe,Oe,o.filterLocale,we)},da=function(R){R=R||o.filters;var J={};if(R)Object.entries(R).forEach(function(we){var Oe=fn(we,2),be=Oe[0],Fe=Oe[1];J[be]=Fe.operator?{operator:Fe.operator,constraints:Fe.constraints.map(function(rt){return tr({},rt)})}:tr({},Fe)});else{var fe=h();J=fe.reduce(function(we,Oe){var be=w(Oe,"filterField")||w(Oe,"field"),Fe=w(Oe,"filterFunction"),rt=w(Oe,"dataType"),dt=w(Oe,"filterMatchMode")||(n&&n.filterMatchModeOptions[rt]||Jt.filterMatchModeOptions[rt]?n&&n.filterMatchModeOptions[rt][0]||Jt.filterMatchModeOptions[rt][0]:Kn.STARTS_WITH),St={value:null,matchMode:dt};return Fe&&Xl.register("custom_".concat(be),function(){for(var Kt=arguments.length,Qt=new Array(Kt),bn=0;bn<Kt;bn++)Qt[bn]=arguments[bn];return Fe.apply(void 0,Qt.concat([{column:Oe}]))}),we[be]=o.filterDisplay==="menu"?{operator:Gl.AND,constraints:[St]}:St,we},{})}return J},Qr=function(R,J,fe){var we=arguments.length>3&&arguments[3]!==void 0?arguments[3]:0,Oe=tr({},Ze),be=Oe[J],Fe=be&&be.operator?be.constraints[we]:be;Fe=be?{value:R,matchMode:fe||Fe.matchMode}:{value:R,matchMode:fe},o.filterDisplay==="menu"&&be&&be.operator?Oe[J].constraints[we]=Fe:Oe[J]=Fe,Xe(Oe),fl(Oe)},vl=function(){de(o.rows),Xe(da(o.filters)),q(null),pe({}),Ne({}),o.onPage||(m(o.first),D(o.rows)),o.onSort||(K(o.sortField),B(o.sortOrder),C(o.multiSortMeta)),o.onFilter||Z(o.filters),io()},Do=function(){if(bt.current){var R=Pe()?bt.current:$.findSingle(bt.current,'[data-pc-name="virtualscroller"]');R.scrollTo(0,0)}},di=function(){Ro()},io=function(){var R=h(!0),J=[];R&&(J=R.reduce(function(fe,we){return fe.push(w(we,"columnKey")||w(we,"field")),fe},[])),Ge(J)},To=function(R){var J,fe="\uFEFF";R&&R.selectionOnly?J=o.selection||[]:J=[].concat(Bn(o.frozenValue||[]),Bn(Ur()||[]));var we=h().filter(function(Oe){var be=w(Oe,"exportable"),Fe=w(Oe,"field");return be!==!1&&Fe});we.forEach(function(Oe,be){var Fe=[w(Oe,"field"),w(Oe,"header"),w(Oe,"exportHeader")],rt=Fe[0],dt=Fe[1],St=Fe[2],Kt=String(St||dt||rt).replace(/"/g,'""').replace(/\n/g,"\u2028");fe=fe+('"'+Kt+'"'),be<we.length-1&&(fe=fe+o.csvSeparator)}),J.forEach(function(Oe){fe=fe+`
-`,we.forEach(function(be,Fe){var rt=[w(be,"field"),w(be,"exportField")],dt=rt[0],St=rt[1],Kt=St||dt,Qt=F.resolveFieldData(Oe,Kt);Qt!=null?o.exportFunction?Qt=o.exportFunction({data:Qt,field:Kt,rowData:Oe,column:be}):Qt=String(Qt).replace(/"/g,'""').replace(/\n/g,"\u2028"):Qt="",fe=fe+('"'+Qt+'"'),Fe<we.length-1&&(fe=fe+o.csvSeparator)})}),$.exportCSV(fe,o.exportFilename)},fi=function(){o.editMode!=="row"&&document.body.click()},yr=function(){$.find(document.body,'[data-pc-section="roweditorcancelbuttonprops"]').forEach(function(R,J){setTimeout(function(){R.click()},J*5)})},Pr=function(R){return tr({first:qe(),rows:Be(),sortField:ct(),sortOrder:Mt(),multiSortMeta:_t(),filters:Se()},R)},Ur=function(R){var J=o.value||[];if(!o.lazy&&J&&J.length){var fe=R&&R.filters||Se(),we=R&&R.sortField||ct(),Oe=R&&R.sortOrder||Mt(),be=R&&R.multiSortMeta||_t(),Fe=h(),rt=Fe.find(function(dt){return w(dt,"field")===we});rt&&(We.current=w(rt,"sortable"),Ye.current=w(rt,"sortFunction")),(F.isNotEmpty(fe)||o.globalFilter)&&(J=ko(J,fe)),(we||F.isNotEmpty(be))&&(o.sortMode==="single"?J=oo(J,we,Oe):o.sortMode==="multiple"&&(J=Ca(J,be)))}return J},Sa=function(R){if(R&&o.paginator){var J=o.lazy?0:qe();return R.slice(J,J+Be())}return R};Br(function(){Ue.current&&(Le.current=_u(),Ue.current.setAttribute(Le.current,"")),Xe(da(o.filters)),ve()&&(ue(),o.resizableColumns&&Wt())}),gn(function(){return o.responsiveLayout==="stack"&&!o.scrollable&&qr(),function(){cl()}},[o.breakpoint]),gn(function(){var ke=da(o.filters);Z(ke),Xe(da(o.filters)),o.onValueChange&&o.onValueChange(Ur({filters:ke}))},[o.filters]),gn(function(){ve()&&P()}),gn(function(){cl(),o.responsiveLayout==="stack"&&!o.scrollable&&qr()},[o.responsiveLayout,o.scrollable]),gn(function(){if(o.globalFilter)Qr(o.globalFilter,"global",o.globalFilterMatchMode);else if(Ze.global){var ke=tr({},Ze);delete ke.global,Xe(ke),fl(ke)}},[o.globalFilter,o.globalFilterMatchMode]),Nr(function(){ye(),Ro(),cl(),ja()}),c.useImperativeHandle(a,function(){return{props:o,clearState:G,closeEditingCell:fi,closeEditingRows:yr,exportCSV:To,filter:Qr,reset:vl,resetColumnOrder:io,resetScroll:Do,resetResizeColumnsWidth:di,restoreColumnWidths:Wt,restoreState:ue,restoreTableState:ae,saveState:P,getFilterMeta:function(){return A},setFilterMeta:function(R){return Z(R)},getSortMeta:function(){return ne},setSortMeta:function(R){return C(R)},getElement:function(){return Ue.current},getTable:function(){return pt.current},getVirtualScroller:function(){return Ht.current},getProcessedData:function(){return Ur()}}});var Uu=function(){if(o.loading){var R=l({className:U.cx("loadingIcon")},U.ptm("loadingIcon")),J=o.loadingIcon||c.createElement(si,mn({},R,{spin:!0})),fe=Sn.getJSXIcon(J,tr({},R),{props:o}),we=l({className:U.cx("loadingOverlay")},U.ptm("loadingOverlay"));return c.createElement("div",we,fe)}return null},ml=function(){if(o.header){var R=F.getJSXElement(o.header,{props:o}),J=l({className:U.cx("header")},U.ptm("header"));return c.createElement("div",J,R)}return null},gl=function(R,J,fe){if(o.showHeaders===!1)return null;var we=ct(),Oe=Mt(),be=Bn(_t()),Fe=Vt(),rt=Ze,dt=!o.onFilter&&o.filters||Se(),St=R.items,Kt=R.props,Qt=R.columns,bn=fe||Kt.lazy?St:Kt.items;return c.createElement(og,{hostName:"DataTable",value:bn,tableProps:o,columns:Qt,tabIndex:o.tabIndex,empty:J,headerColumnGroup:o.headerColumnGroup,resizableColumns:o.resizableColumns,onColumnResizeStart:At,onColumnResizerClick:o.onColumnResizerClick,onColumnResizerDoubleClick:o.onColumnResizerDoubleClick,sortMode:o.sortMode,sortField:we,sortIcon:o.sortIcon,sortOrder:Oe,multiSortMeta:be,groupRowsBy:o.groupRowsBy,groupRowSortField:Fe,onSortChange:ci,filterDisplay:o.filterDisplay,filters:rt,filtersStore:dt,filterIcon:o.filterIcon,filterClearIcon:o.filterClearIcon,onFilterChange:Hu,onFilterApply:fl,showSelectAll:o.showSelectAll,allRowsSelected:Yt,onColumnCheckboxChange:on,onColumnMouseDown:ht,onColumnDragStart:sn,onColumnDragOver:or,onColumnDragLeave:Lr,onColumnDrop:xr,rowGroupMode:o.rowGroupMode,reorderableColumns:o.reorderableColumns,ptCallbacks:U,metaData:xe,unstyled:o.unstyled})},uo=function(R,J,fe,we,Oe){var be=qe(),Fe=R.rows,rt=R.columns,dt=R.contentRef,St=R.style,Kt=R.className,Qt=R.spacerStyle,bn=R.itemSize,lr=F.isNotEmpty(o.frozenValue)&&c.createElement(Pu,{hostName:"DataTable",ref:It,cellMemo:o.cellMemo,cellMemoProps:o.cellMemoProps,cellMemoPropsDepth:o.cellMemoPropsDepth,cellClassName:o.cellClassName,cellSelection:o.cellSelection,checkIcon:o.checkIcon,className:"p-datatable-tbody p-datatable-frozen-tbody",collapsedRowIcon:o.collapsedRowIcon,columns:rt,compareSelectionBy:o.compareSelectionBy,contextMenuSelection:o.contextMenuSelection,dataKey:o.dataKey,dragSelection:o.dragSelection,editMode:o.editMode,editingMeta:it,editingRows:o.editingRows,emptyMessage:o.emptyMessage,expandableRowGroups:o.expandableRowGroups,expandedRowIcon:o.expandedRowIcon,expandedRows:o.expandedRows,first:be,frozenRow:!0,groupRowsBy:o.groupRowsBy,isDataSelectable:o.isDataSelectable,isVirtualScrollerDisabled:!0,lazy:o.lazy,loading:o.loading,metaKeySelection:o.metaKeySelection,onCellClick:o.onCellClick,onCellSelect:o.onCellSelect,onCellUnselect:o.onCellUnselect,onContextMenu:o.onContextMenu,onContextMenuSelectionChange:o.onContextMenuSelectionChange,onEditingMetaChange:Vn,onRowClick:o.onRowClick,onRowCollapse:o.onRowCollapse,onRowDoubleClick:o.onRowDoubleClick,onRowPointerDown:o.onRowPointerDown,onRowPointerUp:o.onRowPointerUp,onRowEditCancel:o.onRowEditCancel,onRowEditChange:o.onRowEditChange,onRowEditComplete:o.onRowEditComplete,onRowEditInit:o.onRowEditInit,onRowEditSave:o.onRowEditSave,onRowExpand:o.onRowExpand,onRowMouseEnter:o.onRowMouseEnter,onRowMouseLeave:o.onRowMouseLeave,onRowReorder:o.onRowReorder,onRowSelect:o.onRowSelect,onRowToggle:o.onRowToggle,onRowUnselect:o.onRowUnselect,onSelectionChange:o.onSelectionChange,paginator:o.paginator,processedData:Oe,reorderableRows:o.reorderableRows,responsiveLayout:o.responsiveLayout,rowClassName:o.rowClassName,rowEditValidator:o.rowEditValidator,rowEditorCancelIcon:o.rowEditorCancelIcon,rowEditorInitIcon:o.rowEditorInitIcon,rowEditorSaveIcon:o.rowEditorSaveIcon,rowExpansionTemplate:o.rowExpansionTemplate,rowGroupFooterTemplate:o.rowGroupFooterTemplate,rowGroupHeaderTemplate:o.rowGroupHeaderTemplate,rowGroupMode:o.rowGroupMode,scrollable:o.scrollable,selectOnEdit:o.selectOnEdit,selection:o.selection,selectionAutoFocus:o.selectionAutoFocus,selectionMode:o.selectionMode,selectionModeInColumn:J,showRowReorderElement:o.showRowReorderElement,showSelectionElement:o.showSelectionElement,tabIndex:o.tabIndex,tableProps:o,tableSelector:Le.current,value:o.frozenValue,virtualScrollerOptions:R,ptCallbacks:U,metaData:xe,unstyled:o.unstyled}),Zr=c.createElement(Pu,{hostName:"DataTable",ref:Bt,cellMemo:o.cellMemo,cellMemoProps:o.cellMemoProps,cellMemoPropsDepth:o.cellMemoPropsDepth,cellClassName:o.cellClassName,cellSelection:o.cellSelection,checkIcon:o.checkIcon,className:nt("p-datatable-tbody",Kt),collapsedRowIcon:o.collapsedRowIcon,columns:rt,compareSelectionBy:o.compareSelectionBy,contextMenuSelection:o.contextMenuSelection,dataKey:o.dataKey,dragSelection:o.dragSelection,editMode:o.editMode,editingMeta:H,editingRows:o.editingRows,empty:fe,emptyMessage:o.emptyMessage,expandableRowGroups:o.expandableRowGroups,expandedRowIcon:o.expandedRowIcon,expandedRows:o.expandedRows,first:be,frozenRow:!1,groupRowsBy:o.groupRowsBy,isDataSelectable:o.isDataSelectable,isVirtualScrollerDisabled:we,lazy:o.lazy,loading:o.loading,metaKeySelection:o.metaKeySelection,onCellClick:o.onCellClick,onCellSelect:o.onCellSelect,onCellUnselect:o.onCellUnselect,onContextMenu:o.onContextMenu,onContextMenuSelectionChange:o.onContextMenuSelectionChange,onEditingMetaChange:On,onRowClick:o.onRowClick,onRowCollapse:o.onRowCollapse,onRowDoubleClick:o.onRowDoubleClick,onRowEditCancel:o.onRowEditCancel,onRowEditChange:o.onRowEditChange,onRowEditComplete:o.onRowEditComplete,onRowEditInit:o.onRowEditInit,onRowEditSave:o.onRowEditSave,onRowExpand:o.onRowExpand,onRowMouseEnter:o.onRowMouseEnter,onRowMouseLeave:o.onRowMouseLeave,onRowPointerDown:o.onRowPointerDown,onRowPointerUp:o.onRowPointerUp,onRowReorder:o.onRowReorder,onRowSelect:o.onRowSelect,onRowToggle:o.onRowToggle,onRowUnselect:o.onRowUnselect,onSelectionChange:o.onSelectionChange,paginator:o.paginator,processedData:Oe,reorderableRows:o.reorderableRows,responsiveLayout:o.responsiveLayout,rowClassName:o.rowClassName,rowEditValidator:o.rowEditValidator,rowEditorCancelIcon:o.rowEditorCancelIcon,rowEditorInitIcon:o.rowEditorInitIcon,rowEditorSaveIcon:o.rowEditorSaveIcon,rowExpansionTemplate:o.rowExpansionTemplate,rowGroupFooterTemplate:o.rowGroupFooterTemplate,rowGroupHeaderTemplate:o.rowGroupHeaderTemplate,rowGroupMode:o.rowGroupMode,scrollable:o.scrollable,selectOnEdit:o.selectOnEdit,selection:o.selection,selectionAutoFocus:o.selectionAutoFocus,selectionMode:o.selectionMode,selectionModeInColumn:J,showRowReorderElement:o.showRowReorderElement,showSelectionElement:o.showSelectionElement,style:St,tabIndex:o.tabIndex,tableProps:o,tableSelector:Le.current,value:Sa(Fe),virtualScrollerContentRef:dt,virtualScrollerOptions:R,ptCallbacks:U,metaData:xe,unstyled:o.unstyled}),fa=F.isNotEmpty(Qt)?c.createElement(Pu,{hostName:"DataTable",style:{height:"calc(".concat(Qt.height," - ").concat(Fe.length*bn,"px)")},className:"p-datatable-virtualscroller-spacer",ptCallbacks:U,metaData:xe,unstyled:o.unstyled}):null;return c.createElement(c.Fragment,null,lr,Zr,fa)},Mo=function(R){var J=R.columns;return c.createElement(rg,{hostName:"DataTable",tableProps:o,columns:J,footerColumnGroup:o.footerColumnGroup,ptCallbacks:U,metaData:xe,unstyled:o.unstyled})},pi=function(R,J,fe,we){if(J){var Oe=Pe(),be=o.virtualScrollerOptions||{},Fe=l({className:U.cx("wrapper"),style:tr(tr({},U.sx("wrapper")),{},{maxHeight:Oe?o.scrollHeight:null})},U.ptm("wrapper"));return c.createElement("div",mn({ref:bt},Fe),c.createElement(Od,mn({ref:Ht},be,{items:R,columns:J,style:tr(tr({},be.style),{height:o.scrollHeight!=="flex"?o.scrollHeight:void 0}),scrollHeight:o.scrollHeight!=="flex"?void 0:"100%",disabled:Oe,loaderDisabled:!0,inline:!0,autoSize:!0,pt:U.ptm("virtualScroller"),__parentMetadata:{parent:xe},showSpacer:!1,unstyled:o.unstyled,contentTemplate:function(dt){var St=function(fa){pt.current=fa,dt.spacerRef&&dt.spacerRef(fa)},Kt=gl(dt,we,Oe),Qt=uo(dt,fe,we,Oe,R),bn=Mo(dt),lr=l({className:nt(o.tableClassName,U.cx("table")),style:o.tableStyle,role:"table"},U.ptm("table"));return c.createElement("table",mn({ref:St},lr),Kt,Qt,bn)}})))}},Ku=function(){if(o.footer){var R=F.getJSXElement(o.footer,{props:o}),J=l({className:U.cx("footer")},U.ptm("footer"));return c.createElement("div",J,R)}return null},vi=function(R,J){return c.createElement(Am,{first:qe(),rows:Be(),pageLinkSize:o.pageLinkSize,className:nt(o.paginatorClassName,U.cx("paginator",{position:R})),onPageChange:$u,template:o.paginatorTemplate,totalRecords:J,rowsPerPageOptions:o.rowsPerPageOptions,currentPageReportTemplate:o.currentPageReportTemplate,leftContent:o.paginatorLeft,rightContent:o.paginatorRight,alwaysShow:o.alwaysShowPaginator,dropdownAppendTo:o.paginatorDropdownAppendTo,pt:U.ptm("paginator"),unstyled:o.unstyled,__parentMetadata:{parent:xe}})},Vu=function(R){return o.paginator&&o.paginatorPosition!=="bottom"?vi("top",R):null},hl=function(R){return o.paginator&&o.paginatorPosition!=="top"?vi("bottom",R):null},Wu=function(){if(o.resizableColumns){var R=l({className:U.cx("resizeHelper"),style:U.sx("resizeHelper")},U.ptm("resizeHelper"));return c.createElement("div",mn({ref:$t},R))}return null},Gu=function(){if(o.reorderableColumns){var R={position:"absolute",display:"none"},J=l({className:U.cx("reorderIndicatorUp"),style:U.sx("reorderIndicatorUp",{style:R})},U.ptm("reorderIndicatorUp")),fe=l(U.ptm("reorderIndicatorUpIcon")),we=Sn.getJSXIcon(o.reorderIndicatorUpIcon||c.createElement(um,fe),tr({},fe),{props:o}),Oe=l({className:U.cx("reorderIndicatorDown"),style:U.sx("reorderIndicatorDown",{style:R})},U.ptm("reorderIndicatorDown")),be=l(U.ptm("reorderIndicatorDownIcon")),Fe=Sn.getJSXIcon(o.reorderIndicatorDownIcon||c.createElement(sm,be),tr({},be),{props:o});return c.createElement(c.Fragment,null,c.createElement("span",mn({ref:mt},J),we),c.createElement("span",mn({ref:xt},Oe),Fe))}return null},yl=Ur(),mi=h(),gi=Gn(yl),hi=F.isEmpty(yl),yi=Pn(mi),Xu=o.selectionMode||yi,Yu=Uu(),Ju=ml(),wl=Vu(gi),qu=pi(yl,mi,yi,hi),Qu=hl(gi),Zu=Ku(),wi=Wu(),es=Gu(),ts=l({id:o.id,className:nt(o.className,U.cx("root",{selectable:Xu})),style:o.style,"data-scrollselectors":".p-datatable-wrapper","data-showgridlines":o.showGridlines},bu.getOtherProps(o),U.ptm("root"));return c.createElement("div",mn({ref:Ue},ts),Yu,Ju,wl,qu,Qu,Zu,wi,es)});lg.displayName="DataTable";var Za=function(){};Za.displayName="Column";function $0(t){if(t.length===0)return[];const a=t[t.length-1].scrape_timestamp,n=new Set(["Interior","Ocean View","Balcony"]),l=new Map;for(let o=t.length-1;o>=0;o--){const f=t[o];if(f.scrape_timestamp!==a)break;if(n.has(f.room_type))continue;const v=l.get(f.cruise_id);(!v||f.price<v.price)&&l.set(f.cruise_id,f)}return Array.from(l.values()).sort((o,f)=>o.price-f.price)}function B0({cruiseData:t}){const a=$0(t);return In.jsxs("div",{className:"app-shell p-3 justify-content-center align-items-center ",children:[In.jsx("div",{className:"mb-1 mb-1",children:In.jsx("h3",{className:"text-left mt-0 mb-1 border-bottom-1",children:"Cheapest Suites Snapshot 📸"})}),In.jsx("div",{className:"mb-1 mt-3 max-h-fit",children:In.jsxs(lg,{value:a,paginator:!0,rows:5,rowsPerPageOptions:[5,10,20,100],tableStyle:{minWidth:"60rem"},children:[In.jsx(Za,{field:"ship_name",header:"Ship"}),In.jsx(Za,{field:"departure",header:"Departure"}),In.jsx(Za,{field:"nights",header:"Nights"}),In.jsx(Za,{field:"visiting_ports",header:"Ports"}),In.jsx(Za,{field:"room_type",header:"Room Type"}),In.jsx(Za,{field:"cruise_url",header:"Link",body:n=>In.jsx("a",{href:n.cruise_url,target:"_blank",rel:"noreferrer",children:"View"})}),In.jsx(Za,{field:"price",header:"Price",body:n=>n.price.toLocaleString("en-IE",{style:"currency",currency:"EUR",minimumFractionDigits:0})})]})})]})}function H0({cruiseData:t}){const[a,n]=c.useState("snapshot");return In.jsxs("div",{className:"app-shell p-3 justify-content-center align-items-center ",children:[In.jsxs("div",{className:"glass p-4 mb-4 mb-3",children:[In.jsx("h1",{className:"text-center",children:"🚢 Cruise Price Scanner"}),In.jsxs("div",{className:"flex justify-content-center flex-wrap align-items-center gap-2",children:[In.jsx(eo,{label:"Latest Snapshot",onClick:()=>n("snapshot"),className:`w-12rem nav-btn ${a==="snapshot"?"p-button-raised":"button-inactive"}`}),In.jsx(eo,{label:"Price Trends",onClick:()=>n("trends"),className:`w-12rem nav-btn ${a==="snapshot"?"p-button-raised":"button-inactive"}`}),In.jsx(eo,{label:"Best Deals",onClick:()=>n("deals"),className:`w-12rem nav-btn ${a==="snapshot"?"p-button-raised":"button-inactive"}`})]})]}),In.jsxs("div",{className:"glass p-4 content-panel",children:[a==="snapshot"&&In.jsx(B0,{cruiseData:t}),a==="trends"&&In.jsx("div",{children:"Trends view…"}),a==="deals"&&In.jsx("div",{children:"Deals view…"})]})]})}var Ou={exports:{}};/* @license
+`,we.forEach(function(be,Fe){var rt=[w(be,"field"),w(be,"exportField")],dt=rt[0],St=rt[1],Kt=St||dt,Qt=F.resolveFieldData(Oe,Kt);Qt!=null?o.exportFunction?Qt=o.exportFunction({data:Qt,field:Kt,rowData:Oe,column:be}):Qt=String(Qt).replace(/"/g,'""').replace(/\n/g,"\u2028"):Qt="",fe=fe+('"'+Qt+'"'),Fe<we.length-1&&(fe=fe+o.csvSeparator)})}),$.exportCSV(fe,o.exportFilename)},fi=function(){o.editMode!=="row"&&document.body.click()},yr=function(){$.find(document.body,'[data-pc-section="roweditorcancelbuttonprops"]').forEach(function(R,J){setTimeout(function(){R.click()},J*5)})},Pr=function(R){return tr({first:qe(),rows:Be(),sortField:ct(),sortOrder:Mt(),multiSortMeta:_t(),filters:Se()},R)},Ur=function(R){var J=o.value||[];if(!o.lazy&&J&&J.length){var fe=R&&R.filters||Se(),we=R&&R.sortField||ct(),Oe=R&&R.sortOrder||Mt(),be=R&&R.multiSortMeta||_t(),Fe=h(),rt=Fe.find(function(dt){return w(dt,"field")===we});rt&&(We.current=w(rt,"sortable"),Ye.current=w(rt,"sortFunction")),(F.isNotEmpty(fe)||o.globalFilter)&&(J=ko(J,fe)),(we||F.isNotEmpty(be))&&(o.sortMode==="single"?J=oo(J,we,Oe):o.sortMode==="multiple"&&(J=Ca(J,be)))}return J},Sa=function(R){if(R&&o.paginator){var J=o.lazy?0:qe();return R.slice(J,J+Be())}return R};Br(function(){Ue.current&&(Le.current=_u(),Ue.current.setAttribute(Le.current,"")),Xe(da(o.filters)),ve()&&(ue(),o.resizableColumns&&Wt())}),gn(function(){return o.responsiveLayout==="stack"&&!o.scrollable&&qr(),function(){cl()}},[o.breakpoint]),gn(function(){var ke=da(o.filters);Z(ke),Xe(da(o.filters)),o.onValueChange&&o.onValueChange(Ur({filters:ke}))},[o.filters]),gn(function(){ve()&&P()}),gn(function(){cl(),o.responsiveLayout==="stack"&&!o.scrollable&&qr()},[o.responsiveLayout,o.scrollable]),gn(function(){if(o.globalFilter)Qr(o.globalFilter,"global",o.globalFilterMatchMode);else if(Ze.global){var ke=tr({},Ze);delete ke.global,Xe(ke),fl(ke)}},[o.globalFilter,o.globalFilterMatchMode]),Nr(function(){ye(),Ro(),cl(),ja()}),c.useImperativeHandle(a,function(){return{props:o,clearState:G,closeEditingCell:fi,closeEditingRows:yr,exportCSV:To,filter:Qr,reset:vl,resetColumnOrder:io,resetScroll:Do,resetResizeColumnsWidth:di,restoreColumnWidths:Wt,restoreState:ue,restoreTableState:ae,saveState:P,getFilterMeta:function(){return A},setFilterMeta:function(R){return Z(R)},getSortMeta:function(){return ne},setSortMeta:function(R){return C(R)},getElement:function(){return Ue.current},getTable:function(){return pt.current},getVirtualScroller:function(){return Ht.current},getProcessedData:function(){return Ur()}}});var Uu=function(){if(o.loading){var R=l({className:U.cx("loadingIcon")},U.ptm("loadingIcon")),J=o.loadingIcon||c.createElement(si,mn({},R,{spin:!0})),fe=Sn.getJSXIcon(J,tr({},R),{props:o}),we=l({className:U.cx("loadingOverlay")},U.ptm("loadingOverlay"));return c.createElement("div",we,fe)}return null},ml=function(){if(o.header){var R=F.getJSXElement(o.header,{props:o}),J=l({className:U.cx("header")},U.ptm("header"));return c.createElement("div",J,R)}return null},gl=function(R,J,fe){if(o.showHeaders===!1)return null;var we=ct(),Oe=Mt(),be=Bn(_t()),Fe=Vt(),rt=Ze,dt=!o.onFilter&&o.filters||Se(),St=R.items,Kt=R.props,Qt=R.columns,bn=fe||Kt.lazy?St:Kt.items;return c.createElement(og,{hostName:"DataTable",value:bn,tableProps:o,columns:Qt,tabIndex:o.tabIndex,empty:J,headerColumnGroup:o.headerColumnGroup,resizableColumns:o.resizableColumns,onColumnResizeStart:At,onColumnResizerClick:o.onColumnResizerClick,onColumnResizerDoubleClick:o.onColumnResizerDoubleClick,sortMode:o.sortMode,sortField:we,sortIcon:o.sortIcon,sortOrder:Oe,multiSortMeta:be,groupRowsBy:o.groupRowsBy,groupRowSortField:Fe,onSortChange:ci,filterDisplay:o.filterDisplay,filters:rt,filtersStore:dt,filterIcon:o.filterIcon,filterClearIcon:o.filterClearIcon,onFilterChange:Hu,onFilterApply:fl,showSelectAll:o.showSelectAll,allRowsSelected:Yt,onColumnCheckboxChange:on,onColumnMouseDown:ht,onColumnDragStart:sn,onColumnDragOver:or,onColumnDragLeave:Lr,onColumnDrop:xr,rowGroupMode:o.rowGroupMode,reorderableColumns:o.reorderableColumns,ptCallbacks:U,metaData:xe,unstyled:o.unstyled})},uo=function(R,J,fe,we,Oe){var be=qe(),Fe=R.rows,rt=R.columns,dt=R.contentRef,St=R.style,Kt=R.className,Qt=R.spacerStyle,bn=R.itemSize,lr=F.isNotEmpty(o.frozenValue)&&c.createElement(Pu,{hostName:"DataTable",ref:It,cellMemo:o.cellMemo,cellMemoProps:o.cellMemoProps,cellMemoPropsDepth:o.cellMemoPropsDepth,cellClassName:o.cellClassName,cellSelection:o.cellSelection,checkIcon:o.checkIcon,className:"p-datatable-tbody p-datatable-frozen-tbody",collapsedRowIcon:o.collapsedRowIcon,columns:rt,compareSelectionBy:o.compareSelectionBy,contextMenuSelection:o.contextMenuSelection,dataKey:o.dataKey,dragSelection:o.dragSelection,editMode:o.editMode,editingMeta:it,editingRows:o.editingRows,emptyMessage:o.emptyMessage,expandableRowGroups:o.expandableRowGroups,expandedRowIcon:o.expandedRowIcon,expandedRows:o.expandedRows,first:be,frozenRow:!0,groupRowsBy:o.groupRowsBy,isDataSelectable:o.isDataSelectable,isVirtualScrollerDisabled:!0,lazy:o.lazy,loading:o.loading,metaKeySelection:o.metaKeySelection,onCellClick:o.onCellClick,onCellSelect:o.onCellSelect,onCellUnselect:o.onCellUnselect,onContextMenu:o.onContextMenu,onContextMenuSelectionChange:o.onContextMenuSelectionChange,onEditingMetaChange:Vn,onRowClick:o.onRowClick,onRowCollapse:o.onRowCollapse,onRowDoubleClick:o.onRowDoubleClick,onRowPointerDown:o.onRowPointerDown,onRowPointerUp:o.onRowPointerUp,onRowEditCancel:o.onRowEditCancel,onRowEditChange:o.onRowEditChange,onRowEditComplete:o.onRowEditComplete,onRowEditInit:o.onRowEditInit,onRowEditSave:o.onRowEditSave,onRowExpand:o.onRowExpand,onRowMouseEnter:o.onRowMouseEnter,onRowMouseLeave:o.onRowMouseLeave,onRowReorder:o.onRowReorder,onRowSelect:o.onRowSelect,onRowToggle:o.onRowToggle,onRowUnselect:o.onRowUnselect,onSelectionChange:o.onSelectionChange,paginator:o.paginator,processedData:Oe,reorderableRows:o.reorderableRows,responsiveLayout:o.responsiveLayout,rowClassName:o.rowClassName,rowEditValidator:o.rowEditValidator,rowEditorCancelIcon:o.rowEditorCancelIcon,rowEditorInitIcon:o.rowEditorInitIcon,rowEditorSaveIcon:o.rowEditorSaveIcon,rowExpansionTemplate:o.rowExpansionTemplate,rowGroupFooterTemplate:o.rowGroupFooterTemplate,rowGroupHeaderTemplate:o.rowGroupHeaderTemplate,rowGroupMode:o.rowGroupMode,scrollable:o.scrollable,selectOnEdit:o.selectOnEdit,selection:o.selection,selectionAutoFocus:o.selectionAutoFocus,selectionMode:o.selectionMode,selectionModeInColumn:J,showRowReorderElement:o.showRowReorderElement,showSelectionElement:o.showSelectionElement,tabIndex:o.tabIndex,tableProps:o,tableSelector:Le.current,value:o.frozenValue,virtualScrollerOptions:R,ptCallbacks:U,metaData:xe,unstyled:o.unstyled}),Zr=c.createElement(Pu,{hostName:"DataTable",ref:Bt,cellMemo:o.cellMemo,cellMemoProps:o.cellMemoProps,cellMemoPropsDepth:o.cellMemoPropsDepth,cellClassName:o.cellClassName,cellSelection:o.cellSelection,checkIcon:o.checkIcon,className:nt("p-datatable-tbody",Kt),collapsedRowIcon:o.collapsedRowIcon,columns:rt,compareSelectionBy:o.compareSelectionBy,contextMenuSelection:o.contextMenuSelection,dataKey:o.dataKey,dragSelection:o.dragSelection,editMode:o.editMode,editingMeta:H,editingRows:o.editingRows,empty:fe,emptyMessage:o.emptyMessage,expandableRowGroups:o.expandableRowGroups,expandedRowIcon:o.expandedRowIcon,expandedRows:o.expandedRows,first:be,frozenRow:!1,groupRowsBy:o.groupRowsBy,isDataSelectable:o.isDataSelectable,isVirtualScrollerDisabled:we,lazy:o.lazy,loading:o.loading,metaKeySelection:o.metaKeySelection,onCellClick:o.onCellClick,onCellSelect:o.onCellSelect,onCellUnselect:o.onCellUnselect,onContextMenu:o.onContextMenu,onContextMenuSelectionChange:o.onContextMenuSelectionChange,onEditingMetaChange:On,onRowClick:o.onRowClick,onRowCollapse:o.onRowCollapse,onRowDoubleClick:o.onRowDoubleClick,onRowEditCancel:o.onRowEditCancel,onRowEditChange:o.onRowEditChange,onRowEditComplete:o.onRowEditComplete,onRowEditInit:o.onRowEditInit,onRowEditSave:o.onRowEditSave,onRowExpand:o.onRowExpand,onRowMouseEnter:o.onRowMouseEnter,onRowMouseLeave:o.onRowMouseLeave,onRowPointerDown:o.onRowPointerDown,onRowPointerUp:o.onRowPointerUp,onRowReorder:o.onRowReorder,onRowSelect:o.onRowSelect,onRowToggle:o.onRowToggle,onRowUnselect:o.onRowUnselect,onSelectionChange:o.onSelectionChange,paginator:o.paginator,processedData:Oe,reorderableRows:o.reorderableRows,responsiveLayout:o.responsiveLayout,rowClassName:o.rowClassName,rowEditValidator:o.rowEditValidator,rowEditorCancelIcon:o.rowEditorCancelIcon,rowEditorInitIcon:o.rowEditorInitIcon,rowEditorSaveIcon:o.rowEditorSaveIcon,rowExpansionTemplate:o.rowExpansionTemplate,rowGroupFooterTemplate:o.rowGroupFooterTemplate,rowGroupHeaderTemplate:o.rowGroupHeaderTemplate,rowGroupMode:o.rowGroupMode,scrollable:o.scrollable,selectOnEdit:o.selectOnEdit,selection:o.selection,selectionAutoFocus:o.selectionAutoFocus,selectionMode:o.selectionMode,selectionModeInColumn:J,showRowReorderElement:o.showRowReorderElement,showSelectionElement:o.showSelectionElement,style:St,tabIndex:o.tabIndex,tableProps:o,tableSelector:Le.current,value:Sa(Fe),virtualScrollerContentRef:dt,virtualScrollerOptions:R,ptCallbacks:U,metaData:xe,unstyled:o.unstyled}),fa=F.isNotEmpty(Qt)?c.createElement(Pu,{hostName:"DataTable",style:{height:"calc(".concat(Qt.height," - ").concat(Fe.length*bn,"px)")},className:"p-datatable-virtualscroller-spacer",ptCallbacks:U,metaData:xe,unstyled:o.unstyled}):null;return c.createElement(c.Fragment,null,lr,Zr,fa)},Mo=function(R){var J=R.columns;return c.createElement(rg,{hostName:"DataTable",tableProps:o,columns:J,footerColumnGroup:o.footerColumnGroup,ptCallbacks:U,metaData:xe,unstyled:o.unstyled})},pi=function(R,J,fe,we){if(J){var Oe=Pe(),be=o.virtualScrollerOptions||{},Fe=l({className:U.cx("wrapper"),style:tr(tr({},U.sx("wrapper")),{},{maxHeight:Oe?o.scrollHeight:null})},U.ptm("wrapper"));return c.createElement("div",mn({ref:bt},Fe),c.createElement(Od,mn({ref:Ht},be,{items:R,columns:J,style:tr(tr({},be.style),{height:o.scrollHeight!=="flex"?o.scrollHeight:void 0}),scrollHeight:o.scrollHeight!=="flex"?void 0:"100%",disabled:Oe,loaderDisabled:!0,inline:!0,autoSize:!0,pt:U.ptm("virtualScroller"),__parentMetadata:{parent:xe},showSpacer:!1,unstyled:o.unstyled,contentTemplate:function(dt){var St=function(fa){pt.current=fa,dt.spacerRef&&dt.spacerRef(fa)},Kt=gl(dt,we,Oe),Qt=uo(dt,fe,we,Oe,R),bn=Mo(dt),lr=l({className:nt(o.tableClassName,U.cx("table")),style:o.tableStyle,role:"table"},U.ptm("table"));return c.createElement("table",mn({ref:St},lr),Kt,Qt,bn)}})))}},Ku=function(){if(o.footer){var R=F.getJSXElement(o.footer,{props:o}),J=l({className:U.cx("footer")},U.ptm("footer"));return c.createElement("div",J,R)}return null},vi=function(R,J){return c.createElement(Am,{first:qe(),rows:Be(),pageLinkSize:o.pageLinkSize,className:nt(o.paginatorClassName,U.cx("paginator",{position:R})),onPageChange:$u,template:o.paginatorTemplate,totalRecords:J,rowsPerPageOptions:o.rowsPerPageOptions,currentPageReportTemplate:o.currentPageReportTemplate,leftContent:o.paginatorLeft,rightContent:o.paginatorRight,alwaysShow:o.alwaysShowPaginator,dropdownAppendTo:o.paginatorDropdownAppendTo,pt:U.ptm("paginator"),unstyled:o.unstyled,__parentMetadata:{parent:xe}})},Vu=function(R){return o.paginator&&o.paginatorPosition!=="bottom"?vi("top",R):null},hl=function(R){return o.paginator&&o.paginatorPosition!=="top"?vi("bottom",R):null},Wu=function(){if(o.resizableColumns){var R=l({className:U.cx("resizeHelper"),style:U.sx("resizeHelper")},U.ptm("resizeHelper"));return c.createElement("div",mn({ref:$t},R))}return null},Gu=function(){if(o.reorderableColumns){var R={position:"absolute",display:"none"},J=l({className:U.cx("reorderIndicatorUp"),style:U.sx("reorderIndicatorUp",{style:R})},U.ptm("reorderIndicatorUp")),fe=l(U.ptm("reorderIndicatorUpIcon")),we=Sn.getJSXIcon(o.reorderIndicatorUpIcon||c.createElement(um,fe),tr({},fe),{props:o}),Oe=l({className:U.cx("reorderIndicatorDown"),style:U.sx("reorderIndicatorDown",{style:R})},U.ptm("reorderIndicatorDown")),be=l(U.ptm("reorderIndicatorDownIcon")),Fe=Sn.getJSXIcon(o.reorderIndicatorDownIcon||c.createElement(sm,be),tr({},be),{props:o});return c.createElement(c.Fragment,null,c.createElement("span",mn({ref:mt},J),we),c.createElement("span",mn({ref:xt},Oe),Fe))}return null},yl=Ur(),mi=h(),gi=Gn(yl),hi=F.isEmpty(yl),yi=Pn(mi),Xu=o.selectionMode||yi,Yu=Uu(),Ju=ml(),wl=Vu(gi),qu=pi(yl,mi,yi,hi),Qu=hl(gi),Zu=Ku(),wi=Wu(),es=Gu(),ts=l({id:o.id,className:nt(o.className,U.cx("root",{selectable:Xu})),style:o.style,"data-scrollselectors":".p-datatable-wrapper","data-showgridlines":o.showGridlines},bu.getOtherProps(o),U.ptm("root"));return c.createElement("div",mn({ref:Ue},ts),Yu,Ju,wl,qu,Qu,Zu,wi,es)});lg.displayName="DataTable";var Za=function(){};Za.displayName="Column";function $0(t){if(t.length===0)return[];const a=t[t.length-1].scrape_timestamp,n=new Set(["Interior","Ocean View","Balcony"]),l=new Map;for(let o=t.length-1;o>=0;o--){const f=t[o];if(f.scrape_timestamp!==a)break;if(n.has(f.room_type))continue;const v=l.get(f.cruise_id);(!v||f.price<v.price)&&l.set(f.cruise_id,f)}return Array.from(l.values()).sort((o,f)=>o.price-f.price)}function B0({cruiseData:t}){const a=$0(t);return In.jsxs("div",{className:"app-shell p-3 justify-content-center align-items-center ",children:[In.jsx("div",{className:"mb-1 mb-1",children:In.jsx("h3",{className:"text-left mt-0 mb-1 border-bottom-1",children:"Cheapest Suites Snapshot 📸"})}),In.jsx("div",{className:"mb-1 mt-3 max-h-fit",children:In.jsxs(lg,{value:a,paginator:!0,rows:5,rowsPerPageOptions:[5,10,20,100],style:{borderRadius:"0.5rem",overflow:"hidden",fontSize:"0.875rem"},children:[In.jsx(Za,{field:"ship_name",header:"Ship"}),In.jsx(Za,{field:"sailing_date",header:"Departure Date"}),In.jsx(Za,{field:"nights",header:"Nights"}),In.jsx(Za,{field:"visiting_ports",header:"Ports"}),In.jsx(Za,{field:"room_type",header:"Room Type"}),In.jsx(Za,{field:"cruise_url",header:"Link",body:n=>In.jsx("a",{href:n.cruise_url,target:"_blank",rel:"noreferrer",children:"View"})}),In.jsx(Za,{field:"price",header:"Price",body:n=>n.price.toLocaleString("en-IE",{style:"currency",currency:"EUR",minimumFractionDigits:0})})]})})]})}function H0({cruiseData:t}){const[a,n]=c.useState("snapshot");return In.jsxs("div",{className:"app-shell p-3 justify-content-center align-items-center ",children:[In.jsxs("div",{className:"glass p-4 mb-4 mb-3",children:[In.jsx("h1",{className:"text-center",children:"🚢 Cruise Price Scanner"}),In.jsxs("div",{className:"flex justify-content-center flex-wrap align-items-center gap-2",children:[In.jsx(eo,{label:"Latest Snapshot",onClick:()=>n("snapshot"),className:`w-12rem nav-btn ${a==="snapshot"?"p-button-raised":"button-inactive"}`}),In.jsx(eo,{label:"Price Trends",onClick:()=>n("trends"),className:`w-12rem nav-btn ${a==="snapshot"?"p-button-raised":"button-inactive"}`}),In.jsx(eo,{label:"Best Deals",onClick:()=>n("deals"),className:`w-12rem nav-btn ${a==="snapshot"?"p-button-raised":"button-inactive"}`})]})]}),In.jsxs("div",{className:"glass p-4 content-panel",children:[a==="snapshot"&&In.jsx(B0,{cruiseData:t}),a==="trends"&&In.jsx("div",{children:"Trends view…"}),a==="deals"&&In.jsx("div",{children:"Deals view…"})]})]})}var Ou={exports:{}};/* @license
 Papa Parse
 v5.5.3
 https://github.com/mholt/PapaParse
