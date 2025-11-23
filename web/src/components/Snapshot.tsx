@@ -17,9 +17,10 @@ export function Snapshot({ cruiseData }: { cruiseData: RowData[] }) {
                     rows={5}
                     rowsPerPageOptions={[5, 10, 20, 100]}
                     tableStyle={{ minWidth: "60rem" }}
+                    style={{ borderRadius: '0.5rem', overflow: 'hidden' }}
                 >
                     <Column field="ship_name" header="Ship"></Column>
-                    <Column field="departure" header="Departure"></Column>
+                    <Column field="sailing_date" header="Departure Date"></Column>
                     <Column field="nights" header="Nights"></Column>
                     <Column field="visiting_ports" header="Ports"></Column>
                     <Column field="room_type" header="Room Type"></Column>
