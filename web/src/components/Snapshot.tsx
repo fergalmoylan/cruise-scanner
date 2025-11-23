@@ -16,8 +16,7 @@ export function Snapshot({ cruiseData }: { cruiseData: RowData[] }) {
                     paginator
                     rows={5}
                     rowsPerPageOptions={[5, 10, 20, 100]}
-                    tableStyle={{ minWidth: "60rem" }}
-                    style={{ borderRadius: '0.5rem', overflow: 'hidden' }}
+                    style={{ borderRadius: '0.5rem', overflow: 'hidden', fontSize: '0.875rem' }}
                 >
                     <Column field="ship_name" header="Ship"></Column>
                     <Column field="sailing_date" header="Departure Date"></Column>

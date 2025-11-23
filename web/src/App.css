@@ -10,6 +10,7 @@ body {
     background-size: cover;
     min-height: 100svh;
     overflow-x: hidden;
+    font-size: calc(2vmin);
 }
 
 @supports (min-height: 100dvh) {
