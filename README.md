@@ -2,6 +2,9 @@
 
 Automated Royal Caribbean cruise price tracker with analytics and deal notifications.
 
+## Pages
+https://fergalmoylan.github.io/cruise-scanner/app/
+
 ## Features
 
 - 🔍 Daily automated scraping of Royal Caribbean cruise prices
