@@ -1,14 +1,19 @@
 import { DataTable } from 'primereact/datatable';
 import {Column} from "primereact/column";
 import type {RowData} from "../lib/csv.ts";
-import {getCheapestLatestSuites} from "../lib/latest-snapshot";
+import {getCheapestLatestSuites, formatScrapeTimestamp, formatScrapeDateYYYYMMDD} from "../lib/latest-snapshot";
 
 export function Snapshot({ cruiseData }: { cruiseData: RowData[] }) {
     const CHEAPEST_SUITES = getCheapestLatestSuites(cruiseData);
+    const latestTimestamp = cruiseData[cruiseData.length - 1].scrape_timestamp;
+    const latestTimestampLabel = formatScrapeTimestamp(latestTimestamp, {
+        timeZone: "Europe/Dublin",
+        assumeUtc: true,
+    });
     return (
         <div className="app-shell p-3 justify-content-center align-items-center ">
             <div className="mb-1 mb-1">
-                <h3 className="text-left mt-0 mb-1 border-bottom-1">Cheapest Suites Snapshot 📸</h3>
+                <h3 className="text-left mt-0 mb-1 border-bottom-1">Cheapest Suites Snapshot - {latestTimestampLabel}</h3>
             </div>
             <div className="mb-1 mt-3 max-h-fit">
                 <DataTable
@@ -20,6 +25,10 @@ export function Snapshot({ cruiseData }: { cruiseData: RowData[] }) {
                 >
                     <Column field="ship_name" header="Ship"></Column>
                     <Column field="sailing_date" header="Departure Date"></Column>
+                    <Column
+                        header="Scraped Date"
+                        body={(row: RowData) => formatScrapeDateYYYYMMDD(row.scrape_timestamp, { assumeUtc: true })}
+                    />
                     <Column field="nights" header="Nights"></Column>
                     <Column field="visiting_ports" header="Ports"></Column>
                     <Column field="room_type" header="Room Type"></Column>
