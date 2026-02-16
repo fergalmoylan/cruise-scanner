@@ -42,6 +42,41 @@ jobs:
         python -m playwright install webkit
         python -m playwright install-deps webkit
 
+    - name: Rotate CSV if it exceeds 95MiB
+      run: |
+        set -euo pipefail
+
+        FILE="docs/cruise_prices_v2.csv"
+        LIMIT=$((95 * 1024 * 1024))   # 99 MiB
+        TS="$(date -u +'%Y%m%d_%H%M%S')"
+        ARCHIVE_DIR="docs/archive"
+
+        if [ ! -f "$FILE" ]; then
+          echo "No $FILE found; skipping rotation."
+          exit 0
+        fi
+
+        SIZE=$(stat -c%s "$FILE")
+        echo "Current size: $SIZE bytes"
+
+        if [ "$SIZE" -le "$LIMIT" ]; then
+          echo "Under limit; no rotation needed."
+          exit 0
+        fi
+        mkdir -p "$ARCHIVE_DIR"
+        HEADER="$(head -n 1 "$FILE" || true)"
+
+        ROTATED="$ARCHIVE_DIR/cruise_prices_v2_${TS}.csv"
+        mv "$FILE" "$ROTATED"
+        gzip -9 "$ROTATED"
+        if [ -n "$HEADER" ]; then
+          printf "%s\n" "$HEADER" > "$FILE"
+        else
+          : > "$FILE"
+        fi
+
+        echo "Rotated to ${ROTATED}.gz and recreated $FILE"
+
     - name: Run scraper with configuration
       env:
         GITHUB_ACTIONS: true
@@ -66,6 +101,7 @@ jobs:
 
         echo "Running: $CMD"
         $CMD
+
 
     - name: Commit changes
       run: |
