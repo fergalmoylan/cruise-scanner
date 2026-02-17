@@ -62,7 +62,7 @@ python src/main.py --scrape
 ├── tests
 │   └── test_scraper.py
 ├── web                         # Typescript UI Application
-└──.github
+└── .github
     └── workflows               # GitHub Actions automation
 ```
 

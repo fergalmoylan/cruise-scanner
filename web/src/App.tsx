@@ -11,8 +11,8 @@ export default function App({ cruiseData }: { cruiseData: RowData[] }) {
     const [view, setView] = useState<View>('snapshot');
 
     return (
-        <div className="app-shell p-3 justify-content-center align-items-center ">
-            <div className="glass p-4 mb-4 mb-3">
+        <div className="app-shell p-2 justify-content-center align-items-center ">
+            <div className="glass p-3 mb-4">
                 <h1 className="text-center">🚢 Cruise Price Scanner</h1>
 
                 <div className="flex justify-content-center flex-wrap align-items-center gap-2">
