@@ -60,7 +60,6 @@ export function formatScrapeTimestamp(
         timeZone?: string;
         assumeUtc?: boolean;
         dateStyle?: Intl.DateTimeFormatOptions["dateStyle"];
-        timeStyle?: Intl.DateTimeFormatOptions["timeStyle"];
     }
 ): string {
     if (!ts) return "";
@@ -70,7 +69,6 @@ export function formatScrapeTimestamp(
         timeZone = "Europe/Dublin",
         assumeUtc = false,
         dateStyle = "medium",
-        timeStyle = "short",
     } = opts ?? {};
 
     const normalized = ts.replace(/(\.\d{3})\d+/, "$1");
@@ -83,26 +81,5 @@ export function formatScrapeTimestamp(
     return new Intl.DateTimeFormat(locale, {
         timeZone,
         dateStyle,
-        timeStyle,
     }).format(date);
-}
-
-// latest-snapshot.ts
-export function formatScrapeDateYYYYMMDD(
-    ts?: string,
-    opts?: { assumeUtc?: boolean }
-): string {
-    if (!ts) return "";
-
-    const normalized = ts.replace(/(\.\d{3})\d+/, "$1"); // microseconds -> ms
-    const hasTz = /[zZ]|[+-]\d{2}:\d{2}$/.test(normalized);
-    const iso = (opts?.assumeUtc ?? false) && !hasTz ? `${normalized}Z` : normalized;
-
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return ts;
-    const yyyy = (opts?.assumeUtc ?? false) ? d.getUTCFullYear() : d.getFullYear();
-    const mm = String(((opts?.assumeUtc ?? false) ? d.getUTCMonth() : d.getMonth()) + 1).padStart(2, "0");
-    const dd = String((opts?.assumeUtc ?? false) ? d.getUTCDate() : d.getDate()).padStart(2, "0");
-
-    return `${yyyy}-${mm}-${dd}`;
 }
