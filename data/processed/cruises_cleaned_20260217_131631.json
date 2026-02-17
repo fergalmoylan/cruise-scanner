@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-02-17T13:16:31.089817",
+  "source_url": "https://www.royalcaribbean.com/gbr/en/cruises?search=departurePort:BCN,BYE,FLL,LAX,MIA,ROM,SIN,YOK|nights:6~8,9~11,gte12|ship:AL,AN,HM,IC,LE,OA,OV,OY,QN,ST,SY,UT,WN&country=IRL&market=gbr&language=en",
+  "total_found": 1,
+  "total_processed": 1,
+  "cruises": [
+    {
+      "id": "IC07MIA-2623281014",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Icon of the Seas",
+        "code": "IC"
+      },
+      "sailings": [
+        {
+          "sailing_id": "IC07MIA-2623281014-2026-09-12",
+          "timestamp": "2026-09-12",
+          "date_range": "Sept 12 - Sept 19, 2026",
+          "base_price": "1231",
+          "interior": 1231,
+          "ocean_view": 1412,
+          "balcony": 1432,
+          "suite_guarantee": 2356,
+          "we_choose_your_suite": 2356,
+          "surfside_family_suite": 2543,
+          "sky_junior_suite": 3318,
+          "ocean_view_panoramic_suite_no_balcony": 3436,
+          "infinite_grand_suite": 4218,
+          "sunset_suite": 4262,
+          "sunset_corner_suite": 4991,
+          "owners_suite": 5668,
+          "icon_loft_suite": 8377,
+          "royal_loft_suite": 18884,
+          "ultimate_family_townhouse": 20702
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Philipsburg, St Maarten",
+          "Charlotte Amalie, St Thomas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "IC07E410",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-icon-IC07E410?sailDate=2026-09-12&packageCode=IC07E410&groupId=IC07MIA-2623281014&country=IRL",
+        "scraped_at": "2026-02-17T13:15:48.368Z"
+      }
+    }
+  ]
+}
