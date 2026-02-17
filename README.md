@@ -47,19 +47,23 @@ python src/main.py --scrape
 ## Project Structure
 
 ```
-
-src
-├── __init__.py
-├── analytics             # Price analysis and trends
-├── main.py               # entrypoint script
-├── notifications         # notifications (alerts / emails)
-└── scraper               # Web scraping logic
-data
-├── cruise_prices_v2.csv  # csv with all scraped data
-├── processed             # json formatted scraped data
-└── raw                   # raw json scraped data
-.github
-└── workflows             # GitHub Actions automation
+├── data
+│   ├── processed               # json formatted scraped data
+│   └── raw                     # raw json scraped data
+├── docs
+│   ├── app                     # Github pages assets and resources
+│   └── cruise_prices_v2.csv    # Cruise data CSV file written by TS app
+├── src
+│   ├── __init__.py
+│   ├── analytics               # Price analysis and trends
+│   ├── main.py                 # entrypoint script
+│   ├── notifications           # notifications (alerts / emails)
+│   └── scraper                 # Web scraping logic
+├── tests
+│   └── test_scraper.py
+├── web                         # Typescript UI Application
+└──.github
+    └── workflows               # GitHub Actions automation
 ```
 
 ### Manual Scraping
