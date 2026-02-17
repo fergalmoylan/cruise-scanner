@@ -5,15 +5,6 @@ Automated Royal Caribbean cruise price tracker with analytics and deal notificat
 ## Pages
 https://fergalmoylan.github.io/cruise-scanner/app/
 
-## Features
-
-- 🔍 Daily automated scraping of Royal Caribbean cruise prices
-- 📊 Price history tracking and trend analysis
-- 📧 Email notifications for price drops and deals
-- 📈 Web dashboard with interactive charts
-- 🔄 Resilient to website changes with multi-strategy parsing
-- 💰 Completely free using GitHub Actions and GitHub Pages
-
 ## Quick Start
 
 ### Prerequisites
@@ -71,27 +62,6 @@ data
 └── workflows             # GitHub Actions automation
 ```
 
-## Configuration
-
-### GitHub Actions Setup
-
-1. Go to your repository Settings → Secrets and variables → Actions
-2. Add the following secrets:
-   - `EMAIL_USERNAME`: Your Gmail address
-   - `EMAIL_PASSWORD`: Gmail app-specific password
-   - `EMAIL_RECIPIENT`: Where to send notifications
-
-### Email Notifications
-
-1. Enable 2-factor authentication on Gmail
-2. Generate an app-specific password:
-   - Go to Google Account settings
-   - Security → 2-Step Verification → App passwords
-   - Generate a password for "Mail"
-3. Use this password in GitHub Secrets
-
-## Usage
-
 ### Manual Scraping
 ```bash
 python src/main.py --scrape
@@ -100,8 +70,6 @@ python src/main.py --scrape
 ### View Dashboard
 The dashboard is automatically deployed to:
 `https://YOUR_USERNAME.github.io/cruise-price-tracker/`
-
-## Development
 
 ### Running Tests
 ```bash
@@ -114,10 +82,6 @@ Edit `config/selectors.json` if the website structure changes.
 ## License
 
 MIT
-
-## Contributing
-
-Pull requests are welcome! Please read CONTRIBUTING.md first.
 
 ## Disclaimer
 
