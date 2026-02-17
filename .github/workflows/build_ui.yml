@@ -6,6 +6,7 @@ on:
     branches: [ main ]
     paths:
       - 'web/**'
+      - 'docs/cruise_prices_v2.csv'
       - '.github/workflows/build-ui.yaml'
 
 jobs:
@@ -28,14 +29,21 @@ jobs:
           npm ci
           npm run build
 
-      - name: Commit build to docs/app
+      - name: Copy latest CSV into published app
         run: |
-          if [[ -n "$(git status --porcelain docs/app)" ]]; then
-            git config user.name "GitHub Action"
-            git config user.email "action@github.com"
-            git add docs/app
-            git commit -m "Build UI"
-            git push
-          else
-            echo "No UI changes to commit."
+          set -euo pipefail
+          mkdir -p docs/app
+          cp -f docs/cruise_prices_v2.csv docs/app/cruise_prices_v2.csv
+
+      - name: Commit build + data to docs/app
+        run: |
+          set -euo pipefail
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add -A docs/app
+          if git diff --cached --quiet; then
+            echo "No UI/data changes to commit."
+            exit 0
           fi
+          git commit -m "Build UI"
+          git push origin HEAD:main
