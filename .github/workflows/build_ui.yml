@@ -6,7 +6,7 @@ on:
     branches: [ main ]
     paths:
       - 'web/**'
-      - '.github/workflows/build-ui.yaml'
+      - '.github/workflows/build_ui.yml'
 
 jobs:
   build:
