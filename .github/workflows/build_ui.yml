@@ -1,6 +1,10 @@
 name: Build UI
 
 on:
+  workflow_run:
+    workflows: [ "Scrape Cruise Prices" ]
+    types:
+      - completed
   workflow_dispatch:
   push:
     branches: [ main ]
