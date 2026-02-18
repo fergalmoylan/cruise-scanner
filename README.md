@@ -19,8 +19,8 @@ https://fergalmoylan.github.io/cruise-scanner/app/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/cruise-price-tracker.git
-cd cruise-price-tracker
+git clone https://github.com/YOUR_USERNAME/cruise-scanner.git
+cd cruise-scanner
 ```
 
 2. Create virtual environment:
@@ -73,9 +73,9 @@ python src/main.py --scrape
 python src/main.py --scrape
 ```
 
-### View Dashboard
-The dashboard is automatically deployed to:
-`https://YOUR_USERNAME.github.io/cruise-price-tracker/`
+### View Pages
+The UI is automatically deployed to:
+`https://YOUR_USERNAME.github.io/cruise-scanner/`
 
 ### Running Tests
 ```bash
