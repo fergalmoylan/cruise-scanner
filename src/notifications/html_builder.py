@@ -19,6 +19,11 @@ COLUMNS = [
 ]
 
 
+def _load_css() -> str:
+    css_path = Path(__file__).with_name("style.css")
+    return css_path.read_text(encoding="utf-8")
+
+
 def _format_price_eur(price_str: str) -> str:
     s = (price_str or "").strip()
     if not s:
@@ -34,16 +39,25 @@ def _format_price_eur(price_str: str) -> str:
     return f"€{val:,.2f}"
 
 
+def _norm_place(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip()).casefold()
+
+
 def _route_summary(visiting_ports: str) -> str:
     s = (visiting_ports or "").strip()
     if not s:
         return ""
+
     parts = [p.strip() for p in s.split(" - ") if p.strip()]
     if not parts:
         return s
-    if len(parts) == 1:
-        return parts[0]
-    return f"{parts[0]} -> {parts[-1]}"
+
+    first = parts[0]
+    last = parts[-1]
+
+    if _norm_place(first) == _norm_place(last):
+        return first
+    return f"{first} -> {last}"
 
 
 def _parse_price_to_float(price_str: str) -> float:
@@ -136,127 +150,15 @@ def build_html_email(scrape_date_ddmmyyyy: str, rows: List[Dict[str, str]]) -> s
         safe = esc(u)
         return f'<a class="link" href="{safe}" target="_blank" rel="noopener noreferrer">Open</a>'
 
-    style = """
-    <style>
-      body{
-        margin:0; padding:0;
-        background:#0b1220;
-        color:#e5e7eb;
-        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      }
-      .wrap{
-        max-width:1100px;
-        margin:0 auto;
-        padding:18px 12px;
-      }
-      .header{
-        background:linear-gradient(135deg,#111827,#0b3a8a);
-        border:1px solid #1f2937;
-        border-radius:14px;
-        padding:16px 16px;
-      }
-      .title{
-        margin:0;
-        font-size:18px;
-        font-weight:800;
-        letter-spacing:0.2px;
-        color: #ffffff !important;
-      }
-      .header .title { color: #ffffff !important; }
-      .header, .header * { color: #ffffff !important; }
-      .subtitle{
-        margin:8px 0 0 0;
-        font-size:13px;
-        color:#cbd5e1;
-      }
-      .panel{
-        margin-top:12px;
-        background:#0f172a;
-        border:1px solid #1f2937;
-        border-radius:14px;
-        overflow:hidden;
-      }
-      .meta{
-        margin:0;
-        padding:12px 14px;
-        font-size:13px;
-        color:#cbd5e1;
-        border-bottom:1px solid #1f2937;
-        background:#0b1220;
-      }
-
-      table{
-        width:100%;
-        border-collapse:separate;
-        border-spacing:0;
-      }
-      thead th{
-        text-align:left;
-        font-size:12px;
-        text-transform:uppercase;
-        letter-spacing:0.08em;
-        color:#cbd5e1;
-        background:#0b1220;
-        padding:12px 12px;
-        border-bottom:1px solid #1f2937;
-        white-space:nowrap;
-      }
-      tbody td{
-        padding:12px 12px;
-        border-bottom:1px solid #1f2937;
-        font-size:14px;
-        color:#e5e7eb;
-        vertical-align:top;
-      }
-      tbody tr:nth-child(even) td{
-        background:#0c152b;
-      }
-      tbody tr:last-child td{
-        border-bottom:none;
-      }
-
-      .num{
-        text-align:right;
-        white-space:nowrap;
-        font-variant-numeric:tabular-nums;
-        color:#e5e7eb;
-      }
-
-      /* Make the route column wrap nicely */
-      .route{
-        max-width:420px;
-        white-space:normal;
-        word-break:break-word;
-        color:#d1d5db;
-      }
-
-      .link{
-        display:inline-block;
-        color:#93c5fd !important;
-        font-weight:700;
-        text-decoration:none;
-        border:1px solid rgba(147,197,253,0.35);
-        padding:7px 10px;
-        border-radius:10px;
-        background:rgba(59,130,246,0.10);
-      }
-      .link:visited{ color:#93c5fd !important; }
-
-      /* Mobile: tighten spacing but keep table scan-able */
-      @media (max-width: 640px){
-        .wrap{ padding:12px 8px; }
-        thead th{ padding:10px 8px; font-size:11px; }
-        tbody td{ padding:10px 8px; font-size:13px; }
-        .route{ max-width:240px; }
-      }
-    </style>
-    """
+    css = _load_css()
+    style = f"<style>\n{css}\n</style>"
 
     header = f"""
       <div class="header">
-        <div class="title">Cruise Prices</div>
+        <div class="title" >Latest Cruise Prices</div>
         <div class="subtitle">
-          Scrape date: <strong>{esc(scrape_date_ddmmyyyy)}</strong> · Sorted by lowest price first
+          Scrape date: <strong>{esc(scrape_date_ddmmyyyy)}</strong>
+          · Sorted by lowest price first
         </div>
       </div>
     """
