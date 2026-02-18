@@ -1,6 +1,8 @@
-# Cruise Scanner 🚢
+# Cruise Scanner
 
 Automated Royal Caribbean cruise price tracker with analytics and deal notifications.
+
+*This is a personal project and a work in progress.*
 
 ## Pages
 https://fergalmoylan.github.io/cruise-scanner/app/
