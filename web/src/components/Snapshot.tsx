@@ -18,6 +18,7 @@ export function Snapshot({ cruiseData }: { cruiseData: RowData[] }) {
             <div className="mb-1 mt-3 max-h-fit">
                 <DataTable
                     value={CHEAPEST_SUITES}
+                    className="navy-table"
                     paginator
                     scrollable
                     scrollHeight="60vh"
