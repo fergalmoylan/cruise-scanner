@@ -89,3 +89,16 @@ h1 {
             0 6px 12px rgba(0, 0, 0, 0.18),
             0 2px 4px rgba(0, 0, 0, 0.14);
 }
+
+.navy-table {
+    border: 1px solid #4d5480;
+
+}
+.navy-table .p-datatable-thead > tr > th,
+.navy-table .p-datatable-tbody > tr > td {
+     background: #161e34;
+}
+
+.navy-table .p-paginator {
+    background: #161e34;
+}
