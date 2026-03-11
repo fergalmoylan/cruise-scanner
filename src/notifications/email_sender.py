@@ -11,7 +11,7 @@ from typing import List
 
 from dotenv import load_dotenv
 
-from .html_builder import build_html_email, read_latest_scrape_rows
+from .html_builder import _parse_price_to_float, build_html_email, read_latest_scrape_rows
 
 log = logging.getLogger(__name__)
 
@@ -76,15 +76,32 @@ def main() -> None:
     sender_password = _get_env("SENDER_PASSWORD")
     recipients = _parse_recipients(_get_env("RECIPIENTS"))
 
-    csv_path = Path("docs/cruise_prices_v2.csv")
-    latest = read_latest_scrape_rows(csv_path=csv_path)
+    rcc = read_latest_scrape_rows(csv_path=Path("docs/cruise_prices_rcc.csv"))
+    msc = read_latest_scrape_rows(csv_path=Path("docs/cruise_prices_msc.csv"))
 
-    html = build_html_email(
-        scrape_date_ddmmyyyy=latest.scrape_date_ddmmyyyy,
-        rows=latest.rows,
+    combined_rows = sorted(
+        rcc.rows + msc.rows,
+        key=lambda r: _parse_price_to_float(r.get("price", "")),
     )
 
-    subject_date = _format_subject_date(latest.scrape_timestamp_raw)
+    later_timestamp = (
+        rcc.scrape_timestamp_raw
+        if rcc.scrape_timestamp_raw > msc.scrape_timestamp_raw
+        else msc.scrape_timestamp_raw
+    )
+
+    later_date = (
+        rcc.scrape_date_ddmmyyyy
+        if rcc.scrape_timestamp_raw > msc.scrape_timestamp_raw
+        else msc.scrape_date_ddmmyyyy
+    )
+
+    html = build_html_email(
+        scrape_date_ddmmyyyy=later_date,
+        rows=combined_rows,
+    )
+
+    subject_date = _format_subject_date(later_timestamp)
     subject = f"Cruise Prices — {subject_date}"
     send_mail_html(
         html=html,

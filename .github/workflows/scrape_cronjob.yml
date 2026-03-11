@@ -20,100 +20,193 @@ on:
     - cron: '17 2 * * *'
 
 jobs:
-  scrape:
+  scrape-rcc:
     runs-on: ubuntu-22.04
     timeout-minutes: 240
     steps:
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.PAT_PUSH }}
-        persist-credentials: true
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_PUSH }}
+          persist-credentials: true
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        # Install Python packages
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install webkit
+          python -m playwright install-deps webkit
 
-        # Install webkit using Python's playwright (not npx)
-        python -m playwright install webkit
-        python -m playwright install-deps webkit
+      - name: Rotate CSV if it exceeds 95MiB
+        run: |
+          set -euo pipefail
+          FILE="docs/cruise_prices_rcc.csv"
+          LIMIT=$((95 * 1024 * 1024))
+          TS="$(date -u +'%Y%m%d_%H%M%S')"
+          ARCHIVE_DIR="docs/archive"
+          if [ ! -f "$FILE" ]; then
+            echo "No $FILE found; skipping rotation."
+            exit 0
+          fi
+          SIZE=$(stat -c%s "$FILE")
+          echo "Current size: $SIZE bytes"
+          if [ "$SIZE" -le "$LIMIT" ]; then
+            echo "Under limit; no rotation needed."
+            exit 0
+          fi
+          mkdir -p "$ARCHIVE_DIR"
+          HEADER="$(head -n 1 "$FILE" || true)"
+          ROTATED="$ARCHIVE_DIR/cruise_prices_rcc_${TS}.csv"
+          mv "$FILE" "$ROTATED"
+          gzip -9 "$ROTATED"
+          if [ -n "$HEADER" ]; then
+            printf "%s\n" "$HEADER" > "$FILE"
+          else
+            : > "$FILE"
+          fi
+          echo "Rotated to ${ROTATED}.gz and recreated $FILE"
 
-    - name: Rotate CSV if it exceeds 95MiB
-      run: |
-        set -euo pipefail
+      - name: Run RCC scraper
+        env:
+          GITHUB_ACTIONS: true
+          PYTHONUNBUFFERED: "1"
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            MAX_CRUISES="${{ github.event.inputs.max_cruises }}"
+            MAX_SAILINGS="${{ github.event.inputs.max_sailings }}"
+            ANALYZE="${{ github.event.inputs.run_analysis }}"
+          else
+            MAX_CRUISES="100"
+            MAX_SAILINGS="5"
+            ANALYZE="false"
+          fi
+          CMD="python -u src/main.py --scrape --scraper rcc"
+          [ -n "$MAX_CRUISES" ] && CMD="$CMD --max-cruises $MAX_CRUISES"
+          [ -n "$MAX_SAILINGS" ] && CMD="$CMD --max-sailings $MAX_SAILINGS"
+          [ "$ANALYZE" == "true" ] && CMD="$CMD --analyze"
+          echo "Running: $CMD"
+          $CMD
 
-        FILE="docs/cruise_prices_v2.csv"
-        LIMIT=$((95 * 1024 * 1024))
-        TS="$(date -u +'%Y%m%d_%H%M%S')"
-        ARCHIVE_DIR="docs/archive"
+      - name: Upload RCC outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rcc-output
+          path: |
+            docs/cruise_prices_rcc.csv
+            data/processed/
+          if-no-files-found: warn
 
-        if [ ! -f "$FILE" ]; then
-          echo "No $FILE found; skipping rotation."
-          exit 0
-        fi
+  scrape-msc:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_PUSH }}
+          persist-credentials: true
 
-        SIZE=$(stat -c%s "$FILE")
-        echo "Current size: $SIZE bytes"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-        if [ "$SIZE" -le "$LIMIT" ]; then
-          echo "Under limit; no rotation needed."
-          exit 0
-        fi
-        mkdir -p "$ARCHIVE_DIR"
-        HEADER="$(head -n 1 "$FILE" || true)"
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install webkit
+          python -m playwright install-deps webkit
 
-        ROTATED="$ARCHIVE_DIR/cruise_prices_v2_${TS}.csv"
-        mv "$FILE" "$ROTATED"
-        gzip -9 "$ROTATED"
-        if [ -n "$HEADER" ]; then
-          printf "%s\n" "$HEADER" > "$FILE"
-        else
-          : > "$FILE"
-        fi
+      - name: Rotate CSV if it exceeds 95MiB
+        run: |
+          set -euo pipefail
+          FILE="docs/cruise_prices_msc.csv"
+          LIMIT=$((95 * 1024 * 1024))
+          TS="$(date -u +'%Y%m%d_%H%M%S')"
+          ARCHIVE_DIR="docs/archive"
+          if [ ! -f "$FILE" ]; then
+            echo "No $FILE found; skipping rotation."
+            exit 0
+          fi
+          SIZE=$(stat -c%s "$FILE")
+          echo "Current size: $SIZE bytes"
+          if [ "$SIZE" -le "$LIMIT" ]; then
+            echo "Under limit; no rotation needed."
+            exit 0
+          fi
+          mkdir -p "$ARCHIVE_DIR"
+          HEADER="$(head -n 1 "$FILE" || true)"
+          ROTATED="$ARCHIVE_DIR/cruise_prices_msc_${TS}.csv"
+          mv "$FILE" "$ROTATED"
+          gzip -9 "$ROTATED"
+          if [ -n "$HEADER" ]; then
+            printf "%s\n" "$HEADER" > "$FILE"
+          else
+            : > "$FILE"
+          fi
+          echo "Rotated to ${ROTATED}.gz and recreated $FILE"
 
-        echo "Rotated to ${ROTATED}.gz and recreated $FILE"
+      - name: Run MSC scraper
+        env:
+          GITHUB_ACTIONS: true
+          PYTHONUNBUFFERED: "1"
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            MAX_CRUISES="${{ github.event.inputs.max_cruises }}"
+            MAX_SAILINGS="${{ github.event.inputs.max_sailings }}"
+            ANALYZE="${{ github.event.inputs.run_analysis }}"
+          else
+            MAX_CRUISES="100"
+            MAX_SAILINGS="5"
+            ANALYZE="false"
+          fi
+          CMD="python -u src/main.py --scrape --scraper msc"
+          [ -n "$MAX_CRUISES" ] && CMD="$CMD --max-cruises $MAX_CRUISES"
+          [ -n "$MAX_SAILINGS" ] && CMD="$CMD --max-sailings $MAX_SAILINGS"
+          [ "$ANALYZE" == "true" ] && CMD="$CMD --analyze"
+          echo "Running: $CMD"
+          $CMD
 
-    - name: Run scraper with configuration
-      env:
-        GITHUB_ACTIONS: true
-        PYTHONUNBUFFERED: "1"
-      run: |
-        # For manual runs, use inputs; for scheduled runs, use defaults
-        if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-          MAX_CRUISES="${{ github.event.inputs.max_cruises }}"
-          MAX_SAILINGS="${{ github.event.inputs.max_sailings }}"
-          ANALYZE="${{ github.event.inputs.run_analysis }}"
-        else
-          MAX_CRUISES="100"
-          MAX_SAILINGS="5"
-          ANALYZE="false"
-        fi
+      - name: Upload MSC outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: msc-output
+          path: |
+            docs/cruise_prices_msc.csv
+            data/processed/
+          if-no-files-found: warn
 
-        # Build command
-        CMD="python -u src/main.py --scrape"
-        [ -n "$MAX_CRUISES" ] && CMD="$CMD --max-cruises $MAX_CRUISES"
-        [ -n "$MAX_SAILINGS" ] && CMD="$CMD --max-sailings $MAX_SAILINGS"
-        [ "$ANALYZE" == "true" ] && CMD="$CMD --analyze"
+  commit:
+    needs: [scrape-rcc, scrape-msc]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_PUSH }}
+          persist-credentials: true
 
-        echo "Running: $CMD"
-        $CMD
+      - name: Download RCC outputs
+        uses: actions/download-artifact@v4
+        with:
+          name: rcc-output
+          path: .
 
+      - name: Download MSC outputs
+        uses: actions/download-artifact@v4
+        with:
+          name: msc-output
+          path: .
 
-    - name: Commit changes
-      run: |
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
-
-        git add -f data/processed/*.json
-        git add -f docs/cruise_prices_v2.csv
-
-        if git diff --staged --quiet; then
-          echo "No changes to commit"
-        else
-          git commit -m "Update cruise data - $(date +'%Y-%m-%d')"
-          git push
-        fi
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add -f data/processed/*.json
+          git add -f docs/cruise_prices_rcc.csv
+          git add -f docs/cruise_prices_msc.csv
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update cruise data - $(date +'%Y-%m-%d')"
+            git push
+          fi

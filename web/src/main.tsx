@@ -10,17 +10,22 @@ import {parseCsv, type RowData} from "./lib/csv.ts";
 
 
 async function bootstrap() {
-    const csvUrl = `${import.meta.env.BASE_URL}cruise_prices_v2.csv`;
-    const response = await fetch(csvUrl);
-    if (!response.ok) {
+    const csvUrlRcc = `${import.meta.env.BASE_URL}cruise_prices_rcc.csv`;
+    const csvUrlMsc = `${import.meta.env.BASE_URL}cruise_prices_msc.csv`;
+    const rcc_response = await fetch(csvUrlRcc);
+    const msc_response = await fetch(csvUrlMsc)
+    if (!rcc_response.ok || !msc_response.ok) {
         return;
     }
-    const csvText = await response.text();
-    const cruiseData: RowData[] = parseCsv(csvText);
+    const csvTextRcc = await rcc_response.text();
+    const csvTextMsc = await msc_response.text();
+    const cruiseDataRcc: RowData[] = parseCsv(csvTextRcc);
+    const cruiseDataMsc: RowData[] = parseCsv(csvTextMsc);
+    const cruiseCsvs: RowData[][] = [cruiseDataRcc, cruiseDataMsc]
 
     createRoot(document.getElementById("root")!).render(
         <StrictMode>
-            <App cruiseData={cruiseData} />
+            <App cruiseData={cruiseCsvs} />
         </StrictMode>
     );
 }
