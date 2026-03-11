@@ -2,12 +2,12 @@ name: Build UI
 
 on:
   workflow_run:
-    workflows: [ "Scrape Cruise Prices" ]
+    workflows: ["Scrape Cruise Prices"]
     types:
       - completed
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
       - 'web/**'
       - '.github/workflows/build_ui.yml'
@@ -26,10 +26,11 @@ jobs:
         with:
           node-version: 24.7.0
 
-      - name: Copy latest CSV into published app
+      - name: Copy latest CSVs into published app
         run: |
           set -euo pipefail
-          cp -f docs/cruise_prices_v2.csv web/public/cruise_prices_v2.csv
+          cp -f docs/cruise_prices_rcc.csv web/public/cruise_prices_rcc.csv
+          cp -f docs/cruise_prices_msc.csv web/public/cruise_prices_msc.csv
 
       - name: Install deps & build
         working-directory: web
@@ -43,7 +44,8 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add -A docs/app
-          git add -f web/public/cruise_prices_v2.csv
+          git add -f web/public/cruise_prices_rcc.csv
+          git add -f web/public/cruise_prices_msc.csv
           if git diff --cached --quiet; then
             echo "No UI/data changes to commit."
             exit 0

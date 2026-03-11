@@ -54,7 +54,7 @@ python src/main.py --scrape
 │   └── raw                     # raw json scraped data
 ├── docs
 │   ├── app                     # Github pages assets and resources
-│   └── cruise_prices_v2.csv    # Cruise data CSV file written by TS app
+│   └── cruise_prices_rcc.csv    # Cruise data CSV file written by TS app
 ├── src
 │   ├── __init__.py
 │   ├── analytics               # Price analysis and trends
