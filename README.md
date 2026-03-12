@@ -1,6 +1,6 @@
 # Cruise Scanner
 
-Automated Royal Caribbean cruise price tracker with analytics and deal notifications.
+Automated Royal Caribbean & MSC cruise price tracker with email notifications.
 
 *This is a personal project and a work in progress.*
 
@@ -54,7 +54,8 @@ python src/main.py --scrape
 │   └── raw                     # raw json scraped data
 ├── docs
 │   ├── app                     # Github pages assets and resources
-│   └── cruise_prices_rcc.csv    # Cruise data CSV file written by TS app
+|   ├── cruise_prices_msc.csv   # MSC Cruise data CSV file written by TS app
+│   └── cruise_prices_rcc.csv   # Royal Carribbean Cruise data CSV file written by TS app
 ├── src
 │   ├── __init__.py
 │   ├── analytics               # Price analysis and trends
