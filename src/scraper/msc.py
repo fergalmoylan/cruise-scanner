@@ -18,7 +18,30 @@ class MSCCruisesScraper:
         self.context = None
         self.headless = headless
         self.base_url = "https://www.msccruises.ie"
-        self.cruises_url = f"{self.base_url}/search?area=CAR%2CNCA%2CSOC%2CBRD%2CFAE%2CSOA&nights=6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44%2C45%2C46%2C47%2C48%2C49%2C50%2C51%2C52%2C53%2C54%2C55%2C56%2C57%2C58%2C59%2C60%2C61%2C62%2C63%2C64%2C65%2C66%2C67%2C68%2C69%2C70%2C71%2C72%2C73%2C74%2C75%2C76%2C77%2C78%2C79%2C80%2C81%2C82%2C83%2C84%2C85%2C86%2C87%2C88%2C89%2C90%2C91%2C92%2C93%2C94%2C95%2C96%2C97%2C98%2C99%2C100%2C101%2C102%2C103%2C104%2C105%2C106%2C107%2C108%2C109%2C110%2C111%2C112%2C113%2C114%2C115%2C116%2C117%2C118%2C119%2C120%2C121%2C122%2C123%2C124%2C125%2C126%2C127%2C128%2C129%2C130%2C131%2C132%2C133%2C134%2C135%2C136%2C137%2C138%2C139%2C140%2C141%2C142%2C143%2C144%2C145%2C146%2C147%2C148%2C149%2C150&cabins=SUI"
+        self.cruises_url = (
+            f"{self.base_url}/search"
+            "?area=CAR%2CNCA%2CSOC%2CBRD%2CFAE%2CSOA"
+            "&nights=6%2C7%2C8%2C9%2C10%2C11%2C12%2C"
+            "13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2"
+            "C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%"
+            "2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36"
+            "%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C4"
+            "4%2C45%2C46%2C47%2C48%2C49%2C50%2C51%2C"
+            "52%2C53%2C54%2C55%2C56%2C57%2C58%2C59%2"
+            "C60%2C61%2C62%2C63%2C64%2C65%2C66%2C67%"
+            "2C68%2C69%2C70%2C71%2C72%2C73%2C74%2C75"
+            "%2C76%2C77%2C78%2C79%2C80%2C81%2C82%2C8"
+            "3%2C84%2C85%2C86%2C87%2C88%2C89%2C90%2C"
+            "91%2C92%2C93%2C94%2C95%2C96%2C97%2C98%2"
+            "C99%2C100%2C101%2C102%2C103%2C104%2C105"
+            "%2C106%2C107%2C108%2C109%2C110%2C111%2C"
+            "112%2C113%2C114%2C115%2C116%2C117%2C118"
+            "%2C119%2C120%2C121%2C122%2C123%2C124%2C"
+            "125%2C126%2C127%2C128%2C129%2C130%2C131"
+            "%2C132%2C133%2C134%2C135%2C136%2C137%2C"
+            "138%2C139%2C140%2C141%2C142%2C143%2C144"
+            "%2C145%2C146%2C147%2C148%2C149%2C150&cabins=SUI"
+        )
         self.data_dir = Path("data")
         self.raw_dir = self.data_dir / "raw" / "msc"
         self.processed_dir = self.data_dir / "processed" / "msc"
@@ -131,9 +154,14 @@ class MSCCruisesScraper:
         try:
             cleaned = re.sub(r"\b(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\s", "", " ".join(text.split()))
             start_dt, end_dt = (datetime.strptime(p, "%d %b '%y") for p in cleaned.split(" - "))
+            display_range = (
+                f"{start_dt.strftime('%b')} {start_dt.day} - "
+                f"{end_dt.strftime('%b')} {end_dt.day}, {end_dt.year}"
+            )
+
             return (
                 start_dt.strftime("%Y-%m-%d"),
-                f"{start_dt.strftime('%b')} {start_dt.day} - {end_dt.strftime('%b')} {end_dt.day}, {end_dt.year}",
+                display_range,
             )
         except Exception:
             return None, None
@@ -168,12 +196,17 @@ class MSCCruisesScraper:
 
         if first_card_id_before:
             page.wait_for_function(
-                """prevId => {
+                """
+                prevId => {
                     const firstCard = document.querySelector('.cruiseCard');
-                    return firstCard && firstCard.getAttribute('data-automation-cruise-id') !== prevId;
-                }""",
+                    return (
+                        firstCard &&
+                        firstCard.getAttribute('data-automation-cruise-id') !== prevId
+                    );
+                }
+                """,
                 arg=first_card_id_before,
-                timeout=15000,
+                timeout=15_000,
             )
         else:
             page.wait_for_selector(".cruiseCard", timeout=15000)
