@@ -1,6 +1,6 @@
 # Cruise Scanner
 
-Automated Royal Caribbean & MSC cruise price tracker with email notifications.
+Automated Royal Caribbean & MSC cruise price tracker with Github Pages and email notifications.
 
 *This is a personal project and a work in progress.*
 
