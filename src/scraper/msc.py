@@ -352,6 +352,7 @@ class MSCCruisesScraper:
 
     def _sort_results_by_price(self, page) -> None:
         logger.info("📥 Sorting MSC cruise results by cheapest sailing price...")
+
         open_button = (
             page.locator(".cmp-sorting__parentDiv")
             .filter(has_text="Sort by:")
@@ -360,7 +361,9 @@ class MSCCruisesScraper:
         if not open_button.count():
             logger.warning("⚠️ Sort dropdown open button not found, skipping sort.")
             return
+
         open_button.click()
+
         dropdown_list = page.locator(".cmp-sorting__dropdownListInner")
         try:
             dropdown_list.wait_for(state="visible", timeout=5000)
@@ -374,6 +377,12 @@ class MSCCruisesScraper:
             return
 
         price_option.click()
+
+        try:
+            page.wait_for_load_state("networkidle", timeout=15000)
+            page.wait_for_selector(".cruiseCard", state="visible", timeout=15000)
+        except Exception:
+            logger.warning("⚠️ Timed out waiting for cruise cards to reload after sort.")
 
     def _load_all_cruises(
         self,
