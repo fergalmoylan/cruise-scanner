@@ -12,10 +12,10 @@ EXCLUDED_ROOM_TYPES = {"Interior", "Ocean View", "Balcony"}
 COLUMNS = [
     ("ship_name", "Ship"),
     ("nights", "Nights"),
+    ("sailing_date", "Departure"),
     ("visiting_ports", "Route"),
     ("room_type", "Room type"),
     ("price", "Price"),
-    ("cruise_url", "Link"),
 ]
 
 
@@ -44,20 +44,12 @@ def _norm_place(s: str) -> str:
 
 
 def _route_summary(visiting_ports: str) -> str:
-    s = (visiting_ports or "").strip()
-    if not s:
-        return ""
-
-    parts = [p.strip() for p in s.split(" - ") if p.strip()]
-    if not parts:
-        return s
-
-    first = parts[0]
-    last = parts[-1]
-
-    if _norm_place(first) == _norm_place(last):
-        return first
-    return f"{first} -> {last}"
+    s = (visiting_ports or "").strip().split(" - ")
+    routes = []
+    for route in s:
+        port = route.split(",")[0].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        routes.append(port)
+    return "<br>".join(routes)
 
 
 def _parse_price_to_float(price_str: str) -> float:
@@ -173,14 +165,16 @@ def build_html_email(scrape_date_ddmmyyyy: str, rows: List[Dict[str, str]]) -> s
     for r in rows:
         tds = []
         for key, label in COLUMNS:
-            if key == "cruise_url":
-                tds.append(f"<td>{as_link(r.get(key, ''))}</td>")
-            elif key == "price":
+            if key == "price":
                 price = _format_price_eur(r.get("price", ""))
-                tds.append(f"<td class='num'>{esc(price)}</td>")
+                url = r.get("cruise_url", "")
+                if url:
+                    tds.append(f"<td class='num'><a href='{url}'>{esc(price)}</a></td>")
+                else:
+                    tds.append(f"<td class='num'>{esc(price)}</td>")
             elif key == "visiting_ports":
                 route = _route_summary(r.get("visiting_ports", ""))
-                tds.append(f"<td class='route'>{esc(route)}</td>")
+                tds.append(f"<td class='route'>{route}</td>")
             else:
                 tds.append(f"<td>{esc(r.get(key, ''))}</td>")
         body_rows.append("<tr>" + "".join(tds) + "</tr>")

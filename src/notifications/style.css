@@ -81,28 +81,13 @@ tbody tr:last-child td{
     color:#e5e7eb;
 }
 
-.route{
-    max-width:420px;
-    white-space:normal;
-    word-break:break-word;
-    color:#d1d5db;
+.route {
+    white-space: nowrap;
+    color: #d1d5db;
 }
 
-.link{
-    display:inline-block;
-    color:#93c5fd !important;
-    font-weight:700;
-    text-decoration:none;
-    border:1px solid rgba(147,197,253,0.35);
-    padding:7px 10px;
-    border-radius:10px;
-    background:rgba(59,130,246,0.10);
-}
-.link:visited{ color:#93c5fd !important; }
-
-@media (max-width: 640px){
-    .wrap{ padding:12px 8px; }
-    thead th{ padding:10px 8px; font-size:11px; }
-    tbody td{ padding:10px 8px; font-size:13px; }
-    .route{ max-width:240px; }
+@media (max-width: 640px) {
+    .wrap { padding: 12px 4px; }
+    thead th { padding: 8px 6px; font-size: 10px; }
+    tbody td { padding: 8px 6px; font-size: 12px; }
 }
