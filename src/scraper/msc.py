@@ -288,8 +288,17 @@ class MSCCruisesScraper:
         if not room_key:
             return None
 
-        room_price_text = room_tab.locator(".macrocategory__subtext").inner_text().strip()
-        room_price = self._extract_numeric_price(room_price_text)
+        preselected = page.locator(".datelinePreselected")
+
+        if preselected.count() == 0:
+            room_price = self._extract_numeric_price(
+                room_tab.locator(".macrocategory__subtext").inner_text().strip()
+            )
+        else:
+            price_locator = preselected.locator(".dateline__price .typobold")
+            if price_locator.count() == 0:
+                return None
+            room_price = self._extract_numeric_price(price_locator.inner_text())
 
         dateline = page.locator(".cabinListBreakpoint .algolia-analytics").first
         if dateline.count() == 0:
