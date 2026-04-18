@@ -24,7 +24,7 @@ class RoyalCaribbeanOptimizedScraper:
         self.context = None
         self.headless = headless
         self.base_url = "https://www.royalcaribbean.com/gbr/en"
-        self.cruises_url = f"{self.base_url}/cruises?search=departurePort:BCN,BYE,FLL,LAX,MIA,ROM,SIN,YOK|nights:6~8,9~11,gte12|ship:AL,AN,HM,IC,LE,OA,OV,OY,QN,ST,SY,UT,WN&country=IRL&market=gbr&language=en"
+        self.cruises_url = f"{self.base_url}/cruises?search=destination:BAHAM,BERMU,CARIB,EUROP,FAR.E,HAWAI,MEXCO|nights:6~8,9~11,gte12|ship:AL,HE,HM,IC,LE,OA,OV,QN,ST,SY,UT,WN&sort=by:PRICE|order:ASC&country=IRL&market=gbr&language=en"
         self.data_dir = Path("data")
         self.raw_dir = self.data_dir / "raw"
         self.processed_dir = self.data_dir / "processed"
@@ -547,21 +547,23 @@ class RoyalCaribbeanOptimizedScraper:
             room_cta.click(timeout=6000)
 
             new_page.wait_for_load_state("networkidle", timeout=15000)
-            new_page.wait_for_selector('[class*="RoomSubtypePanel_subtypesList"]', timeout=20000)
+            new_page.wait_for_selector('[data-testid="room-subtypes-list"]', timeout=20000)
 
             suite_data = new_page.evaluate("""() => {
                 const suites = {};
-                const suiteCards = document.querySelectorAll('[class*="RoomSubtypePanel_subtypesList"] > li');
+                const lists = document.querySelectorAll('[data-testid="room-subtypes-list"]');
 
-                suiteCards.forEach(card => {
-                    const nameEl = card.querySelector('[data-stateroom-subtype-name="true"], [data-testid="card-title"]');
-                    const priceEl = card.querySelector('[data-testid="main-price-amount"]');
+                lists.forEach(list => {
+                    list.querySelectorAll('li').forEach(card => {
+                        const nameEl = card.querySelector('[data-stateroom-subtype-name="true"], [data-testid="card-title"]');
+                        const priceEl = card.querySelector('[data-testid="main-price-amount"]');
 
-                    if (nameEl && priceEl) {
-                        const name = nameEl.innerText.trim();
-                        const price = priceEl.innerText.trim();
-                        suites[name] = price;
-                    }
+                        if (nameEl && priceEl) {
+                            const name = nameEl.innerText.trim();
+                            const price = priceEl.innerText.trim();
+                            suites[name] = price;
+                        }
+                    });
                 });
                 return suites;
             }""")
