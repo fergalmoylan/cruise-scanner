@@ -1,0 +1,932 @@
+{
+  "timestamp": "2026-04-20T05:44:17.134698",
+  "source_url": "https://www.royalcaribbean.com/gbr/en/cruises?search=destination:BAHAM,BERMU,CARIB,EUROP,FAR.E,HAWAI,MEXCO|nights:6~8,9~11,gte12|ship:AL,HE,HM,IC,LE,OA,OV,QN,ST,SY,UT,WN&sort=by:PRICE|order:ASC&country=IRL&market=gbr&language=en",
+  "total_found": 10,
+  "total_processed": 10,
+  "cruises": [
+    {
+      "id": "OV07LAX-1239440842",
+      "name": "Cabo Overnight & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OV07LAX-1239440842-2027-01-15",
+          "timestamp": "2027-01-15",
+          "date_range": "Jan 15 - Jan 22, 2027",
+          "base_price": "506",
+          "interior": 506,
+          "ocean_view": 587,
+          "balcony": 621,
+          "suite": 1418
+        },
+        {
+          "sailing_id": "OV07LAX-1239440842-2027-01-29",
+          "timestamp": "2027-01-29",
+          "date_range": "Jan 29 - Feb 5, 2027",
+          "base_price": "598",
+          "interior": 598,
+          "ocean_view": 649,
+          "balcony": 689,
+          "suite_guarantee": 1568,
+          "we_choose_your_suite": 1418,
+          "junior_suite": 1623,
+          "junior_suite_with_large_balcony": 1867,
+          "sky_junior_suite": 2511,
+          "grand_suite_1_bedroom": 2886,
+          "grand_suite_with_large_balcony_1_bedroom": 3018,
+          "owners_suite_1_bedroom": 3876,
+          "sky_loft_suite": 3941,
+          "grand_suite_2_bedroom": 4597,
+          "grand_loft_suite": 5195,
+          "owners_loft_suite": 6112,
+          "royal_loft_suite": 7474
+        }
+      ],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV07X066",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-cabo-overnight-ensenada-from-los-angeles-on-ovation-OV07X066?sailDate=2027-01-15&packageCode=OV07X066&groupId=OV07LAX-1239440842&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.725Z"
+      }
+    },
+    {
+      "id": "QN07LAX-1239441612",
+      "name": "Cabo Overnight & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Quantum of the Seas",
+        "code": "QN"
+      },
+      "sailings": [
+        {
+          "sailing_id": "QN07LAX-1239441612-2026-09-04",
+          "timestamp": "2026-09-04",
+          "date_range": "Sept 4 - Sept 11, 2026",
+          "base_price": "567",
+          "interior": 567,
+          "ocean_view": 590,
+          "balcony": 724,
+          "suite": 1600
+        },
+        {
+          "sailing_id": "QN07LAX-1239441612-2026-06-19",
+          "timestamp": "2026-06-19",
+          "date_range": "Jun 19 - Jun 26, 2026",
+          "base_price": "599",
+          "interior": 599,
+          "ocean_view": 835,
+          "balcony": 857,
+          "suite_guarantee": 1960,
+          "we_choose_your_suite": 1600,
+          "junior_suite": 1970,
+          "junior_suite_with_large_balcony": 2203,
+          "sky_junior_suite": 2566,
+          "grand_suite_with_large_balcony_1_bedroom": 2808,
+          "grand_suite_1_bedroom": 2818,
+          "owners_suite_with_balcony": 3390,
+          "sky_loft_suite": 3671,
+          "grand_suite_2_bedroom": 3786
+        },
+        {
+          "sailing_id": "QN07LAX-1239441612-2026-07-03",
+          "timestamp": "2026-07-03",
+          "date_range": "Jul 3 - Jul 10, 2026",
+          "base_price": "734",
+          "interior": 734,
+          "ocean_view": 742,
+          "balcony": 813,
+          "suite_guarantee": 1660,
+          "we_choose_your_suite": 1600,
+          "junior_suite": 1970,
+          "junior_suite_with_large_balcony": 2203,
+          "sky_junior_suite": 2566,
+          "grand_suite_with_large_balcony_1_bedroom": 2808,
+          "grand_suite_1_bedroom": 2818,
+          "owners_suite_with_balcony": 3390,
+          "sky_loft_suite": 3671,
+          "grand_suite_2_bedroom": 3786
+        },
+        {
+          "sailing_id": "QN07LAX-1239441612-2026-07-17",
+          "timestamp": "2026-07-17",
+          "date_range": "Jul 17 - Jul 24, 2026",
+          "base_price": "731",
+          "interior": 808,
+          "ocean_view": 731,
+          "balcony": 864,
+          "suite_guarantee": 1644,
+          "we_choose_your_suite": 1600,
+          "junior_suite": 1970,
+          "junior_suite_with_large_balcony": 2203,
+          "sky_junior_suite": 2566,
+          "grand_suite_with_large_balcony_1_bedroom": 2808,
+          "grand_suite_1_bedroom": 2818,
+          "owners_suite_with_balcony": 3390,
+          "sky_loft_suite": 3671,
+          "grand_suite_2_bedroom": 3786
+        },
+        {
+          "sailing_id": "QN07LAX-1239441612-2026-08-21",
+          "timestamp": "2026-08-21",
+          "date_range": "Aug 21 - Aug 28, 2026",
+          "base_price": "616",
+          "interior": 616,
+          "ocean_view": 641,
+          "balcony": 721,
+          "suite": 2403
+        }
+      ],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "QN07X063",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-cabo-overnight-ensenada-from-los-angeles-on-quantum-QN07X063?sailDate=2026-09-04&packageCode=QN07X063&groupId=QN07LAX-1239441612&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "OV07LAX-1983939617",
+      "name": "Cabo Overnight Catalina & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OV07LAX-1983939617-2027-02-12",
+          "timestamp": "2027-02-12",
+          "date_range": "Feb 12 - Feb 19, 2027",
+          "base_price": "576",
+          "interior": 576,
+          "ocean_view": 594,
+          "balcony": 721,
+          "suite": 1596
+        },
+        {
+          "sailing_id": "OV07LAX-1983939617-2026-12-04",
+          "timestamp": "2026-12-04",
+          "date_range": "Dec 4 - Dec 11, 2026",
+          "base_price": "617",
+          "interior": 617,
+          "ocean_view": 633,
+          "balcony": 761,
+          "suite_guarantee": 1456,
+          "we_choose_your_suite": 1596,
+          "junior_suite": 1828,
+          "junior_suite_with_large_balcony": 2071,
+          "sky_junior_suite": 2592,
+          "grand_suite_1_bedroom": 2973,
+          "grand_suite_with_large_balcony_1_bedroom": 3107,
+          "owners_suite_1_bedroom": 4177,
+          "sky_loft_suite": 4254,
+          "grand_loft_suite": 5299,
+          "owners_loft_suite": 6213
+        },
+        {
+          "sailing_id": "OV07LAX-1983939617-2027-02-26",
+          "timestamp": "2027-02-26",
+          "date_range": "Feb 26 - Mar 5, 2027",
+          "base_price": "588",
+          "interior": 588,
+          "ocean_view": 622,
+          "balcony": 656,
+          "suite": 1501
+        },
+        {
+          "sailing_id": "OV07LAX-1983939617-2027-03-12",
+          "timestamp": "2027-03-12",
+          "date_range": "Mar 12 - Mar 19, 2027",
+          "base_price": "629",
+          "interior": 629,
+          "ocean_view": 637,
+          "balcony": 759,
+          "suite": 1537
+        }
+      ],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Catalina Island, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV07X065",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-nt-cabo-overnight-catalina-ensenada-from-los-angeles-on-ovation-OV07X065?sailDate=2027-02-12&packageCode=OV07X065&groupId=OV07LAX-1983939617&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "SY07GAL-3851841824",
+      "name": "Western Caribbean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY07GAL-3851841824-2027-01-24",
+          "timestamp": "2027-01-24",
+          "date_range": "Jan 24 - Jan 31, 2027",
+          "base_price": "642",
+          "interior": 642,
+          "ocean_view": 748,
+          "balcony": 750,
+          "suite": 1753
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-2026-05-03",
+          "timestamp": "2026-05-03",
+          "date_range": "May 3 - May 10, 2026",
+          "base_price": "1018",
+          "interior": 1018,
+          "ocean_view": 1196,
+          "balcony": 1260
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-2026-05-10",
+          "timestamp": "2026-05-10",
+          "date_range": "May 10 - May 17, 2026",
+          "base_price": "1167",
+          "ocean_view": 1167,
+          "balcony": 1640,
+          "suite_guarantee": 2068,
+          "we_choose_your_suite": 1753,
+          "junior_suite": 2038,
+          "sky_junior_suite": 2712,
+          "grand_suite_1_bedroom": 3130,
+          "crown_loft_suite": 3384,
+          "owners_suite_1_bedroom": 3507,
+          "spacious_aquatheater_suite_1_bedroom": 4129,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7249,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 8401,
+          "star_loft_suite": 8463,
+          "royal_loft_suite": 11689
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-2026-05-17",
+          "timestamp": "2026-05-17",
+          "date_range": "May 17 - May 24, 2026",
+          "base_price": "1529",
+          "balcony": 1529
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-2026-05-31",
+          "timestamp": "2026-05-31",
+          "date_range": "May 31 - Jun 7, 2026",
+          "base_price": "988",
+          "interior": 988,
+          "ocean_view": 1352,
+          "balcony": 1171,
+          "suite_guarantee": 3316,
+          "we_choose_your_suite": 1753,
+          "junior_suite": 2038,
+          "sky_junior_suite": 2712,
+          "grand_suite_1_bedroom": 3130,
+          "crown_loft_suite": 3384,
+          "owners_suite_1_bedroom": 3507,
+          "spacious_aquatheater_suite_1_bedroom": 4129,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7249,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 8401,
+          "star_loft_suite": 8463,
+          "royal_loft_suite": 11689
+        }
+      ],
+      "route": {
+        "departure": "Galveston, Texas",
+        "destination_code": "GAL",
+        "ports": [
+          "Galveston, Texas",
+          "Roatan, Honduras",
+          "Puerto Costa Maya, Mexico",
+          "Cozumel, Mexico",
+          "Galveston, Texas"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY07W700",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-cruise-from-galveston-on-symphony-SY07W700?sailDate=2027-01-24&packageCode=SY07W700&groupId=SY07GAL-3851841824&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "AL06FLL-2906128061",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 6,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL06FLL-2906128061-2026-09-27",
+          "timestamp": "2026-09-27",
+          "date_range": "Sept 27 - Oct 3, 2026",
+          "base_price": "659",
+          "interior": 659,
+          "ocean_view": 802,
+          "balcony": 772,
+          "suite_guarantee": 1410,
+          "we_choose_your_junior_suite": 1410,
+          "sky_junior_suite": 1662,
+          "grand_suite_1_bedroom": 2001,
+          "owners_suite_1_bedroom": 2231,
+          "crown_loft_suite": 2549,
+          "aquatheater_suite_1_bedroom": 2586,
+          "spacious_aquatheater_suite_1_bedroom": 2799,
+          "ultimate_panoramic_suite": 4175
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-2026-05-10",
+          "timestamp": "2026-05-10",
+          "date_range": "May 10 - May 16, 2026",
+          "base_price": "818",
+          "interior": 818,
+          "ocean_view": 1299
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-2026-05-24",
+          "timestamp": "2026-05-24",
+          "date_range": "May 24 - May 30, 2026",
+          "base_price": "932",
+          "interior": 932,
+          "balcony": 1750,
+          "suite_guarantee": 2998,
+          "we_choose_your_junior_suite": 1410,
+          "sky_junior_suite": 1662,
+          "grand_suite_1_bedroom": 2001,
+          "owners_suite_1_bedroom": 2231,
+          "crown_loft_suite": 2549,
+          "aquatheater_suite_1_bedroom": 2586,
+          "spacious_aquatheater_suite_1_bedroom": 2799,
+          "ultimate_panoramic_suite": 4175
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-2026-06-07",
+          "timestamp": "2026-06-07",
+          "date_range": "Jun 7 - Jun 13, 2026",
+          "base_price": "940",
+          "interior": 940,
+          "ocean_view": 1137,
+          "balcony": 1109,
+          "suite_guarantee": 1934,
+          "we_choose_your_junior_suite": 1410,
+          "sky_junior_suite": 1662,
+          "grand_suite_1_bedroom": 2001,
+          "owners_suite_1_bedroom": 2231,
+          "crown_loft_suite": 2549,
+          "aquatheater_suite_1_bedroom": 2586,
+          "spacious_aquatheater_suite_1_bedroom": 2799,
+          "ultimate_panoramic_suite": 4175
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-2026-06-21",
+          "timestamp": "2026-06-21",
+          "date_range": "Jun 21 - Jun 27, 2026",
+          "base_price": "936",
+          "interior": 936,
+          "ocean_view": 1036,
+          "balcony": 1273,
+          "suite_guarantee": 2462,
+          "we_choose_your_junior_suite": 1410,
+          "sky_junior_suite": 1662,
+          "grand_suite_1_bedroom": 2001,
+          "owners_suite_1_bedroom": 2231,
+          "crown_loft_suite": 2549,
+          "aquatheater_suite_1_bedroom": 2586,
+          "spacious_aquatheater_suite_1_bedroom": 2799,
+          "ultimate_panoramic_suite": 4175
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Nassau, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL06W286",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-western-caribbean-perfect-day-from-fort-lauderdale-on-allure-AL06W286?sailDate=2026-09-27&packageCode=AL06W286&groupId=AL06FLL-2906128061&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "HM07PCN-4284516355",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Harmony of the Seas",
+        "code": "HM"
+      },
+      "sailings": [
+        {
+          "sailing_id": "HM07PCN-4284516355-2026-11-14",
+          "timestamp": "2026-11-14",
+          "date_range": "Nov 14 - Nov 21, 2026",
+          "base_price": "663",
+          "interior": 663,
+          "ocean_view": 806,
+          "balcony": 832,
+          "suite_guarantee": 3406,
+          "ocean_view_panoramic_suite_no_balcony": 3406,
+          "grand_suite_1_bedroom": 3507,
+          "crown_loft_suite": 4213,
+          "owners_suite_1_bedroom": 4476,
+          "spacious_aquatheater_suite_1_bedroom": 4607,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7841,
+          "star_loft_suite": 8809,
+          "ultimate_panoramic_suite": 8906,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 9342,
+          "ultimate_family_suite": 11913
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-2026-08-22",
+          "timestamp": "2026-08-22",
+          "date_range": "Aug 22 - Aug 29, 2026",
+          "base_price": "744",
+          "interior": 744,
+          "ocean_view": 959,
+          "balcony": 886,
+          "suite_guarantee": 3120,
+          "ocean_view_panoramic_suite_no_balcony": 3406,
+          "grand_suite_1_bedroom": 3507,
+          "crown_loft_suite": 4213,
+          "owners_suite_1_bedroom": 4476,
+          "spacious_aquatheater_suite_1_bedroom": 4607,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7841,
+          "star_loft_suite": 8809,
+          "ultimate_panoramic_suite": 8906,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 9342,
+          "ultimate_family_suite": 11913
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-2026-09-19",
+          "timestamp": "2026-09-19",
+          "date_range": "Sept 19 - Sept 26, 2026",
+          "base_price": "837",
+          "interior": 837,
+          "ocean_view": 1056,
+          "balcony": 1035,
+          "suite_guarantee": 2973,
+          "ocean_view_panoramic_suite_no_balcony": 3406,
+          "grand_suite_1_bedroom": 3507,
+          "crown_loft_suite": 4213,
+          "owners_suite_1_bedroom": 4476,
+          "spacious_aquatheater_suite_1_bedroom": 4607,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7841,
+          "star_loft_suite": 8809,
+          "ultimate_panoramic_suite": 8906,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 9342,
+          "ultimate_family_suite": 11913
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-2026-10-17",
+          "timestamp": "2026-10-17",
+          "date_range": "Oct 17 - Oct 24, 2026",
+          "base_price": "714",
+          "interior": 714,
+          "ocean_view": 858,
+          "balcony": 863,
+          "suite_guarantee": 3130,
+          "ocean_view_panoramic_suite_no_balcony": 3406,
+          "grand_suite_1_bedroom": 3507,
+          "crown_loft_suite": 4213,
+          "owners_suite_1_bedroom": 4476,
+          "spacious_aquatheater_suite_1_bedroom": 4607,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7841,
+          "star_loft_suite": 8809,
+          "ultimate_panoramic_suite": 8906,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 9342,
+          "ultimate_family_suite": 11913
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-2026-12-12",
+          "timestamp": "2026-12-12",
+          "date_range": "Dec 12 - Dec 19, 2026",
+          "base_price": "664",
+          "interior": 664,
+          "ocean_view": 777,
+          "balcony": 775,
+          "suite_guarantee": 1960,
+          "ocean_view_panoramic_suite_no_balcony": 3406,
+          "grand_suite_1_bedroom": 3507,
+          "crown_loft_suite": 4213,
+          "owners_suite_1_bedroom": 4476,
+          "spacious_aquatheater_suite_1_bedroom": 4607,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7841,
+          "star_loft_suite": 8809,
+          "ultimate_panoramic_suite": 8906,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 9342,
+          "ultimate_family_suite": 11913
+        }
+      ],
+      "route": {
+        "departure": "Orlando (Port Canaveral), Florida",
+        "destination_code": "PCN",
+        "ports": [
+          "Orlando (Port Canaveral), Florida",
+          "Charlotte Amalie, St Thomas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Nassau, Bahamas",
+          "Orlando (Port Canaveral), Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "HM07E503",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-orlando-port-canaveral-on-harmony-HM07E503?sailDate=2026-11-14&packageCode=HM07E503&groupId=HM07PCN-4284516355&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "SY06FLL-2906127578",
+      "name": "Perfect Day Cococay & West Carib",
+      "nights": 6,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY06FLL-2906127578-2027-11-28",
+          "timestamp": "2027-11-28",
+          "date_range": "Nov 28 - Dec 4, 2027",
+          "base_price": "681",
+          "interior": 681,
+          "ocean_view": 768,
+          "balcony": 785,
+          "suite_guarantee": 1471,
+          "we_choose_your_suite": 1471,
+          "junior_suite": 1600,
+          "sky_junior_suite": 2034,
+          "grand_suite_1_bedroom": 2319,
+          "crown_loft_suite": 2536,
+          "owners_suite_1_bedroom": 2752,
+          "spacious_aquatheater_suite_1_bedroom": 3037,
+          "grand_suite_2_bedroom": 3037,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4622,
+          "star_loft_suite": 4907,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 5125,
+          "royal_loft_suite": 7634
+        },
+        {
+          "sailing_id": "SY06FLL-2906127578-2028-01-09",
+          "timestamp": "2028-01-09",
+          "date_range": "Jan 9 - Jan 15, 2028",
+          "base_price": "724",
+          "interior": 724,
+          "ocean_view": 819,
+          "balcony": 836,
+          "suite_guarantee": 1583,
+          "we_choose_your_suite": 1471,
+          "junior_suite": 1600,
+          "sky_junior_suite": 2034,
+          "grand_suite_1_bedroom": 2319,
+          "crown_loft_suite": 2536,
+          "owners_suite_1_bedroom": 2752,
+          "spacious_aquatheater_suite_1_bedroom": 3037,
+          "grand_suite_2_bedroom": 3037,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4622,
+          "star_loft_suite": 4907,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 5125,
+          "royal_loft_suite": 7634
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY06W385",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-perfect-day-cococay-west-carib-from-fort-lauderdale-on-symphony-SY06W385?sailDate=2027-11-28&packageCode=SY06W385&groupId=SY06FLL-2906127578&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "AL06FLL-1143316846",
+      "name": "Perfect Day at CocoCay & Caribbean",
+      "nights": 6,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL06FLL-1143316846-2027-09-12",
+          "timestamp": "2027-09-12",
+          "date_range": "Sept 12 - Sept 18, 2027",
+          "base_price": "684",
+          "interior": 684,
+          "ocean_view": 766,
+          "balcony": 784,
+          "suite_guarantee": 1606,
+          "we_choose_your_suite": 1606,
+          "junior_suite": 1689,
+          "sky_junior_suite": 2215,
+          "grand_suite_1_bedroom": 2445,
+          "crown_loft_suite": 2678,
+          "aquatheater_suite_1_bedroom": 2749,
+          "owners_suite_1_bedroom": 2911,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "spacious_aquatheater_suite_lg_balcony_2_bedrooms": 5411,
+          "star_loft_suite": 5492,
+          "ultimate_panoramic_suite": 5542,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 5572,
+          "owners_panoramic_suite_1_bedroom": 7010,
+          "royal_loft_suite": 8671
+        },
+        {
+          "sailing_id": "AL06FLL-1143316846-2027-05-09",
+          "timestamp": "2027-05-09",
+          "date_range": "May 9 - May 15, 2027",
+          "base_price": "757",
+          "interior": 757,
+          "ocean_view": 864,
+          "balcony": 876,
+          "suite_guarantee": 1800,
+          "we_choose_your_suite": 1606,
+          "junior_suite": 1689,
+          "sky_junior_suite": 2215,
+          "grand_suite_1_bedroom": 2445,
+          "crown_loft_suite": 2678,
+          "aquatheater_suite_1_bedroom": 2749,
+          "owners_suite_1_bedroom": 2911,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "spacious_aquatheater_suite_lg_balcony_2_bedrooms": 5411,
+          "star_loft_suite": 5492,
+          "ultimate_panoramic_suite": 5542,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 5572,
+          "owners_panoramic_suite_1_bedroom": 7010,
+          "royal_loft_suite": 8671
+        },
+        {
+          "sailing_id": "AL06FLL-1143316846-2027-05-23",
+          "timestamp": "2027-05-23",
+          "date_range": "May 23 - May 29, 2027",
+          "base_price": "815",
+          "interior": 815,
+          "ocean_view": 888,
+          "balcony": 916,
+          "suite_guarantee": 1902,
+          "we_choose_your_suite": 1606,
+          "junior_suite": 1689,
+          "sky_junior_suite": 2215,
+          "grand_suite_1_bedroom": 2445,
+          "crown_loft_suite": 2678,
+          "aquatheater_suite_1_bedroom": 2749,
+          "owners_suite_1_bedroom": 2911,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "spacious_aquatheater_suite_lg_balcony_2_bedrooms": 5411,
+          "star_loft_suite": 5492,
+          "ultimate_panoramic_suite": 5542,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 5572,
+          "owners_panoramic_suite_1_bedroom": 7010,
+          "royal_loft_suite": 8671
+        },
+        {
+          "sailing_id": "AL06FLL-1143316846-2027-06-06",
+          "timestamp": "2027-06-06",
+          "date_range": "Jun 6 - Jun 12, 2027",
+          "base_price": "977",
+          "interior": 977,
+          "ocean_view": 1164,
+          "balcony": 1203,
+          "suite": 2566
+        },
+        {
+          "sailing_id": "AL06FLL-1143316846-2027-06-20",
+          "timestamp": "2027-06-20",
+          "date_range": "Jun 20 - Jun 26, 2027",
+          "base_price": "977",
+          "interior": 977,
+          "ocean_view": 1174,
+          "balcony": 1213,
+          "suite_guarantee": 2586,
+          "we_choose_your_suite": 1606,
+          "junior_suite": 1689,
+          "sky_junior_suite": 2215,
+          "grand_suite_1_bedroom": 2445,
+          "crown_loft_suite": 2678,
+          "aquatheater_suite_1_bedroom": 2749,
+          "owners_suite_1_bedroom": 2911,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "spacious_aquatheater_suite_lg_balcony_2_bedrooms": 5411,
+          "star_loft_suite": 5492,
+          "ultimate_panoramic_suite": 5542,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 5572,
+          "owners_panoramic_suite_1_bedroom": 7010,
+          "royal_loft_suite": 8671
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Labadee, Haiti",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL06W328",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-nt-perfect-day-cococay-west-carib-from-fort-lauderdale-on-allure-AL06W328?sailDate=2027-09-12&packageCode=AL06W328&groupId=AL06FLL-1143316846&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "SY06GAL-1251154330",
+      "name": "Western Caribbean Cruise",
+      "nights": 6,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY06GAL-1251154330-2026-09-20",
+          "timestamp": "2026-09-20",
+          "date_range": "Sept 20 - Sept 26, 2026",
+          "base_price": "688",
+          "interior": 688,
+          "ocean_view": 820,
+          "balcony": 824,
+          "suite_guarantee": 2630,
+          "sky_junior_suite": 2630,
+          "grand_suite_1_bedroom": 2952,
+          "crown_loft_suite": 3051,
+          "owners_suite_1_bedroom": 3226,
+          "spacious_aquatheater_suite_1_bedroom": 3604,
+          "grand_suite_2_bedroom": 4289,
+          "star_loft_suite": 6112,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 6683,
+          "royal_loft_suite": 8915,
+          "ultimate_family_suite": 9048
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-2026-06-28",
+          "timestamp": "2026-06-28",
+          "date_range": "Jun 28 - Jul 4, 2026",
+          "base_price": "1027",
+          "interior": 1027,
+          "ocean_view": 1210,
+          "balcony": 1161,
+          "suite": 3023
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-2026-07-12",
+          "timestamp": "2026-07-12",
+          "date_range": "Jul 12 - Jul 18, 2026",
+          "base_price": "952",
+          "interior": 952,
+          "ocean_view": 1086,
+          "balcony": 1084,
+          "suite": 2293
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-2026-07-26",
+          "timestamp": "2026-07-26",
+          "date_range": "Jul 26 - Aug 1, 2026",
+          "base_price": "1085",
+          "interior": 1097,
+          "ocean_view": 1138,
+          "balcony": 1085,
+          "suite_guarantee": 2905,
+          "sky_junior_suite": 2630,
+          "grand_suite_1_bedroom": 2952,
+          "crown_loft_suite": 3051,
+          "owners_suite_1_bedroom": 3226,
+          "spacious_aquatheater_suite_1_bedroom": 3604,
+          "grand_suite_2_bedroom": 4289,
+          "star_loft_suite": 6112,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 6683,
+          "royal_loft_suite": 8915,
+          "ultimate_family_suite": 9048
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-2026-08-09",
+          "timestamp": "2026-08-09",
+          "date_range": "Aug 9 - Aug 15, 2026",
+          "base_price": "741",
+          "interior": 741,
+          "ocean_view": 866,
+          "balcony": 862,
+          "suite_guarantee": 2767,
+          "sky_junior_suite": 2630,
+          "grand_suite_1_bedroom": 2952,
+          "crown_loft_suite": 3051,
+          "owners_suite_1_bedroom": 3226,
+          "spacious_aquatheater_suite_1_bedroom": 3604,
+          "grand_suite_2_bedroom": 4289,
+          "star_loft_suite": 6112,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 6683,
+          "royal_loft_suite": 8915,
+          "ultimate_family_suite": 9048
+        }
+      ],
+      "route": {
+        "departure": "Galveston, Texas",
+        "destination_code": "GAL",
+        "ports": [
+          "Galveston, Texas",
+          "Puerto Costa Maya, Mexico",
+          "Roatan, Honduras",
+          "Cozumel, Mexico",
+          "Galveston, Texas"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY06W287",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-western-caribbean-cruise-from-galveston-on-symphony-SY06W287?sailDate=2026-09-20&packageCode=SY06W287&groupId=SY06GAL-1251154330&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    },
+    {
+      "id": "SY06FLL-4116647025",
+      "name": "Perfect Day Cococay & West Carib",
+      "nights": 6,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY06FLL-4116647025-2026-11-14",
+          "timestamp": "2026-11-14",
+          "date_range": "Nov 14 - Nov 20, 2026",
+          "base_price": "702",
+          "interior": 702,
+          "ocean_view": 789,
+          "balcony": 806,
+          "suite_guarantee": 1621,
+          "junior_suite": 1621,
+          "sky_junior_suite": 2055,
+          "grand_suite_1_bedroom": 2340,
+          "crown_loft_suite": 2557,
+          "owners_suite_1_bedroom": 2773,
+          "spacious_aquatheater_suite_1_bedroom": 3058,
+          "grand_suite_2_bedroom": 3058,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4643,
+          "star_loft_suite": 5144,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 5146,
+          "royal_loft_suite": 7655
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Nassau, Bahamas",
+          "Cozumel, Mexico",
+          "Perfect Day at CocoCay, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY06W384",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-perfect-day-cococay-west-carib-from-fort-lauderdale-on-symphony-SY06W384?sailDate=2027-11-14&packageCode=SY06W384&groupId=SY06FLL-4116647025&country=IRL",
+        "scraped_at": "2026-04-20T05:23:44.726Z"
+      }
+    }
+  ]
+}
