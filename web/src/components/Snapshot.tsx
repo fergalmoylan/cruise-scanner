@@ -17,7 +17,10 @@ export function Snapshot({ cruiseData }: { cruiseData: RowData[] }) {
             </div>
             <div className="mb-1 mt-3 max-h-fit">
                 <DataTable
-                    value={CHEAPEST_SUITES}
+                    value={CHEAPEST_SUITES.filter(
+                        (suite) =>
+                            typeof suite.price === "number"
+                    )}
                     className="navy-table"
                     paginator
                     scrollable
