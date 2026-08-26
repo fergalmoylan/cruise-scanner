@@ -178,11 +178,37 @@ class MSCCruisesScraper:
 
         return visiting_ports
 
+    def _log_pagination_debug(self, page) -> None:
+        logger.info(f"[DBG] url: {page.url}")
+        logger.info(f"[DBG] title: {page.title()}")
+
+        html = page.content()
+        logger.info(f"[DBG] html_len: {len(html)}")
+        for kw in ("captcha", "Access Denied", "blocked", "Incapsula", "cf-chl", "unusual traffic"):
+            if kw.lower() in html.lower():
+                logger.warning(f"[DBG] keyword_hit: {kw}")
+
+        labels = page.eval_on_selector_all(
+            "button",
+            "els => els.map(e => (e.getAttribute('aria-label') || e.innerText || '').trim()).filter(Boolean)",  # noqa: E501
+        )
+        logger.info(f"[DBG] buttons({len(labels)}): {labels}")
+
+        for sel in ("nav", "[class*='pagination']", "[class*='result']"):
+            loc = page.locator(sel)
+            logger.info(f"[DBG] {sel} count: {loc.count()}")
+            for i in range(min(loc.count(), 2)):
+                logger.info(f"[DBG] {sel}[{i}]: {loc.nth(i).inner_html()[:400]}")
+
+        body = page.locator("body").inner_text()
+        logger.info(f"[DBG] body_tail: {body[-800:]}")
+
     def _go_to_next_page(self, page) -> bool:
         next_button = self._get_next_button(page)
 
         if next_button.count() == 0:
             logger.info("No next-page button found")
+            self._log_pagination_debug(page)
             return False
 
         if next_button.get_attribute("aria-disabled") == "true" or next_button.is_disabled():
@@ -211,6 +237,8 @@ class MSCCruisesScraper:
             )
         else:
             page.wait_for_selector(".cruiseCard", timeout=15000)
+
+        self._log_pagination_debug(page)
 
         return True
 
@@ -388,8 +416,8 @@ class MSCCruisesScraper:
         price_option.click()
 
         try:
-            page.wait_for_load_state("networkidle", timeout=15000)
-            page.wait_for_selector(".cruiseCard", state="visible", timeout=15000)
+            page.wait_for_load_state("networkidle", timeout=30000)
+            page.wait_for_selector(".cruiseCard", state="visible", timeout=30000)
         except Exception:
             logger.warning("⚠️ Timed out waiting for cruise cards to reload after sort.")
 
