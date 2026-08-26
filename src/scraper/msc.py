@@ -207,14 +207,30 @@ class MSCCruisesScraper:
 
     def _attach_response_logger(self, page) -> None:
         def on_response(response):
-            if response.request.resource_type in ("xhr", "fetch") and response.status >= 400:
-                logger.warning(f"[DBG] http {response.status} {response.url[:160]}")
+            if "api-search" not in response.url:
+                return
+
+            logger.info(f"[DBG] api-search {response.status}")
+            if response.status < 400:
+                return
+
+            headers = response.all_headers()
+            keys = (
+                "retry-after",
+                "x-ratelimit-limit",
+                "x-ratelimit-remaining",
+                "server",
+                "x-cache",
+                "x-reference-error",
+            )
+            picked = {k: v for k, v in headers.items() if k.lower() in keys}
+            logger.warning(f"[DBG] err headers: {picked}")
+            try:
+                logger.warning(f"[DBG] err body: {response.text()[:400]}")
+            except Exception as exc:
+                logger.warning(f"[DBG] err body unavailable: {exc}")
 
         page.on("response", on_response)
-        page.on(
-            "requestfailed",
-            lambda r: logger.warning(f"[DBG] failed {r.failure} {r.url[:160]}"),
-        )
 
     def _wait_for_results_hydration(self, page, timeout_ms: int = 60000) -> bool:
         expression = (
