@@ -8,6 +8,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from playwright.sync_api import sync_playwright
 
 logger = logging.getLogger(__name__)
@@ -67,6 +68,7 @@ class MSCCruisesScraper:
             page = self.context.new_page()
 
             try:
+                self._attach_response_logger(page)
                 logger.info("📡Loading page...")
                 page.goto(self.cruises_url, wait_until="domcontentloaded", timeout=30000)
 
@@ -202,6 +204,30 @@ class MSCCruisesScraper:
 
         body = page.locator("body").inner_text()
         logger.info(f"[DBG] body_tail: {body[-800:]}")
+
+    def _attach_response_logger(self, page) -> None:
+        def on_response(response):
+            if response.request.resource_type in ("xhr", "fetch") and response.status >= 400:
+                logger.warning(f"[DBG] http {response.status} {response.url[:160]}")
+
+        page.on("response", on_response)
+        page.on(
+            "requestfailed",
+            lambda r: logger.warning(f"[DBG] failed {r.failure} {r.url[:160]}"),
+        )
+
+    def _wait_for_results_hydration(self, page, timeout_ms: int = 60000) -> bool:
+        expression = (
+            "() => !document.querySelector('.cmp-skeleton--pagination')"
+            " && !document.body.innerText.includes('( undefined )')"
+        )
+        try:
+            page.wait_for_function(expression, timeout=timeout_ms)
+            logger.info("[DBG] results hydrated")
+            return True
+        except PlaywrightTimeoutError:
+            logger.warning(f"[DBG] hydration timed out after {timeout_ms}ms")
+            return False
 
     def _go_to_next_page(self, page) -> bool:
         next_button = self._get_next_button(page)
@@ -435,6 +461,7 @@ class MSCCruisesScraper:
         logger.info("📥 Loading MSC cruises...")
         self._sort_results_by_price(page)
         cruise_count = 1
+        self._wait_for_results_hydration(page)
         while max_cruises is None or len(cruises) < max_cruises:
             cards = page.locator(".cruiseCard")
             count = cards.count()
