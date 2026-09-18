@@ -1,0 +1,1328 @@
+{
+  "timestamp": "2026-09-18T08:01:27.734972",
+  "source_url": "https://www.royalcaribbean.com/gbr/en/cruises?search=destination:BAHAM,BERMU,CARIB,EUROP,FAR.E,HAWAI,MEXCO|nights:6~8,9~11,gte12|ship:AL,HE,HM,IC,LE,OA,OV,QN,ST,SY,UT,WN&sort=by:PRICE|order:ASC&country=IRL&market=gbr&language=en",
+  "total_found": 20,
+  "total_processed": 20,
+  "cruises": [
+    {
+      "id": "AL06FLL-2906128061",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 6,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL06FLL-2906128061-None",
+          "timestamp": null,
+          "date_range": "Sunday, Sep 27 - Saturday, Oct 3 2026",
+          "base_price": "363",
+          "interior": 363,
+          "ocean_view": 466,
+          "balcony": 901
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 11 - Saturday, Oct 17 2026",
+          "base_price": "585",
+          "interior": 585,
+          "ocean_view": 622,
+          "balcony": 699,
+          "suite": 5262
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-None",
+          "timestamp": null,
+          "date_range": "Sunday, May 9 - Saturday, May 15 2027",
+          "base_price": "706",
+          "interior": 706,
+          "ocean_view": 766,
+          "balcony": 777,
+          "suite": 1594
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-None",
+          "timestamp": null,
+          "date_range": "Sunday, May 23 - Saturday, May 29 2027",
+          "base_price": "771",
+          "interior": 771,
+          "ocean_view": 966,
+          "balcony": 978,
+          "suite": 1570
+        },
+        {
+          "sailing_id": "AL06FLL-2906128061-None",
+          "timestamp": null,
+          "date_range": "Sunday, Jun 6 - Saturday, Jun 12 2027",
+          "base_price": "964",
+          "interior": 964,
+          "ocean_view": 1074,
+          "balcony": 1065,
+          "suite": 1878
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Nassau, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL06W286",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-western-caribbean-perfect-day-from-fort-lauderdale-on-allure-AL06W286?sailDate=2026-09-27&packageCode=AL06W286&groupId=AL06FLL-2906128061&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.214Z"
+      }
+    },
+    {
+      "id": "HM07PCN-4284516355",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Harmony of the Seas",
+        "code": "HM"
+      },
+      "sailings": [
+        {
+          "sailing_id": "HM07PCN-4284516355-None",
+          "timestamp": null,
+          "date_range": "Saturday, Sep 19 - Saturday, Sep 26 2026",
+          "base_price": "367",
+          "interior": 367,
+          "balcony": 1009,
+          "suite_guarantee": 2175,
+          "we_choose_your_suite": 2175,
+          "junior_suite": 2653,
+          "sky_junior_suite": 2872,
+          "grand_suite_1_bedroom": 3507
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-None",
+          "timestamp": null,
+          "date_range": "Saturday, Oct 17 - Saturday, Oct 24 2026",
+          "base_price": "558",
+          "interior": 558,
+          "ocean_view": 904,
+          "balcony": 785,
+          "suite_guarantee": 2890,
+          "we_choose_your_suite": 2175,
+          "junior_suite": 2653,
+          "sky_junior_suite": 2872,
+          "grand_suite_1_bedroom": 3507
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-None",
+          "timestamp": null,
+          "date_range": "Saturday, Nov 14 - Saturday, Nov 21 2026",
+          "base_price": "607",
+          "interior": 607,
+          "ocean_view": 915,
+          "balcony": 913,
+          "suite": 2219
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-None",
+          "timestamp": null,
+          "date_range": "Saturday, Dec 12 - Saturday, Dec 19 2026",
+          "base_price": "814",
+          "interior": 814,
+          "ocean_view": 950,
+          "balcony": 968,
+          "suite_guarantee": 3307,
+          "we_choose_your_suite": 2175,
+          "junior_suite": 2653,
+          "sky_junior_suite": 2872,
+          "grand_suite_1_bedroom": 3507
+        },
+        {
+          "sailing_id": "HM07PCN-4284516355-None",
+          "timestamp": null,
+          "date_range": "Saturday, Jan 9 - Saturday, Jan 16 2027",
+          "base_price": "1088",
+          "interior": 1088,
+          "ocean_view": 1316,
+          "balcony": 1157,
+          "suite_guarantee": 3845,
+          "we_choose_your_suite": 2175,
+          "junior_suite": 2653,
+          "sky_junior_suite": 2872,
+          "grand_suite_1_bedroom": 3507
+        }
+      ],
+      "route": {
+        "departure": "Orlando (Port Canaveral), Florida",
+        "destination_code": "PCN",
+        "ports": [
+          "Orlando (Port Canaveral), Florida",
+          "Charlotte Amalie, St Thomas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Nassau, Bahamas",
+          "Orlando (Port Canaveral), Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "HM07E505",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-orlando-port-canaveral-on-harmony-HM07E505?sailDate=2026-09-19&packageCode=HM07E505&groupId=HM07PCN-4284516355&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "OV07LAX-1983939617",
+      "name": "Cabo Overnight Catalina & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OV07LAX-1983939617-None",
+          "timestamp": null,
+          "date_range": "Friday, Dec 4 - Friday, Dec 11 2026",
+          "base_price": "411",
+          "interior": 411,
+          "ocean_view": 511,
+          "balcony": 480,
+          "suite_guarantee": 1705,
+          "junior_suite_with_large_balcony": 1705,
+          "grand_suite_with_large_balcony_1_bedroom": 2886,
+          "grand_suite_1_bedroom": 2904,
+          "owners_suite_1_bedroom": 3549,
+          "grand_suite_2_bedroom": 3816
+        },
+        {
+          "sailing_id": "OV07LAX-1983939617-None",
+          "timestamp": null,
+          "date_range": "Friday, Feb 12 - Friday, Feb 19 2027",
+          "base_price": "671",
+          "interior": 671,
+          "ocean_view": 791,
+          "balcony": 757,
+          "suite_guarantee": 2052,
+          "junior_suite_with_large_balcony": 1705,
+          "grand_suite_with_large_balcony_1_bedroom": 2886,
+          "grand_suite_1_bedroom": 2904,
+          "owners_suite_1_bedroom": 3549,
+          "grand_suite_2_bedroom": 3816
+        },
+        {
+          "sailing_id": "OV07LAX-1983939617-None",
+          "timestamp": null,
+          "date_range": "Friday, Feb 26 - Friday, Mar 5 2027",
+          "base_price": "549",
+          "interior": 549,
+          "ocean_view": 640,
+          "balcony": 650,
+          "suite_guarantee": 1921,
+          "junior_suite_with_large_balcony": 1705,
+          "grand_suite_with_large_balcony_1_bedroom": 2886,
+          "grand_suite_1_bedroom": 2904,
+          "owners_suite_1_bedroom": 3549,
+          "grand_suite_2_bedroom": 3816
+        },
+        {
+          "sailing_id": "OV07LAX-1983939617-None",
+          "timestamp": null,
+          "date_range": "Friday, Mar 12 - Friday, Mar 19 2027",
+          "base_price": "688",
+          "interior": 688,
+          "ocean_view": 707,
+          "balcony": 798,
+          "suite_guarantee": 1955,
+          "junior_suite_with_large_balcony": 1705,
+          "grand_suite_with_large_balcony_1_bedroom": 2886,
+          "grand_suite_1_bedroom": 2904,
+          "owners_suite_1_bedroom": 3549,
+          "grand_suite_2_bedroom": 3816
+        }
+      ],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Catalina Island, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV07X065",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-nt-cabo-overnight-catalina-ensenada-from-los-angeles-on-ovation-OV07X065?sailDate=2026-12-04&packageCode=OV07X065&groupId=OV07LAX-1983939617&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "OV07LAX-1239440842",
+      "name": "Cabo Overnight & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OV07LAX-1239440842-None",
+          "timestamp": null,
+          "date_range": "Friday, Jan 15 - Friday, Jan 22 2027",
+          "base_price": "460",
+          "interior": 460,
+          "ocean_view": 516,
+          "balcony": 514,
+          "suite": 1647
+        },
+        {
+          "sailing_id": "OV07LAX-1239440842-None",
+          "timestamp": null,
+          "date_range": "Friday, Jan 29 - Friday, Feb 5 2027",
+          "base_price": "494",
+          "interior": 525,
+          "ocean_view": 494,
+          "balcony": 494,
+          "suite_guarantee": 2016,
+          "junior_suite": 1647,
+          "junior_suite_with_large_balcony": 1821,
+          "sky_junior_suite": 2326,
+          "grand_suite_1_bedroom": 2966,
+          "grand_suite_with_large_balcony_1_bedroom": 2948,
+          "sky_loft_suite": 3662,
+          "owners_suite_1_bedroom": 3769,
+          "grand_suite_2_bedroom": 4432,
+          "grand_loft_suite": 4818
+        }
+      ],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV07X066",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-cabo-overnight-ensenada-from-los-angeles-on-ovation-OV07X066?sailDate=2027-01-15&packageCode=OV07X066&groupId=OV07LAX-1239440842&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "AL07MIA-778812363",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-778812363-None",
+          "timestamp": null,
+          "date_range": "Sunday, Apr 4 - Sunday, Apr 11 2027",
+          "base_price": "567",
+          "interior": 567,
+          "ocean_view": 674,
+          "balcony": 681,
+          "suite_guarantee": 2980,
+          "grand_suite_1_bedroom": 2980,
+          "crown_loft_suite": 3450,
+          "owners_suite_1_bedroom": 3630,
+          "aquatheater_suite_1_bedroom": 3764,
+          "spacious_aquatheater_suite_1_bedroom": 3870,
+          "ultimate_panoramic_suite": 6251,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 6505,
+          "star_loft_suite": 6929,
+          "owners_panoramic_suite_1_bedroom": 8029
+        },
+        {
+          "sailing_id": "AL07MIA-778812363-None",
+          "timestamp": null,
+          "date_range": "Sunday, Feb 21 - Sunday, Feb 28 2027",
+          "base_price": "729",
+          "interior": 729,
+          "ocean_view": 813,
+          "balcony": 817
+        },
+        {
+          "sailing_id": "AL07MIA-778812363-None",
+          "timestamp": null,
+          "date_range": "Sunday, Apr 18 - Sunday, Apr 25 2027",
+          "base_price": "622",
+          "interior": 622,
+          "ocean_view": 660,
+          "balcony": 750,
+          "suite_guarantee": 2408,
+          "grand_suite_1_bedroom": 2980,
+          "crown_loft_suite": 3450,
+          "owners_suite_1_bedroom": 3630,
+          "aquatheater_suite_1_bedroom": 3764,
+          "spacious_aquatheater_suite_1_bedroom": 3870,
+          "ultimate_panoramic_suite": 6251,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 6505,
+          "star_loft_suite": 6929,
+          "owners_panoramic_suite_1_bedroom": 8029
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Cozumel, Mexico",
+          "Puerto Costa Maya, Mexico",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07W758",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-perfect-day-from-miami-on-allure-AL07W758?sailDate=2027-04-04&packageCode=AL07W758&groupId=AL07MIA-778812363&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "SY07GAL-3851841824",
+      "name": "Western Caribbean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY07GAL-3851841824-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 25 - Sunday, Nov 1 2026",
+          "base_price": "787",
+          "interior": 581,
+          "suite": 2316
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 18 - Sunday, Oct 25 2026",
+          "base_price": "581",
+          "interior": 787,
+          "ocean_view": 845,
+          "suite": 2340
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 25 - Sunday, Nov 1 2026",
+          "base_price": "661",
+          "interior": 581,
+          "suite": 2316
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 1 - Sunday, Nov 8 2026",
+          "base_price": "582",
+          "interior": 661,
+          "balcony": 1156,
+          "suite": 3083
+        },
+        {
+          "sailing_id": "SY07GAL-3851841824-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 8 - Sunday, Nov 15 2026",
+          "base_price": "669",
+          "interior": 582,
+          "balcony": 667,
+          "suite": 4442
+        }
+      ],
+      "route": {
+        "departure": "Galveston, Texas",
+        "destination_code": "GAL",
+        "ports": [
+          "Galveston, Texas",
+          "Roatan, Honduras",
+          "Puerto Costa Maya, Mexico",
+          "Cozumel, Mexico",
+          "Galveston, Texas"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY07W705",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-cruise-from-galveston-on-symphony-SY07W705?sailDate=2026-10-25&packageCode=SY07W705&groupId=SY07GAL-3851841824&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "AL07MIA-175310919",
+      "name": "Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-175310919-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 15 - Sunday, Nov 22 2026",
+          "base_price": "590",
+          "interior": 590,
+          "ocean_view": 676,
+          "balcony": 676,
+          "suite_guarantee": 2724,
+          "sky_junior_suite": 2724,
+          "grand_suite_1_bedroom": 2878,
+          "aquatheater_suite_1_bedroom": 3160,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "grand_suite_2_bedroom": 3822,
+          "star_loft_suite": 5574,
+          "owners_panoramic_suite_1_bedroom": 7188,
+          "royal_loft_suite": 7843
+        },
+        {
+          "sailing_id": "AL07MIA-175310919-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 29 - Sunday, Dec 6 2026",
+          "base_price": "595",
+          "interior": 595,
+          "ocean_view": 631,
+          "balcony": 652,
+          "suite_guarantee": 2390,
+          "sky_junior_suite": 2724,
+          "grand_suite_1_bedroom": 2878,
+          "aquatheater_suite_1_bedroom": 3160,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "grand_suite_2_bedroom": 3822,
+          "star_loft_suite": 5574,
+          "owners_panoramic_suite_1_bedroom": 7188,
+          "royal_loft_suite": 7843
+        },
+        {
+          "sailing_id": "AL07MIA-175310919-None",
+          "timestamp": null,
+          "date_range": "Sunday, Dec 13 - Sunday, Dec 20 2026",
+          "base_price": "644",
+          "interior": 644,
+          "ocean_view": 742,
+          "balcony": 764,
+          "suite_guarantee": 1842,
+          "sky_junior_suite": 2724,
+          "grand_suite_1_bedroom": 2878,
+          "aquatheater_suite_1_bedroom": 3160,
+          "spacious_aquatheater_suite_1_bedroom": 3208,
+          "grand_suite_2_bedroom": 3822,
+          "star_loft_suite": 5574,
+          "owners_panoramic_suite_1_bedroom": 7188,
+          "royal_loft_suite": 7843
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07W756",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-perfect-day-from-miami-on-allure-AL07W756?sailDate=2026-11-15&packageCode=AL07W756&groupId=AL07MIA-175310919&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2916342683",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-2916342683-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 8 - Sunday, Nov 15",
+          "base_price": "632",
+          "interior": 632,
+          "ocean_view": 744,
+          "balcony": 778,
+          "suite_guarantee": 3373,
+          "we_choose_your_junior_suite": 3373,
+          "crown_loft_suite": 4030,
+          "ultimate_panoramic_suite": 6594
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "San Juan, Puerto Rico",
+          "Charlotte Amalie, St Thomas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E517",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL07E517?sailDate=2026-11-08&packageCode=AL07E517&groupId=AL07MIA-2916342683&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "OA09BYE-4289107333",
+      "name": "Cape Liberty To Ft. Lauderdale",
+      "nights": 9,
+      "ship": {
+        "name": "Oasis of the Seas",
+        "code": "OA"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OA09BYE-4289107333-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 31 - Tuesday, Nov 9",
+          "base_price": "636",
+          "interior": 636,
+          "ocean_view": 773,
+          "balcony": 809,
+          "suite_guarantee": 1812,
+          "we_choose_your_suite": 1812,
+          "we_choose_your_junior_suite": 2049,
+          "junior_suite": 2213,
+          "sky_junior_suite": 3055,
+          "grand_suite_1_bedroom": 3309,
+          "crown_loft_suite": 3659,
+          "owners_suite_1_bedroom": 3926,
+          "aquatheater_suite_1_bedroom": 4003,
+          "grand_suite_2_bedroom": 4570,
+          "spacious_aquatheater_suite_1_bedroom": 4667,
+          "ultimate_panoramic_suite": 7831
+        }
+      ],
+      "route": {
+        "departure": "Cape Liberty (New York), New Jersey to Fort Lauderdale, Florida",
+        "destination_code": "BYE",
+        "ports": [
+          "Cape Liberty (New York), New Jersey",
+          "Oranjestad, Aruba",
+          "Willemstad, Curacao",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "OA09R027",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/9-night-cape-liberty-to-ft-lauderdale-from-cape-liberty-new-york-on-oasis-OA09R027?sailDate=2027-10-31&packageCode=OA09R027&groupId=OA09BYE-4289107333&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "SY06FLL-4116647025",
+      "name": "Perfect Day Cococay & West Carib",
+      "nights": 6,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY06FLL-4116647025-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 14 - Saturday, Nov 20 2027",
+          "base_price": "638",
+          "interior": 638,
+          "ocean_view": 776,
+          "balcony": 793,
+          "suite_guarantee": 1328,
+          "we_choose_your_suite": 1328,
+          "junior_suite": 1446,
+          "sky_junior_suite": 1899,
+          "grand_suite_1_bedroom": 2164,
+          "crown_loft_suite": 2497,
+          "owners_suite_1_bedroom": 2568,
+          "aquatheater_suite_1_bedroom": 2833,
+          "grand_suite_2_bedroom": 2833,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4541,
+          "star_loft_suite": 4987,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 5036,
+          "royal_loft_suite": 7492
+        },
+        {
+          "sailing_id": "SY06FLL-4116647025-None",
+          "timestamp": null,
+          "date_range": "Sunday, Apr 2 - Saturday, Apr 8 2028",
+          "base_price": "814",
+          "interior": 814,
+          "ocean_view": 908,
+          "balcony": 934,
+          "suite_guarantee": 1715,
+          "we_choose_your_suite": 1328,
+          "junior_suite": 1446,
+          "sky_junior_suite": 1899,
+          "grand_suite_1_bedroom": 2164,
+          "crown_loft_suite": 2497,
+          "owners_suite_1_bedroom": 2568,
+          "aquatheater_suite_1_bedroom": 2833,
+          "grand_suite_2_bedroom": 2833,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4541,
+          "star_loft_suite": 4987,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 5036,
+          "royal_loft_suite": 7492
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Nassau, Bahamas",
+          "Cozumel, Mexico",
+          "Perfect Day at CocoCay, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY06W384",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-perfect-day-cococay-west-carib-from-fort-lauderdale-on-symphony-SY06W384?sailDate=2027-11-14&packageCode=SY06W384&groupId=SY06FLL-4116647025&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2728018418",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-2728018418-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 1 - Sunday, Nov 8",
+          "base_price": "640",
+          "interior": 640,
+          "ocean_view": 735,
+          "balcony": 735,
+          "suite_guarantee": 2530,
+          "we_choose_your_junior_suite": 2530,
+          "grand_suite_1_bedroom": 2945,
+          "aquatheater_suite_1_bedroom": 3159
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "San Juan, Puerto Rico",
+          "Basseterre, St Kitts & Nevis",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E516",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL07E516?sailDate=2026-11-01&packageCode=AL07E516&groupId=AL07MIA-2728018418&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "SY06GAL-1251154330",
+      "name": "Western Caribbean Cruise",
+      "nights": 6,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY06GAL-1251154330-None",
+          "timestamp": null,
+          "date_range": "Sunday, May 2 - Saturday, May 8 2027",
+          "base_price": "644",
+          "interior": 644,
+          "ocean_view": 710,
+          "balcony": 733,
+          "suite": 1586
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 4 - Saturday, Oct 10 2026",
+          "base_price": "651",
+          "interior": 651,
+          "balcony": 1232,
+          "suite_guarantee": 1740,
+          "we_choose_your_suite": 1586,
+          "junior_suite": 1757,
+          "sky_junior_suite": 2025,
+          "grand_suite_1_bedroom": 2684,
+          "crown_loft_suite": 2918,
+          "owners_suite_1_bedroom": 3060,
+          "aquatheater_suite_1_bedroom": 3332
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-None",
+          "timestamp": null,
+          "date_range": "Sunday, May 16 - Saturday, May 22 2027",
+          "base_price": "687",
+          "interior": 687,
+          "ocean_view": 712,
+          "balcony": 702,
+          "suite_guarantee": 1716,
+          "we_choose_your_suite": 1586,
+          "junior_suite": 1757,
+          "sky_junior_suite": 2025,
+          "grand_suite_1_bedroom": 2684,
+          "crown_loft_suite": 2918,
+          "owners_suite_1_bedroom": 3060,
+          "aquatheater_suite_1_bedroom": 3332
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-None",
+          "timestamp": null,
+          "date_range": "Sunday, May 30 - Saturday, Jun 5 2027",
+          "base_price": "873",
+          "interior": 873,
+          "ocean_view": 990,
+          "balcony": 969,
+          "suite_guarantee": 1605,
+          "we_choose_your_suite": 1586,
+          "junior_suite": 1757,
+          "sky_junior_suite": 2025,
+          "grand_suite_1_bedroom": 2684,
+          "crown_loft_suite": 2918,
+          "owners_suite_1_bedroom": 3060,
+          "aquatheater_suite_1_bedroom": 3332
+        },
+        {
+          "sailing_id": "SY06GAL-1251154330-None",
+          "timestamp": null,
+          "date_range": "Sunday, Jun 13 - Saturday, Jun 19 2027",
+          "base_price": "997",
+          "interior": 997,
+          "ocean_view": 1006,
+          "balcony": 1014,
+          "suite_guarantee": 1676,
+          "we_choose_your_suite": 1586,
+          "junior_suite": 1757,
+          "sky_junior_suite": 2025,
+          "grand_suite_1_bedroom": 2684,
+          "crown_loft_suite": 2918,
+          "owners_suite_1_bedroom": 3060,
+          "aquatheater_suite_1_bedroom": 3332
+        }
+      ],
+      "route": {
+        "departure": "Galveston, Texas",
+        "destination_code": "GAL",
+        "ports": [
+          "Galveston, Texas",
+          "Cozumel, Mexico",
+          "Roatan, Honduras",
+          "Puerto Costa Maya, Mexico",
+          "Galveston, Texas"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY06W288",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-western-caribbean-cruise-from-galveston-on-symphony-SY06W288?sailDate=2027-05-02&packageCode=SY06W288&groupId=SY06GAL-1251154330&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "AL07MIA-1949295164",
+      "name": "Perfect Day Cococay & East Carib",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-1949295164-None",
+          "timestamp": null,
+          "date_range": "Sunday, Apr 25 - Sunday, May 2",
+          "base_price": "649",
+          "interior": 649,
+          "ocean_view": 786,
+          "balcony": 828,
+          "suite_guarantee": 1851,
+          "we_choose_your_suite": 1851,
+          "junior_suite": 1938,
+          "sky_junior_suite": 2610,
+          "grand_suite_1_bedroom": 3079,
+          "crown_loft_suite": 3365,
+          "owners_suite_1_bedroom": 3682,
+          "spacious_aquatheater_suite_1_bedroom": 4148,
+          "ultimate_panoramic_suite": 6127,
+          "star_loft_suite": 7123,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7219,
+          "owners_panoramic_suite_1_bedroom": 9593,
+          "royal_loft_suite": 11873
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "Samaná, Dominican Republic",
+          "Puerto Plata, Dominican Republic",
+          "Nassau, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E574",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-nt-perfect-day-cococay-east-carib-from-miami-on-allure-AL07E574?sailDate=2027-04-25&packageCode=AL07E574&groupId=AL07MIA-1949295164&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.215Z"
+      }
+    },
+    {
+      "id": "AL08FLL-1526021294",
+      "name": "Perfect Day at CocoCay & Caribbean",
+      "nights": 8,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL08FLL-1526021294-None",
+          "timestamp": null,
+          "date_range": "Saturday, Oct 3 - Sunday, Oct 11 2026",
+          "base_price": "664",
+          "interior": 664,
+          "ocean_view": 919,
+          "balcony": 955,
+          "suite_guarantee": 3356,
+          "junior_suite": 3356,
+          "crown_loft_suite": 4385
+        },
+        {
+          "sailing_id": "AL08FLL-1526021294-None",
+          "timestamp": null,
+          "date_range": "Saturday, May 15 - Sunday, May 23 2027",
+          "base_price": "1237",
+          "interior": 1237,
+          "ocean_view": 1350,
+          "balcony": 1422,
+          "suite": 3055
+        },
+        {
+          "sailing_id": "AL08FLL-1526021294-None",
+          "timestamp": null,
+          "date_range": "Saturday, Jun 12 - Sunday, Jun 20 2027",
+          "base_price": "1461",
+          "interior": 1461,
+          "ocean_view": 1615,
+          "balcony": 1701,
+          "suite_guarantee": 3070,
+          "junior_suite": 3356,
+          "crown_loft_suite": 4385
+        },
+        {
+          "sailing_id": "AL08FLL-1526021294-None",
+          "timestamp": null,
+          "date_range": "Saturday, Jul 10 - Sunday, Jul 18 2027",
+          "base_price": "1514",
+          "interior": 1514,
+          "ocean_view": 1629,
+          "balcony": 1616,
+          "suite_guarantee": 3165,
+          "junior_suite": 3356,
+          "crown_loft_suite": 4385
+        },
+        {
+          "sailing_id": "AL08FLL-1526021294-None",
+          "timestamp": null,
+          "date_range": "Saturday, Aug 7 - Sunday, Aug 15 2027",
+          "base_price": "1509",
+          "interior": 1509,
+          "ocean_view": 1693,
+          "balcony": 1847,
+          "suite": 3151
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Willemstad, Curacao",
+          "Oranjestad, Aruba",
+          "Cabo Rojo, Dominican Republic",
+          "Perfect Day at CocoCay, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL08D151",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/8-nt-perfect-day-cococay-south-carib-from-fort-lauderdale-on-allure-AL08D151?sailDate=2026-10-03&packageCode=AL08D151&groupId=AL08FLL-1526021294&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    },
+    {
+      "id": "SY06FLL-2906127578",
+      "name": "Perfect Day Cococay & West Carib",
+      "nights": 6,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [
+        {
+          "sailing_id": "SY06FLL-2906127578-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 28 - Saturday, Dec 4 2027",
+          "base_price": "666",
+          "interior": 666,
+          "ocean_view": 753,
+          "balcony": 767,
+          "suite_guarantee": 1421,
+          "we_choose_your_suite": 1421,
+          "junior_suite": 1547,
+          "sky_junior_suite": 1862,
+          "grand_suite_1_bedroom": 2245,
+          "crown_loft_suite": 2325,
+          "owners_suite_1_bedroom": 2668,
+          "aquatheater_suite_1_bedroom": 2789,
+          "grand_suite_2_bedroom": 2944,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4441,
+          "star_loft_suite": 4760,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 4974,
+          "royal_loft_suite": 7410
+        },
+        {
+          "sailing_id": "SY06FLL-2906127578-None",
+          "timestamp": null,
+          "date_range": "Sunday, Jan 9 - Saturday, Jan 15 2028",
+          "base_price": "714",
+          "interior": 714,
+          "ocean_view": 809,
+          "balcony": 824,
+          "suite_guarantee": 1548,
+          "we_choose_your_suite": 1421,
+          "junior_suite": 1547,
+          "sky_junior_suite": 1862,
+          "grand_suite_1_bedroom": 2245,
+          "crown_loft_suite": 2325,
+          "owners_suite_1_bedroom": 2668,
+          "aquatheater_suite_1_bedroom": 2789,
+          "grand_suite_2_bedroom": 2944,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 4441,
+          "star_loft_suite": 4760,
+          "spacious_aquatheater_suite_large_balcony_2_bedroom": 4974,
+          "royal_loft_suite": 7410
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY06W385",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-perfect-day-cococay-west-carib-from-fort-lauderdale-on-symphony-SY06W385?sailDate=2027-11-28&packageCode=SY06W385&groupId=SY06FLL-2906127578&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    },
+    {
+      "id": "AL06MIA-638683374",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 6,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL06MIA-638683374-None",
+          "timestamp": null,
+          "date_range": "Monday, Feb 8 - Sunday, Feb 14",
+          "base_price": "671",
+          "interior": 671,
+          "ocean_view": 821,
+          "balcony": 841,
+          "suite_guarantee": 1788,
+          "we_choose_your_suite": 1788,
+          "junior_suite": 2215,
+          "grand_suite_1_bedroom": 2836,
+          "crown_loft_suite": 2958,
+          "owners_suite_1_bedroom": 3169,
+          "ultimate_panoramic_suite": 5311
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Puerto Plata, Dominican Republic",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL06W304",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL06W304?sailDate=2027-02-08&packageCode=AL06W304&groupId=AL06MIA-638683374&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    },
+    {
+      "id": "OV09YVR-1511306628",
+      "name": "Hawaii Cruise",
+      "nights": 9,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [
+        {
+          "sailing_id": "OV09YVR-1511306628-None",
+          "timestamp": null,
+          "date_range": "Monday, Nov 8 - Wednesday, Nov 17",
+          "base_price": "675",
+          "interior": 675,
+          "ocean_view": 806,
+          "balcony": 927,
+          "suite_guarantee": 2200,
+          "we_choose_your_suite": 2200,
+          "junior_suite": 2554,
+          "junior_suite_with_large_balcony": 2796,
+          "sunset_junior_suite": 3419,
+          "sky_junior_suite": 3643,
+          "grand_suite_1_bedroom": 4171,
+          "grand_suite_with_large_balcony_1_bedroom": 4445,
+          "owners_suite_1_bedroom": 5716,
+          "sky_loft_suite": 5879,
+          "grand_suite_2_bedroom": 6614,
+          "owners_loft_suite": 7591,
+          "grand_loft_suite": 7832,
+          "royal_loft_suite": 10363,
+          "ultimate_family_suite": 10881
+        }
+      ],
+      "route": {
+        "departure": "Vancouver, British Columbia to Oahu (Honolulu), Hawaii",
+        "destination_code": "YVR",
+        "ports": [
+          "Vancouver, British Columbia",
+          "Kailua Kona, Hawaii",
+          "Napali Coast (Cruising), Hawaii",
+          "Oahu (Honolulu), Hawaii"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV09H023",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/9-night-hawaii-cruise-from-vancouver-on-ovation-OV09H023?sailDate=2027-11-08&packageCode=OV09H023&groupId=OV09YVR-1511306628&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2574420622",
+      "name": "Eastern Caribbean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-2574420622-None",
+          "timestamp": null,
+          "date_range": "Sunday, Dec 6 - Sunday, Dec 13 2026",
+          "base_price": "680",
+          "interior": 680,
+          "ocean_view": 780,
+          "balcony": 833,
+          "suite_guarantee": 2491,
+          "we_choose_your_junior_suite": 2491,
+          "junior_suite": 2647,
+          "crown_loft_suite": 3009
+        },
+        {
+          "sailing_id": "AL07MIA-2574420622-None",
+          "timestamp": null,
+          "date_range": "Sunday, Nov 22 - Sunday, Nov 29 2026",
+          "base_price": "954",
+          "interior": 954,
+          "ocean_view": 1088,
+          "balcony": 1162,
+          "suite": 2731
+        },
+        {
+          "sailing_id": "AL07MIA-2574420622-None",
+          "timestamp": null,
+          "date_range": "Sunday, Jan 3 - Sunday, Jan 10 2027",
+          "base_price": "830",
+          "interior": 830,
+          "ocean_view": 1220,
+          "balcony": 1153
+        },
+        {
+          "sailing_id": "AL07MIA-2574420622-None",
+          "timestamp": null,
+          "date_range": "Sunday, Feb 14 - Sunday, Feb 21 2027",
+          "base_price": "984",
+          "interior": 984,
+          "ocean_view": 1163,
+          "balcony": 1373,
+          "suite_guarantee": 5206,
+          "we_choose_your_junior_suite": 2491,
+          "junior_suite": 2647,
+          "crown_loft_suite": 3009
+        },
+        {
+          "sailing_id": "AL07MIA-2574420622-None",
+          "timestamp": null,
+          "date_range": "Sunday, Feb 28 - Sunday, Mar 7 2027",
+          "base_price": "919",
+          "interior": 919,
+          "ocean_view": 1158,
+          "balcony": 1147,
+          "suite_guarantee": 3471,
+          "we_choose_your_junior_suite": 2491,
+          "junior_suite": 2647,
+          "crown_loft_suite": 3009
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Philipsburg, St. Maarten",
+          "Charlotte Amalie, St Thomas",
+          "Puerto Plata, Dominican Republic",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E518",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-cruise-from-miami-on-allure-AL07E518?sailDate=2026-12-06&packageCode=AL07E518&groupId=AL07MIA-2574420622&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2119524767",
+      "name": "Perfect Day CocoCay & Caribbean",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07MIA-2119524767-None",
+          "timestamp": null,
+          "date_range": "Sunday, Oct 25 - Sunday, Nov 1 2026",
+          "base_price": "686",
+          "interior": 686,
+          "ocean_view": 772,
+          "balcony": 772,
+          "suite_guarantee": 5101,
+          "ultimate_panoramic_suite": 5101
+        },
+        {
+          "sailing_id": "AL07MIA-2119524767-None",
+          "timestamp": null,
+          "date_range": "Sunday, Dec 27 2026 - Sunday, Jan 3 2027",
+          "base_price": "1515",
+          "interior": 1515,
+          "balcony": 2092,
+          "suite_guarantee": 5274,
+          "ultimate_panoramic_suite": 5101
+        }
+      ],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "San Juan, Puerto Rico",
+          "Puerto Plata, Dominican Republic",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07W755",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL07W755?sailDate=2026-10-25&packageCode=AL07W755&groupId=AL07MIA-2119524767&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    },
+    {
+      "id": "AL07FLL-183730605",
+      "name": "Perfect Day CocoCay & Caribbean",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [
+        {
+          "sailing_id": "AL07FLL-183730605-None",
+          "timestamp": null,
+          "date_range": "Sunday, May 2 - Sunday, May 9",
+          "base_price": "695",
+          "interior": 695,
+          "ocean_view": 928,
+          "balcony": 921,
+          "suite_guarantee": 2250,
+          "we_choose_your_suite": 2250,
+          "junior_suite": 2564,
+          "sky_junior_suite": 2923,
+          "grand_suite_1_bedroom": 3701,
+          "crown_loft_suite": 4042,
+          "owners_suite_1_bedroom": 4163,
+          "spacious_aquatheater_suite_1_bedroom": 4619,
+          "ultimate_panoramic_suite": 7133,
+          "star_loft_suite": 7554,
+          "aquatheater_suite_with_large_balcony_2_bedroom": 7698,
+          "spacious_aquatheater_suite_lg_balcony_2_bedrooms": 8587,
+          "grand_panoramic_suite_1_bedroom": 9099,
+          "owners_panoramic_suite_1_bedroom": 11020
+        }
+      ],
+      "route": {
+        "departure": "Fort Lauderdale, Florida",
+        "destination_code": "FLL",
+        "ports": [
+          "Fort Lauderdale, Florida",
+          "Basseterre, St Kitts & Nevis",
+          "Charlotte Amalie, St Thomas",
+          "Nassau, Bahamas",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E575",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-cruise-from-fort-lauderdale-on-allure-AL07E575?sailDate=2027-05-02&packageCode=AL07E575&groupId=AL07FLL-183730605&country=IRL",
+        "scraped_at": "2026-09-18T07:28:34.216Z"
+      }
+    }
+  ]
+}
