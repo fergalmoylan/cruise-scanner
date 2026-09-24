@@ -1,0 +1,268 @@
+{
+  "timestamp": "2026-09-24T07:45:52.652568",
+  "source_url": "https://www.royalcaribbean.com/gbr/en/cruises?search=destination:BAHAM,BERMU,CARIB,EUROP,FAR.E,HAWAI,MEXCO|nights:6~8,9~11,gte12|ship:AL,HE,HM,IC,LE,OA,OV,QN,ST,SY,UT,WN&sort=by:PRICE|order:ASC&country=IRL&market=gbr&language=en",
+  "total_found": 10,
+  "total_processed": 10,
+  "cruises": [
+    {
+      "id": "OV07LAX-1983939617",
+      "name": "Cabo Overnight Catalina & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Catalina Island, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV07X065",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-nt-cabo-overnight-catalina-ensenada-from-los-angeles-on-ovation-OV07X065?sailDate=2026-12-04&packageCode=OV07X065&groupId=OV07LAX-1983939617&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "OV07LAX-1239440842",
+      "name": "Cabo Overnight & Ensenada",
+      "nights": 7,
+      "ship": {
+        "name": "Ovation of the Seas",
+        "code": "OV"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Los Angeles, California",
+        "destination_code": "LAX",
+        "ports": [
+          "Los Angeles, California",
+          "Cabo San Lucas, Mexico",
+          "Ensenada, Mexico",
+          "Los Angeles, California"
+        ]
+      },
+      "metadata": {
+        "package_code": "OV07X066",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-cabo-overnight-ensenada-from-los-angeles-on-ovation-OV07X066?sailDate=2027-01-29&packageCode=OV07X066&groupId=OV07LAX-1239440842&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "AL07MIA-175310919",
+      "name": "Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Falmouth, Jamaica",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07W756",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-perfect-day-from-miami-on-allure-AL07W756?sailDate=2026-11-29&packageCode=AL07W756&groupId=AL07MIA-175310919&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "SY07GAL-3851841824",
+      "name": "Western Caribbean Cruise",
+      "nights": 7,
+      "ship": {
+        "name": "Symphony of the Seas",
+        "code": "SY"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Galveston, Texas",
+        "destination_code": "GAL",
+        "ports": [
+          "Galveston, Texas",
+          "Roatan, Honduras",
+          "Puerto Costa Maya, Mexico",
+          "Cozumel, Mexico",
+          "Galveston, Texas"
+        ]
+      },
+      "metadata": {
+        "package_code": "SY07W705",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-cruise-from-galveston-on-symphony-SY07W705?sailDate=2026-10-25&packageCode=SY07W705&groupId=SY07GAL-3851841824&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "AL07MIA-778812363",
+      "name": "Western Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Cozumel, Mexico",
+          "Puerto Costa Maya, Mexico",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07W758",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-western-caribbean-perfect-day-from-miami-on-allure-AL07W758?sailDate=2027-04-04&packageCode=AL07W758&groupId=AL07MIA-778812363&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2728018418",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "San Juan, Puerto Rico",
+          "Basseterre, St Kitts & Nevis",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E516",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL07E516?sailDate=2026-11-01&packageCode=AL07E516&groupId=AL07MIA-2728018418&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2916342683",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Perfect Day at CocoCay, Bahamas",
+          "San Juan, Puerto Rico",
+          "Charlotte Amalie, St Thomas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07E517",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL07E517?sailDate=2026-11-08&packageCode=AL07E517&groupId=AL07MIA-2916342683&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "AL07MIA-2119524767",
+      "name": "Perfect Day CocoCay & Caribbean",
+      "nights": 7,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "San Juan, Puerto Rico",
+          "Puerto Plata, Dominican Republic",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL07W755",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/7-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL07W755?sailDate=2026-10-25&packageCode=AL07W755&groupId=AL07MIA-2119524767&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "AL06MIA-638683374",
+      "name": "Eastern Caribbean & Perfect Day",
+      "nights": 6,
+      "ship": {
+        "name": "Allure of the Seas",
+        "code": "AL"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Miami, Florida",
+        "destination_code": "MIA",
+        "ports": [
+          "Miami, Florida",
+          "Puerto Plata, Dominican Republic",
+          "Nassau, Bahamas",
+          "Perfect Day at CocoCay, Bahamas",
+          "Miami, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "AL06W304",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/6-night-eastern-caribbean-perfect-day-from-miami-on-allure-AL06W304?sailDate=2027-02-08&packageCode=AL06W304&groupId=AL06MIA-638683374&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    },
+    {
+      "id": "OA09BYE-4289107333",
+      "name": "Cape Liberty To Ft. Lauderdale",
+      "nights": 9,
+      "ship": {
+        "name": "Oasis of the Seas",
+        "code": "OA"
+      },
+      "sailings": [],
+      "route": {
+        "departure": "Cape Liberty (New York), New Jersey to Fort Lauderdale, Florida",
+        "destination_code": "BYE",
+        "ports": [
+          "Cape Liberty (New York), New Jersey",
+          "Oranjestad, Aruba",
+          "Willemstad, Curacao",
+          "Fort Lauderdale, Florida"
+        ]
+      },
+      "metadata": {
+        "package_code": "OA09R027",
+        "link": "https://www.royalcaribbean.com/gbr/en/itinerary/9-night-cape-liberty-to-ft-lauderdale-from-cape-liberty-new-york-on-oasis-OA09R027?sailDate=2027-10-31&packageCode=OA09R027&groupId=OA09BYE-4289107333&country=IRL",
+        "scraped_at": "2026-09-24T07:40:23.420Z"
+      }
+    }
+  ]
+}
